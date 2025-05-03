@@ -1,0 +1,27 @@
+﻿.login-container{
+    width: 740px;
+    height: 350px;
+    background-color: #06d4f1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container_logo{
+    width: 300px;
+    height: 350px;
+}
+
+.container_input {
+    background-color: #231058;
+    width: 440px;
+    height: 350px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
