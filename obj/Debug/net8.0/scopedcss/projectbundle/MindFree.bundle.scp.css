@@ -2,10 +2,21 @@
 .containerLogin[b-bi9m9yh4lc]{
     width: 100vw;
     height: 100vh;
+    background-color: steelblue;
+    background-image: url('bgimg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.img-bkg[b-bi9m9yh4lc]{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: steelblue;
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-qhqvot6ore] {
@@ -170,10 +181,23 @@ main[b-qhqvot6ore] {
     }
 }
 /* /Pages/External/Login.razor.rz.scp.css */
+a[b-bfejaitbqi]{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+a:hover[b-bfejaitbqi]{
+    cursor: pointer;
+    color: #30e3b3;
+    transition: all .3s;
+}
+
 .login-container[b-bfejaitbqi]{
     width: 740px;
     height: 350px;
-    background-color: #06d4f1;
+    background-color: #30e3b3;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -182,6 +206,10 @@ main[b-qhqvot6ore] {
 .container_logo[b-bfejaitbqi]{
     width: 300px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .container_input[b-bfejaitbqi] {
@@ -196,4 +224,49 @@ main[b-qhqvot6ore] {
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+}
+
+.container_input a[b-bfejaitbqi]{
+    text-decoration: none;
+}
+
+.logomarca[b-bfejaitbqi]{
+    position: absolute;
+    top: 10px;
+    font-family: cursive;
+    color: #231058;
+    font-size: 28px;
+    letter-spacing: 0.01px;
+}
+
+@media screen and (max-width: 800px) {
+    .login-container[b-bfejaitbqi]{
+        flex-direction: column;
+        width: 350px;
+        height: 500px;
+    }
+
+    .container_logo[b-bfejaitbqi]{
+        height: 300px;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .container_logo img[b-bfejaitbqi]{
+        width: 140px;
+        height: 140px;
+        flex-direction: row;
+        margin-left: -50px;
+    }
+
+    .container_input[b-bfejaitbqi]{
+        width: 350px;
+        height: 600px;
+    }
+
+    .logomarca[b-bfejaitbqi]{
+        top: 60px;
+        right: -20px;
+
+    }
 }

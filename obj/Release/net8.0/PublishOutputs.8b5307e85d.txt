@@ -1,0 +1,2 @@
+C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\publish\emcc-props.json
+C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\publish\web.config

@@ -1,7 +1,20 @@
-﻿.login-container{
+﻿a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+a:hover{
+    cursor: pointer;
+    color: #30e3b3;
+    transition: all .3s;
+}
+
+.login-container{
     width: 740px;
     height: 350px;
-    background-color: #06d4f1;
+    background-color: #30e3b3;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -10,6 +23,10 @@
 .container_logo{
     width: 300px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .container_input {
@@ -24,4 +41,49 @@
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+}
+
+.container_input a{
+    text-decoration: none;
+}
+
+.logomarca{
+    position: absolute;
+    top: 10px;
+    font-family: cursive;
+    color: #231058;
+    font-size: 28px;
+    letter-spacing: 0.01px;
+}
+
+@media screen and (max-width: 800px) {
+    .login-container{
+        flex-direction: column;
+        width: 350px;
+        height: 500px;
+    }
+
+    .container_logo{
+        height: 300px;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .container_logo img{
+        width: 140px;
+        height: 140px;
+        flex-direction: row;
+        margin-left: -50px;
+    }
+
+    .container_input{
+        width: 350px;
+        height: 600px;
+    }
+
+    .logomarca{
+        top: 60px;
+        right: -20px;
+
+    }
 }
