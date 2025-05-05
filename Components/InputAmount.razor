@@ -1,0 +1,18 @@
+﻿
+<input type="text" class="form-control" id="input-amount" @bind-value="@Amount" @attributes="Attributes"/>
+
+@code {
+	[Parameter(CaptureUnmatchedValues = true)]
+	public Dictionary<string, object>? Attributes { get; set; }
+
+	[Parameter]
+	public string? Amount { get; set; }
+
+
+}
+
+<script>
+	$(document).ready(() => {
+		$('#input-amount').mask('#.##0,00', {reverse: true});
+	})
+</script>

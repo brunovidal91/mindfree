@@ -2,10 +2,21 @@
 .containerLogin[b-bi9m9yh4lc]{
     width: 100vw;
     height: 100vh;
+    background-color: steelblue;
+    background-image: url('bgimg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+.img-bkg[b-bi9m9yh4lc]{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: steelblue;
 }
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-qhqvot6ore] {
@@ -169,22 +180,39 @@ main[b-qhqvot6ore] {
         overflow-y: auto;
     }
 }
-/* /Pages/External/Login.razor.rz.scp.css */
-.login-container[b-bfejaitbqi]{
+/* /Pages/Login.razor.rz.scp.css */
+a[b-9fyw5s05nr]{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+a:hover[b-9fyw5s05nr]{
+    cursor: pointer;
+    color: #30e3b3;
+    transition: all .3s;
+}
+
+.login-container[b-9fyw5s05nr]{
     width: 740px;
     height: 350px;
-    background-color: #06d4f1;
+    background-color: #30e3b3;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
 }
 
-.container_logo[b-bfejaitbqi]{
+.container_logo[b-9fyw5s05nr]{
     width: 300px;
     height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
-.container_input[b-bfejaitbqi] {
+.container_input[b-9fyw5s05nr] {
     background-color: #231058;
     width: 440px;
     height: 350px;
@@ -196,4 +224,49 @@ main[b-qhqvot6ore] {
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+}
+
+.container_input a[b-9fyw5s05nr]{
+    text-decoration: none;
+}
+
+.logomarca[b-9fyw5s05nr]{
+    position: absolute;
+    top: 10px;
+    font-family: cursive;
+    color: #231058;
+    font-size: 28px;
+    letter-spacing: 0.01px;
+}
+
+@media screen and (max-width: 800px) {
+    .login-container[b-9fyw5s05nr]{
+        flex-direction: column;
+        width: 350px;
+        height: 500px;
+    }
+
+    .container_logo[b-9fyw5s05nr]{
+        height: 300px;
+        flex-direction: row;
+        padding: 0;
+    }
+
+    .container_logo img[b-9fyw5s05nr]{
+        width: 140px;
+        height: 140px;
+        flex-direction: row;
+        margin-left: -50px;
+    }
+
+    .container_input[b-9fyw5s05nr]{
+        width: 350px;
+        height: 600px;
+    }
+
+    .logomarca[b-9fyw5s05nr]{
+        top: 60px;
+        right: -20px;
+
+    }
 }

@@ -1,0 +1,16 @@
+﻿<select @bind="Day" @attributes="Attributes"  class="form-select" id="input_repeatPer" style="width: 80px;">
+
+	@for(int i = 1; i <= 31; i++)
+	{
+		<option selected>@i</option>
+	}
+	
+</select>
+
+@code {
+	[Parameter(CaptureUnmatchedValues = true)]
+	public Dictionary<string, object>? Attributes { get; set; }
+
+	[Parameter]
+	public string? Day { get; set; }
+}

@@ -1,29 +1,31 @@
 ﻿<div class="top-row ps-3 navbar" style="background-color: #231058;">
     <div class="container-fluid">
-        <a class="navbar-brand text-light" href="">MindFree</a>
+        <NavLink class="navbar-brand text-light" href="dashboard">MindFree</NavLink>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" style="color: #fff;">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </span>
         </button>
     </div>
 </div>
 
-<div class="@NavMenuCssClass nav-scrollable" style="background-color: #231058;" @onclick="ToggleNavMenu">
-    <nav class="flex-column" style="background-color: #231058;">
+<div class="@NavMenuCssClass nav-scrollable" style="background-color: #231058; width: 200px;" @onclick="ToggleNavMenu">
+    <nav class="flex-column" style="background-color: #231058; width: 200px;">
+        
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            <NavLink class="nav-link" href="dashboard" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Painel Adm
             </NavLink>
         </div>
+        
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="categorias">
+                <span class="bi bi-tags-fill-nav-menu" aria-hidden="true"></span> Categorias
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
+
     </nav>
 </div>
 

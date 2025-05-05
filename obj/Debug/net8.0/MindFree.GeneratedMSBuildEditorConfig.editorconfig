@@ -28,16 +28,20 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/InputAmount.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnB1dEFtb3VudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/SelectDay.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTZWxlY3REYXkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Categorias.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmlhcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Bruno/source/repos/MindFree/MindFree/_Imports.razor]
@@ -56,6 +60,6 @@ build_metadata.AdditionalFiles.CssScope = b-qhqvot6ore
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-97brtswapb
 
-[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/External/Login.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXh0ZXJuYWxcTG9naW4ucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-bfejaitbqi
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9fyw5s05nr
