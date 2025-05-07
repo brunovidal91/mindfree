@@ -14,6 +14,6 @@ namespace MindFree.Models
         public bool IsMonthly { get; set; }
         [MaxLength(1, ErrorMessage = "A repetição precisa ser d, m ou a.")]
         public string? Day { get; set; }
-        public double? Amount { get; set; }
+        public double Amount { get; set; } = 0;
     }
 }

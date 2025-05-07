@@ -1023,9 +1023,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\l04n0f
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\6er5p8dpez-tptq2av103.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\3litvwaqfq-lfu7j35m59.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\c3mfwha82m-oyz0vx2fzb.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-g71uzupvky.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-s8cobyb93u.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-ehcjff3fq9.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -1035,9 +1032,11 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\m
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MindFree.props
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MindFree.props
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.csproj.Up2Date
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\refint\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\ref\MindFree.dll
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-9uwu61ke1q.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-536xms17gt.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-rw9dqyh1gj.gz

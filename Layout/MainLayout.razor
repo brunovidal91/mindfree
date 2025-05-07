@@ -1,16 +1,19 @@
 ﻿@inherits LayoutComponentBase
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+	<div class="sidebar">
+		<NavMenu />
+	</div>
 
-    <main>
-        <div class="top-row px-4">
-            <NavLink href="login">Login</NavLink>
-        </div>
+	<main>
+		<div class="top-row px-4 d-flex flex-row align-items-center justify-content-between">
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+			<SectionOutlet SectionName="Top"/>
+
+			<NavLink href="login" class="text-center">Login</NavLink>
+		</div>
+
+		<article class="content px-4">
+			@Body
+		</article>
+	</main>
 </div>

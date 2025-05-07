@@ -3,7 +3,9 @@
 
 
 @* <h5>Cadastro de Categorias</h5> *@
-
+<SectionContent SectionName="Top">
+	<p class="text-center mt-3">Gestão de Categorias</p>
+</SectionContent>
 <section class="d-flex flex-column gap-5">
 
 
@@ -62,8 +64,9 @@
 			</div>
 			<div class="d-flex flex-row gap-2">
 
-		<button type="submit" class="btn btn-secondary mt-3">Salvar</button>
-		<button type="button" class="btn btn-warning mt-3" @onclick="CleanFields">Limpar</button>
+				<button type="submit" class="btn btn-secondary mt-3">Salvar</button>
+				<button type="button" class="btn btn-warning mt-3" @onclick="CleanFields">Limpar</button>
+				<button type="button" class="btn btn-danger mt-3" @onclick="CleanFields">Deletar</button>
 			</div>
 		</div>
 
@@ -76,7 +79,7 @@
 			<p>Categorias de Saída</p>
 			<table class="table table-hover border">
 				<thead>
-					<tr class="text-center">
+					<tr class="text-center" style="background-color: #FFC107">
 						<th colspan="2">Nome</th>
 						<th>É Fixa?</th>
 						<th>Dia de venc.</th>
@@ -89,11 +92,11 @@
 					{
 						if (category.IsIncome == false)
 						{
-							<tr class="text-center">
+							<tr class="text-center" ondblclick="@GetInfo">
 								<td colspan="2">@category.Title</td>
 								<td>@(category.IsMonthly ? "Sim" : "Não")</td>
 								<td>@category.Day</td>
-								<td>R$ @category.Amount?.ToString("F2")</td>
+								<td>R$ @category.Amount.ToString("F2")</td>
 							</tr>
 						}
 					}
@@ -107,7 +110,7 @@
 			<p>Categorias de Entrada</p>
 			<table class="table table-hover border">
 				<thead>
-					<tr class="text-center">
+					<tr class="text-center" style="background-color: #231058; color: #fff;">
 						<th colspan="2">Nome</th>
 						<th>É Fixa?</th>
 						<th>Dia de venc.</th>
@@ -120,11 +123,11 @@
 					{
 						if (category.IsIncome)
 						{
-							<tr class="text-center">
+							<tr class="text-center" ondblclick="@GetInfo">
 								<td colspan="2">@category.Title</td>
 								<td>@(category.IsMonthly ? "Sim" : "Não")</td>
 								<td>@category.Day</td>
-								<td>R$ @category.Amount?.ToString("F2")</td>
+								<td>R$ @category.Amount.ToString("F2")</td>
 							</tr>
 						}
 					}
@@ -192,7 +195,10 @@
 		_isMonthly = false;
 		_amount = 0;
 
+		categories = FakeData();
+
 		await Utils.SetFocus(input_name);
+
 	}
 
 	private async Task TesteCookie()
@@ -212,6 +218,14 @@
 		categorias.Add(new Category { Id = 5, Title = "Venda", IsIncome = true, IsMonthly = false, Amount = 0, Day = "" });
 
 		return categorias;
+	}
+
+	private void GetInfo(Category cat)
+	{
+		_title = cat.Title;
+		_isIncome = cat.IsIncome;
+		_isMonthly = cat.IsMonthly;
+		_amount = cat.Amount;
 	}
 
 }
