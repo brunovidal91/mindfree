@@ -408,6 +408,7 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\wwwroot\_framewor
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\wwwroot\_framework\System.Resources.Writer.wasm.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\wwwroot\_framework\System.ComponentModel.Annotations.wasm.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\wwwroot\_framework\Microsoft.VisualBasic.Core.wasm.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\appsettings.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\MindFree.staticwebassets.runtime.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\MindFree.staticwebassets.endpoints.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Debug\net8.0\MindFree.dll
@@ -619,6 +620,7 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.Assembly
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.AssemblyInfo.cs
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.csproj.CoreCompileInputs.cache
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.sourcelink.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
@@ -811,8 +813,10 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\mscorlib.w
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\netstandard.wasm
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\System.Private.CoreLib.wasm
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\webcil\MindFree.wasm
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Layout\LoginLayout.razor.rz.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Layout\MainLayout.razor.rz.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Layout\NavMenu.razor.rz.scp.css
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\bundle\MindFree.styles.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\projectbundle\MindFree.bundle.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\blazor.build.boot-extension.json
@@ -1019,6 +1023,9 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\l04n0f
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\6er5p8dpez-tptq2av103.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\3litvwaqfq-lfu7j35m59.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\c3mfwha82m-oyz0vx2fzb.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-g71uzupvky.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-s8cobyb93u.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-ehcjff3fq9.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -1028,14 +1035,9 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\m
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MindFree.props
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MindFree.props
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.csproj.Up2Date
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\refint\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\ref\MindFree.dll
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Layout\LoginLayout.razor.rz.scp.css
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.sourcelink.json
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Login.razor.rz.scp.css
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-9c8zigx5pg.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-6a1f7o6690.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-xybtzvjtbg.gz

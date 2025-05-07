@@ -65,16 +65,10 @@ a:hover[b-9fyw5s05nr]{
 
     .container_logo[b-9fyw5s05nr]{
         height: 300px;
-        flex-direction: row;
-        padding: 0;
+        width: 350px;
+
     }
 
-    .container_logo img[b-9fyw5s05nr]{
-        width: 140px;
-        height: 140px;
-        flex-direction: row;
-        margin-left: -50px;
-    }
 
     .container_input[b-9fyw5s05nr]{
         width: 350px;

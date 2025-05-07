@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\MindFree.styles.css"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\.nojekyll",
+      "PackagePath": "staticwebassets\\.nojekyll"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\bgimg.jpg",
       "PackagePath": "staticwebassets\\bgimg.jpg"
     },

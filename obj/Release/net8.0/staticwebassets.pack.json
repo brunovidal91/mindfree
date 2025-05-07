@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\MindFree.styles.css"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\.nojekyll",
+      "PackagePath": "staticwebassets\\.nojekyll"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\bgimg.jpg",
       "PackagePath": "staticwebassets\\bgimg.jpg"
     },
@@ -39,6 +43,10 @@
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\mindfree.png",
+      "PackagePath": "staticwebassets\\mindfree.png"
     },
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\sample-data\\weather.json",

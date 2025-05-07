@@ -1037,6 +1037,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\ref\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\scopedcss\Pages\Login.razor.rz.scp.css
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-f0f3sn89pk.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-34osc956ia.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-8wa3ps7u7a.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-50rqpi8l36.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-kgisr7wytu.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-8jnxt3vizk.gz

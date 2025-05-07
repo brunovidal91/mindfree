@@ -9,7 +9,8 @@ main[b-qhqvot6ore] {
 }
 
 .sidebar[b-qhqvot6ore] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    /*    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
+    background-color: #231058;
 }
 
 .top-row[b-qhqvot6ore] {
@@ -44,6 +45,8 @@ main[b-qhqvot6ore] {
     .top-row[b-qhqvot6ore]  a, .top-row[b-qhqvot6ore]  .btn-link {
         margin-left: 0;
     }
+   
+
 }
 
 @media (min-width: 641px) {
@@ -52,7 +55,7 @@ main[b-qhqvot6ore] {
     }
 
     .sidebar[b-qhqvot6ore] {
-        width: 250px;
+/*        width: 250px;*/
         height: 100vh;
         position: sticky;
         top: 0;
