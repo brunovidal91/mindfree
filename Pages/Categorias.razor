@@ -1,5 +1,6 @@
 ﻿@page "/categorias"
 @inject ICookie cookie
+@* @rendermode InteractiveWebAssembly *@
 
 
 @* <h5>Cadastro de Categorias</h5> *@
@@ -92,7 +93,7 @@
 					{
 						if (category.IsIncome == false)
 						{
-							<tr class="text-center" ondblclick="@GetInfo">
+							<tr class="text-center" @ondblclick="@(() => GetInfo(category))">
 								<td colspan="2">@category.Title</td>
 								<td>@(category.IsMonthly ? "Sim" : "Não")</td>
 								<td>@category.Day</td>
@@ -123,7 +124,7 @@
 					{
 						if (category.IsIncome)
 						{
-							<tr class="text-center" ondblclick="@GetInfo">
+							<tr class="text-center" @ondblclick="@(() => GetInfo(category))">
 								<td colspan="2">@category.Title</td>
 								<td>@(category.IsMonthly ? "Sim" : "Não")</td>
 								<td>@category.Day</td>

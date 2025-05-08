@@ -1,5 +1,7 @@
 ﻿@page "/login"
 @layout LoginLayout
+@using MindFree.Services
+@inject HttpClient httpClient
 
 <div class="login-container">
 	<div class="container_logo">
@@ -7,11 +9,15 @@
 		@* <p class="logomarca">mind free</p> *@
 	</div>
 	<div class="container_input">
-		<form action="/mindfreeproject">
+		@if (!string.IsNullOrEmpty(_msg))
+		{
+			<p class="text-light">@_msg</p>
+		}
+		<form>
 
-			<input type="text" class="form-control text-center" placeholder="e-mail"/>
-			<input type="text" class="form-control mt-3 text-center" placeholder="senha" />
-			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="submit">Acessar</button>
+			<input type="text" class="form-control text-center" placeholder="e-mail" @bind-value="_email"/>
+			<input type="password" class="form-control mt-3 text-center" placeholder="senha" @bind-value="_password"/>
+			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="button" @onclick="Sigin">Acessar</button>
 		</form>
 		<a href="#">Recuperar Senha</a>
 	</div>
@@ -19,5 +25,25 @@
 
 @code {
 
+	private string? _msg { get; set; }
+	private string? _email { get; set; }
+	private string? _password { get; set; }
+
+
+	private async Task Sigin()
+	{
+		UserService userService = new UserService(httpClient);
+		try
+		{
+
+			User user = await userService.Login(new User{Email = _email, Password = _password});
+			_msg = user.Name;
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+
+	}
 
 }
