@@ -1,4 +1,10 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using System.Net.Http.Headers
+@inject NavigationManager NavigationManager
+@inject ICookie cookie
+@inject HttpClient httpClient
+
+<Router AppAssembly="@typeof(App).Assembly">
+
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
@@ -10,3 +16,62 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+
+@code{
+    private string? _token { get; set; }
+    private string? _currentUri { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Intercept();
+    }
+
+    Middleware _middleware = new();
+
+    private async Task Intercept()
+    {
+        _token = await cookie.GetValue("app_token");
+        _currentUri = NavigationManager.Uri;
+        bool check = await CheckToken(_token);
+
+        if (!check)
+        {
+            NavigationManager.NavigateTo("login");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("dashboard");
+        }
+
+    }
+
+    private async Task<bool> CheckToken(string token)
+    {
+        if (string.IsNullOrEmpty(token))
+        {
+            return false;
+        }
+
+        try
+        {
+            httpClient.DefaultRequestHeaders.Authorization =  new AuthenticationHeaderValue("Bearer", token);
+            Me? me = await httpClient.GetFromJsonAsync<Me>("me");
+
+            if (string.IsNullOrEmpty(me.Email))
+            {
+                return false;
+            }
+
+            await cookie.SetValue("email", me.Email);
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            await cookie.SetValue("erro", ex.Message);
+            return false;
+        }
+    }
+
+}

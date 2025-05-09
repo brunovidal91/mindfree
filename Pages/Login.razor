@@ -2,6 +2,10 @@
 @layout LoginLayout
 @using MindFree.Services
 @inject HttpClient httpClient
+@inject IJSRuntime jSRuntime
+@inject ICookie cookie
+@inject NavigationManager NavigationManager
+@* @inject MindFree.Middleware Middleware *@
 
 <div class="login-container">
 	<div class="container_logo">
@@ -13,12 +17,21 @@
 		{
 			<p class="text-light">@_msg</p>
 		}
-		<form>
+		@* <form> *@
 
-			<input type="text" class="form-control text-center" placeholder="e-mail" @bind-value="_email"/>
-			<input type="password" class="form-control mt-3 text-center" placeholder="senha" @bind-value="_password"/>
-			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="button" @onclick="Sigin">Acessar</button>
-		</form>
+		@* 	<input type="email" class="form-control text-center" placeholder="e-mail" @bind-value="_email" required/> *@
+		@* 	<input type="password" class="form-control mt-3 text-center" placeholder="senha" @bind-value="_password" required/> *@
+		@* 	<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="button" @onclick="Sigin">Acessar</button> *@
+		@* </form> *@
+		
+		<EditForm Model="user" OnSubmit="Sigin">
+			<DataAnnotationsValidator/>
+			<ValidationSummary/>
+
+			<InputText type="email" class="form-control text-center"  @bind-Value="_email" placeholder="e-mail" autocomplete/>
+			<input type="password" class="form-control mt-3 text-center" placeholder="senha" @bind-value="_password" required/>
+			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="submit">Acessar</button>
+		</EditForm>
 		<a href="#">Recuperar Senha</a>
 	</div>
 </div>
@@ -29,15 +42,35 @@
 	private string? _email { get; set; }
 	private string? _password { get; set; }
 
+	User user = new();
+
 
 	private async Task Sigin()
 	{
+
+		if (string.IsNullOrEmpty(_email) || string.IsNullOrEmpty(_password))
+		{
+			return;
+		}
+
 		UserService userService = new UserService(httpClient);
 		try
 		{
 
-			User user = await userService.Login(new User{Email = _email, Password = _password});
-			_msg = user.Name;
+			user = await userService.Login(new User{Email = _email, Password = _password});
+
+			if (!string.IsNullOrEmpty(user.Token))
+			{
+				await cookie.SetValue("app_token", user.Token, 30);
+				_msg = "";
+				NavigationManager.NavigateTo("/");
+			}
+			else
+			{
+				_msg = "credenciais inválidas";
+				await cookie.SetValue("app_token", "", 0);
+			}
+
 		}
 		catch (Exception ex)
 		{

@@ -124,13 +124,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7522"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 08 May 2025 01:40:11 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"7522"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 09 May 2025 02:28:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="MindFree.zruabzbltf.styles.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zruabzbltf"},{"Name":"integrity","Value":"sha256-sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc="},{"Name":"label","Value":"MindFree.styles.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7522"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc=\u0022"},{"Name":"Last-Modified","Value":"Thu, 08 May 2025 01:40:11 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7522"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sf6vDvdOMH35qnr/4n7pEjzN0Xjfg/562PsFuxQ/eAc=\u0022"},{"Name":"Last-Modified","Value":"Fri, 09 May 2025 02:28:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="sample-data/weather.iag0ou56lh.json">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\sample-data\weather.json'))</AssetFile>

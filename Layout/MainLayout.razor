@@ -1,4 +1,7 @@
 ﻿@inherits LayoutComponentBase
+@using MindFree.Services
+@inject ICookie cookie
+@inject NavigationManager navigationManager
 <div class="page">
 	<div class="sidebar">
 		<NavMenu />
@@ -9,7 +12,7 @@
 
 			<SectionOutlet SectionName="Top"/>
 
-			<NavLink href="login" class="text-center">Login</NavLink>
+			<NavLink href="login" class="text-center" @onclick="@(() => Leave())">Logout</NavLink>
 		</div>
 
 		<article class="content px-4">
@@ -17,3 +20,14 @@
 		</article>
 	</main>
 </div>
+
+@code{
+	private async Task Leave()
+	{
+		await cookie.SetValue("app_token", "", 0);
+		navigationManager.NavigateTo("login");
+	}
+
+
+
+}
