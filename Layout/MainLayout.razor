@@ -2,31 +2,99 @@
 @using MindFree.Services
 @inject ICookie cookie
 @inject NavigationManager navigationManager
+@using System.Net.Http.Headers
+@inject HttpClient httpClient
+
+@inject Middleware middleware
+
 <div class="page">
-	<div class="sidebar">
-		<NavMenu />
-	</div>
+    <div class="sidebar">
+        <NavMenu />
+    </div>
 
-	<main>
-		<div class="top-row px-4 d-flex flex-row align-items-center justify-content-between">
+    <main>
+        <div class="top-row px-4 d-flex flex-row align-items-center justify-content-between">
 
-			<SectionOutlet SectionName="Top"/>
+            <SectionOutlet SectionName="Top"/>
 
-			<NavLink href="login" class="text-center" @onclick="@(() => Leave())">Logout</NavLink>
-		</div>
+            @* <NavLink href="login" class="text-center" @onclick="@(() => Leave())">Logout</NavLink> *@
+            <p class="text-black text-center mt-2" style="font-family: 'Lucida Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"> @_userName</p>
+        </div>
 
-		<article class="content px-4">
-			@Body
-		</article>
-	</main>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
 </div>
 
 @code{
-	private async Task Leave()
-	{
-		await cookie.SetValue("app_token", "", 0);
-		navigationManager.NavigateTo("login");
-	}
+
+    private string? _userName { get; set; }
+    private string? _token { get; set; }
+    private string? _currentUri { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _userName = _userName == null ? "Carregando..." : _userName; 
+        await Intercept();
+
+        // await middleware.Intercept();
+    }
+
+
+    // private async Task Leave()
+    // {
+    //     navigationManager.NavigateTo("login");
+    //     await cookie.SetValue("app_token", "", 1);
+    // }
+
+
+
+    private async Task Intercept()
+    {
+        _token = await cookie.GetValue("app_token");
+
+        _currentUri = navigationManager.Uri;
+
+        bool check = await CheckToken(_token);
+
+        if (!check)
+        {
+            navigationManager.NavigateTo("login");
+        }
+    }
+
+    private async Task<bool> CheckToken(string token)
+    {
+        if (string.IsNullOrEmpty(token))
+        {
+            return false;
+        }
+
+        try
+        {
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            Me? me = await httpClient.GetFromJsonAsync<Me>("me");
+
+            if (string.IsNullOrEmpty(me.Email))
+            {
+                await cookie.SetValue("app_token", "", 1);
+                return false;
+            }
+
+            await cookie.SetValue("userCode", me.Name);
+            _userName = me.Name;
+            await cookie.SetValue("erro", "");
+            return true;
+
+        }
+        catch (Exception ex)
+        {
+            await cookie.SetValue("erro", ex.Message);
+            await cookie.SetValue("app_token", "", 1);
+            return false;
+        }
+    }
 
 
 

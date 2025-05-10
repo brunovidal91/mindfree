@@ -1,4 +1,7 @@
-﻿<div class="top-row ps-3 navbar" style="background-color: #231058;">
+﻿@inject ICookie cookie
+@inject NavigationManager navigationManager
+
+<div class="top-row ps-3 navbar" style="background-color: #231058;">
     <div class="container-fluid">
         <NavLink class="navbar-brand text-light" href="dashboard">MindFree</NavLink>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -13,20 +16,26 @@
 
 <div class="@NavMenuCssClass nav-scrollable" style="background-color: #231058; width: 200px;" @onclick="ToggleNavMenu">
     <nav class="flex-column" style="background-color: #231058; width: 200px;">
-        
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="dashboard" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Painel Adm
-            </NavLink>
-        </div>
-        
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="categorias">
-                <span class="bi bi-tags-fill-nav-menu" aria-hidden="true"></span> Categorias
-            </NavLink>
+
+        <div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="dashboard" Match="NavLinkMatch.All">
+                    <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Painel Adm
+                </NavLink>
+            </div>
+
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="categorias">
+                    <span class="bi bi-tags-fill-nav-menu" aria-hidden="true"></span> Categorias
+                </NavLink>
+            </div>
         </div>
 
+
     </nav>
+    <NavLink href="login" class="text-center text-decoration-none text-light mb-4 logout" @onclick="@(() => Leave())">
+        <img src="exit.png" alt="logout" width="30px;"/>
+        Logout</NavLink>
 </div>
 
 @code {
@@ -34,8 +43,25 @@
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
+    private string? _userCode { get; set; }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        _userCode = await cookie.GetValue("userCode");
+        _userCode = UserGlobalInfo.Name;
+    }
+
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    private async Task Leave()
+    {
+        navigationManager.NavigateTo("login");
+        await cookie.SetValue("app_token", "", 1);
+    }
+
 }

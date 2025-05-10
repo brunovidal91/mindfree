@@ -3,6 +3,7 @@
 @inject ICookie cookie
 @inject HttpClient httpClient
 
+
 <Router AppAssembly="@typeof(App).Assembly">
 
     <Found Context="routeData">
@@ -24,15 +25,18 @@
 
     protected override async Task OnInitializedAsync()
     {
+
         await Intercept();
     }
 
-    Middleware _middleware = new();
+
 
     private async Task Intercept()
     {
         _token = await cookie.GetValue("app_token");
+
         _currentUri = NavigationManager.Uri;
+
         bool check = await CheckToken(_token);
 
         if (!check)
@@ -42,6 +46,7 @@
         else
         {
             NavigationManager.NavigateTo("dashboard");
+
         }
 
     }
@@ -60,16 +65,20 @@
 
             if (string.IsNullOrEmpty(me.Email))
             {
+                await cookie.SetValue("app_token", "", 1);
                 return false;
             }
 
-            await cookie.SetValue("email", me.Email);
+            await cookie.SetValue("userCode", me.Name);
+            UserGlobalInfo.Name =  me.Name;
+            await cookie.SetValue("erro", "");
             return true;
 
         }
         catch (Exception ex)
         {
             await cookie.SetValue("erro", ex.Message);
+            await cookie.SetValue("app_token", "", 1);
             return false;
         }
     }

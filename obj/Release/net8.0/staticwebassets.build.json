@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "buSDxcmvaq2uXqAdZVYLP7ajdS2Au5etekMSqCd2f7I=",
+  "Hash": "W5+8617XYJv9GhW2GgR05CoPrhL5nm6DTwBq+zPSswE=",
   "Source": "MindFree",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "limjpf0g6m",
-      "Integrity": "vU0Q8hfjhxwvXuyh7HePTPI9Q30n/5RnBePWNtWb6mA=",
+      "Fingerprint": "7x2den3jej",
+      "Integrity": "C8p6ope8IeN+saiE3I5nRgWeK0u9TLfh49g+Cddd6r0=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Release\\net8.0\\blazor.boot.json"
@@ -934,8 +934,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "15tg5h1lxd",
-      "Integrity": "hVCwBzBIcylbjMcOuegZtmp6wBvbve3ZMcTiP5jfIHY=",
+      "Fingerprint": "jf0kh5i4tp",
+      "Integrity": "0bvPks7CRVKeWcaZz/hUA/3vccNBepWRFdXxbvTw/qQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Release\\net8.0\\MindFree.pdb"
@@ -955,8 +955,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "d3wx3lwe8q",
-      "Integrity": "RwiyE0nD1bekHKiVFw26gvesG/MkNj2RRy8wKJUTAh0=",
+      "Fingerprint": "jvjaxoa4qo",
+      "Integrity": "H0QubnDA96wZCgSftPc1jIVIycza1nWXpQb0j9GmKhQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\webcil\\MindFree.wasm"
@@ -5750,7 +5750,7 @@
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Xml.XPath.wasm"
     },
     {
-      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-15tg5h1lxd.gz",
+      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-jf0kh5i4tp.gz",
       "SourceId": "MindFree",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\",
@@ -5764,8 +5764,8 @@
       "RelatedAsset": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\MindFree.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "mk7wq514gh",
-      "Integrity": "qnOd8dnl4rHWCh7hP/ejS37JgNSAA4SudNpZZwNMbvo=",
+      "Fingerprint": "ucsiaa7frb",
+      "Integrity": "DkJOdF3RFRE6Zb05cYT4kGLlea3KSaROUqCwyvhpFKw=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\MindFree.pdb"
@@ -6590,7 +6590,7 @@
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Runtime.CompilerServices.Unsafe.wasm"
     },
     {
-      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-limjpf0g6m.gz",
+      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-7x2den3jej.gz",
       "SourceId": "MindFree",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\",
@@ -6604,8 +6604,8 @@
       "RelatedAsset": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "5jpdag9sxk",
-      "Integrity": "gdz7qFTwxuA/13vlA4PCrNl0KBnTG79hMGzQYeZJEYw=",
+      "Fingerprint": "2hjyvlwp98",
+      "Integrity": "Fsrh8u7DjX9BImgKpSejLo5kOQdN4Z5iXa+IesDK7Mo=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -7409,7 +7409,7 @@
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\System.Dynamic.Runtime.wasm"
     },
     {
-      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-d3wx3lwe8q.gz",
+      "Identity": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-jvjaxoa4qo.gz",
       "SourceId": "MindFree",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\",
@@ -7423,8 +7423,8 @@
       "RelatedAsset": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\MindFree.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "89ija1lt3o",
-      "Integrity": "1J7qDQEbkCHU62Xnqv3bHBIhbjkeNTMGHxs4keF6vBk=",
+      "Fingerprint": "sirtat2w4k",
+      "Integrity": "bNELCyByBjqHQW080xTsHqLmQ3pG5ACkSckC1ozdTnE=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\bin\\Release\\net8.0\\wwwroot\\_framework\\MindFree.wasm"
@@ -9170,11 +9170,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"vU0Q8hfjhxwvXuyh7HePTPI9Q30n/5RnBePWNtWb6mA=\""
+          "Value": "\"C8p6ope8IeN+saiE3I5nRgWeK0u9TLfh49g+Cddd6r0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:08 GMT"
+          "Value": "Fri, 09 May 2025 11:03:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9184,18 +9184,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vU0Q8hfjhxwvXuyh7HePTPI9Q30n/5RnBePWNtWb6mA="
+          "Value": "sha256-C8p6ope8IeN+saiE3I5nRgWeK0u9TLfh49g+Cddd6r0="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-limjpf0g6m.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-7x2den3jej.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000111160516"
+          "Quality": "0.000111172874"
         }
       ],
       "ResponseHeaders": [
@@ -9205,15 +9205,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8995"
+          "Value": "8994"
         },
         {
           "Name": "ETag",
-          "Value": "\"gdz7qFTwxuA/13vlA4PCrNl0KBnTG79hMGzQYeZJEYw=\""
+          "Value": "\"Fsrh8u7DjX9BImgKpSejLo5kOQdN4Z5iXa+IesDK7Mo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:06 GMT"
+          "Value": "Fri, 09 May 2025 11:03:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9233,19 +9233,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"vU0Q8hfjhxwvXuyh7HePTPI9Q30n/5RnBePWNtWb6mA=\""
+          "Value": "W/\"C8p6ope8IeN+saiE3I5nRgWeK0u9TLfh49g+Cddd6r0=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-vU0Q8hfjhxwvXuyh7HePTPI9Q30n/5RnBePWNtWb6mA="
+          "Value": "sha256-C8p6ope8IeN+saiE3I5nRgWeK0u9TLfh49g+Cddd6r0="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-limjpf0g6m.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\jbiqjbw7ro-7x2den3jej.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -9254,7 +9254,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8995"
+          "Value": "8994"
         },
         {
           "Name": "Content-Type",
@@ -9262,11 +9262,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gdz7qFTwxuA/13vlA4PCrNl0KBnTG79hMGzQYeZJEYw=\""
+          "Value": "\"Fsrh8u7DjX9BImgKpSejLo5kOQdN4Z5iXa+IesDK7Mo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:06 GMT"
+          "Value": "Fri, 09 May 2025 11:03:01 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -9284,7 +9284,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-gdz7qFTwxuA/13vlA4PCrNl0KBnTG79hMGzQYeZJEYw="
+          "Value": "sha256-Fsrh8u7DjX9BImgKpSejLo5kOQdN4Z5iXa+IesDK7Mo="
         }
       ]
     },
@@ -15053,7 +15053,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "41036"
+          "Value": "41044"
         },
         {
           "Name": "Content-Type",
@@ -15061,11 +15061,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hVCwBzBIcylbjMcOuegZtmp6wBvbve3ZMcTiP5jfIHY=\""
+          "Value": "\"0bvPks7CRVKeWcaZz/hUA/3vccNBepWRFdXxbvTw/qQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15075,18 +15075,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hVCwBzBIcylbjMcOuegZtmp6wBvbve3ZMcTiP5jfIHY="
+          "Value": "sha256-0bvPks7CRVKeWcaZz/hUA/3vccNBepWRFdXxbvTw/qQ="
         }
       ]
     },
     {
       "Route": "_framework/MindFree.pdb",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-15tg5h1lxd.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-jf0kh5i4tp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000033065503"
+          "Quality": "0.000033064409"
         }
       ],
       "ResponseHeaders": [
@@ -15096,15 +15096,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30242"
+          "Value": "30243"
         },
         {
           "Name": "ETag",
-          "Value": "\"qnOd8dnl4rHWCh7hP/ejS37JgNSAA4SudNpZZwNMbvo=\""
+          "Value": "\"DkJOdF3RFRE6Zb05cYT4kGLlea3KSaROUqCwyvhpFKw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15124,19 +15124,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hVCwBzBIcylbjMcOuegZtmp6wBvbve3ZMcTiP5jfIHY=\""
+          "Value": "W/\"0bvPks7CRVKeWcaZz/hUA/3vccNBepWRFdXxbvTw/qQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-hVCwBzBIcylbjMcOuegZtmp6wBvbve3ZMcTiP5jfIHY="
+          "Value": "sha256-0bvPks7CRVKeWcaZz/hUA/3vccNBepWRFdXxbvTw/qQ="
         }
       ]
     },
     {
       "Route": "_framework/MindFree.pdb.gz",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-15tg5h1lxd.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\bj87j58viv-jf0kh5i4tp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15145,7 +15145,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "30242"
+          "Value": "30243"
         },
         {
           "Name": "Content-Type",
@@ -15153,11 +15153,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qnOd8dnl4rHWCh7hP/ejS37JgNSAA4SudNpZZwNMbvo=\""
+          "Value": "\"DkJOdF3RFRE6Zb05cYT4kGLlea3KSaROUqCwyvhpFKw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15175,7 +15175,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-qnOd8dnl4rHWCh7hP/ejS37JgNSAA4SudNpZZwNMbvo="
+          "Value": "sha256-DkJOdF3RFRE6Zb05cYT4kGLlea3KSaROUqCwyvhpFKw="
         }
       ]
     },
@@ -15198,11 +15198,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RwiyE0nD1bekHKiVFw26gvesG/MkNj2RRy8wKJUTAh0=\""
+          "Value": "\"H0QubnDA96wZCgSftPc1jIVIycza1nWXpQb0j9GmKhQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15212,18 +15212,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RwiyE0nD1bekHKiVFw26gvesG/MkNj2RRy8wKJUTAh0="
+          "Value": "sha256-H0QubnDA96wZCgSftPc1jIVIycza1nWXpQb0j9GmKhQ="
         }
       ]
     },
     {
       "Route": "_framework/MindFree.wasm",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-d3wx3lwe8q.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-jvjaxoa4qo.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000047973135"
+          "Quality": "0.000048019208"
         }
       ],
       "ResponseHeaders": [
@@ -15233,15 +15233,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20844"
+          "Value": "20824"
         },
         {
           "Name": "ETag",
-          "Value": "\"1J7qDQEbkCHU62Xnqv3bHBIhbjkeNTMGHxs4keF6vBk=\""
+          "Value": "\"bNELCyByBjqHQW080xTsHqLmQ3pG5ACkSckC1ozdTnE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15261,19 +15261,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"RwiyE0nD1bekHKiVFw26gvesG/MkNj2RRy8wKJUTAh0=\""
+          "Value": "W/\"H0QubnDA96wZCgSftPc1jIVIycza1nWXpQb0j9GmKhQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RwiyE0nD1bekHKiVFw26gvesG/MkNj2RRy8wKJUTAh0="
+          "Value": "sha256-H0QubnDA96wZCgSftPc1jIVIycza1nWXpQb0j9GmKhQ="
         }
       ]
     },
     {
       "Route": "_framework/MindFree.wasm.gz",
-      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-d3wx3lwe8q.gz",
+      "AssetFile": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\obj\\Release\\net8.0\\compressed\\pp1pjaylaq-jvjaxoa4qo.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -15282,7 +15282,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20844"
+          "Value": "20824"
         },
         {
           "Name": "Content-Type",
@@ -15290,11 +15290,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1J7qDQEbkCHU62Xnqv3bHBIhbjkeNTMGHxs4keF6vBk=\""
+          "Value": "\"bNELCyByBjqHQW080xTsHqLmQ3pG5ACkSckC1ozdTnE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 02:29:05 GMT"
+          "Value": "Fri, 09 May 2025 11:03:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15312,7 +15312,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1J7qDQEbkCHU62Xnqv3bHBIhbjkeNTMGHxs4keF6vBk="
+          "Value": "sha256-bNELCyByBjqHQW080xTsHqLmQ3pG5ACkSckC1ozdTnE="
         }
       ]
     },

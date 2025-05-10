@@ -25,5 +25,6 @@ builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = ne
 //    BaseAddress = new Uri(Api.Url)
 //});
 
+builder.Services.AddScoped<Middleware>();
 
 await builder.Build().RunAsync();
