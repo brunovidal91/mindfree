@@ -49,6 +49,14 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\menu-config.png",
+      "PackagePath": "staticwebassets\\menu-config.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\menu-info.png",
+      "PackagePath": "staticwebassets\\menu-info.png"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\mindfree.png",
       "PackagePath": "staticwebassets\\mindfree.png"
     },

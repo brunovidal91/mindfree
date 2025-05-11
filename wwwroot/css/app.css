@@ -138,8 +138,80 @@ code {
 
 }
 
-@media (max-width: 880px) {
+#mainModal{
+    width: 185px;
+    height: 100px;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    background-color: #e7f7f6;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    visibility: hidden;
+}
 
+#mainModal.aparecer{
+    animation-name: slide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+/* também da para simplificar:    animation: slide .3s forwards;*/
+}
+
+#load{
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+/*    margin: 0 auto;*/
+    color: #ffb801;
+    visibility: hidden;
+
+    
+}
+
+#load.rotacionar {
+    animation: load .5s linear infinite;
+}
+
+@keyframes load{
+    to{
+        transform: rotate(360deg);
+        visibility: visible;
+    }
+}
+
+
+@keyframes slide{
+    from{
+        opacity: 0;
+        top: 5px;
+    }
+    to {
+        opacity: 1;
+        top: 25px;
+        visibility: visible;
+    }
+}
+
+#load-categories.rotacionar {
+    animation: load .5s linear infinite;
+}
+
+#load-categories {
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    margin: 100px auto;
+    color: #ffb801;
+    visibility: hidden;
+}
+
+@media (max-width: 880px) {
     .tables_div {
         flex-direction: column;
         align-items: center;

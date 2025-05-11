@@ -4,6 +4,7 @@ wwwroot\chart.png
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\exit.png
 wwwroot\favicon.png
 wwwroot\icon-192.png
 wwwroot\index.html

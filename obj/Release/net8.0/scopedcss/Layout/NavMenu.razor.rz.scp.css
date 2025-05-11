@@ -70,6 +70,8 @@
     color: white;
 }
 
+
+
 .navbar-toggler-icon[b-97brtswapb]{
     display: flex;
     align-items: center;
@@ -99,4 +101,6 @@
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
     }
+
+
 }

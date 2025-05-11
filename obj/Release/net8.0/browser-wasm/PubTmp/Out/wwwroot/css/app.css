@@ -127,6 +127,17 @@ code {
 }
 
 
+.logout{
+    position: absolute;
+    bottom: 1px;
+    left: 50px;
+}
+
+.logout:hover {
+    opacity: 0.6;
+
+}
+
 @media (max-width: 880px) {
 
     .tables_div {
@@ -137,5 +148,11 @@ code {
     .section_input_category {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width: 641px) {
+    .logout {
+       visibility: hidden;
     }
 }

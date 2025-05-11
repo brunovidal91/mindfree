@@ -18,20 +18,33 @@
             <SectionOutlet SectionName="Top"/>
 
             @* <NavLink href="login" class="text-center" @onclick="@(() => Leave())">Logout</NavLink> *@
-            <p class="text-black text-center mt-2" style="font-family: 'Lucida Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"> @_userName</p>
+            <p class="text-black text-center mt-2 position-relative" style="font-family: 'Lucida Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; cursor: pointer;" @onclick="ChangeClass">
+                @_userName
+                <div id="mainModal" class="@addClass d-flex align-items-start flex-column p-1 pt-2">
+                    <p class="menu-item" @onclick="OpenModalMe"> <img src="menu-info.png" alt="informations" width="25" style="margin-right: 4px;" />Minhas informações</p>
+                    <p class="menu-item" @onclick="OpenModalConfig" style="margin-top: -5px;"> <img src="menu-config.png" alt="informations" width="25" style="margin-right: 2px;" /> Configurações</p>
+                </div>
+            </p>
         </div>
 
         <article class="content px-4">
+
             @Body
         </article>
     </main>
 </div>
 
-@code{
+<!-- Button trigger modal -->
 
+
+
+@code{
+    string? addClass { get; set; }
     private string? _userName { get; set; }
     private string? _token { get; set; }
     private string? _currentUri { get; set; }
+
+    private string? meuTeste { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,14 +54,10 @@
         // await middleware.Intercept();
     }
 
-
-    // private async Task Leave()
-    // {
-    //     navigationManager.NavigateTo("login");
-    //     await cookie.SetValue("app_token", "", 1);
-    // }
-
-
+    private void ChangeClass()
+    {
+        addClass = addClass == "aparecer" ? "" : "aparecer";
+    }
 
     private async Task Intercept()
     {
@@ -96,6 +105,14 @@
         }
     }
 
+    private void OpenModalMe()
+    {
+        meuTeste = "Abriu o modal Me";
+    }
 
+    private void OpenModalConfig()
+    {
+        meuTeste = "Abriu o modal Config";
+    }
 
 }

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\exit.png",
+      "PackagePath": "staticwebassets\\exit.png"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },

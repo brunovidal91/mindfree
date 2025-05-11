@@ -70,8 +70,30 @@ main[b-qhqvot6ore] {
 
 }
 
-@media (min-width: 641px) {
-    .page[b-qhqvot6ore] {
+
+.menu-item[b-qhqvot6ore]{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-right: 5px;
+    color: #555;
+    opacity: .8;
+    font-weight: bold;
+    margin-top: 5px;
+    width: 100%;
+ 
+}
+
+    .menu-item:hover[b-qhqvot6ore] {
+        cursor: pointer;
+/*        color: var(--azulPrincipal);*/
+        transition: all .8s;
+        background-color: #ddd;
+/*        border: .5px solid #ccc;*/
+        border-radius: 5px;
+    }
+
+    @media (min-width: 641px) {
+        .page[b-qhqvot6ore] {
         flex-direction: row;
     }
 

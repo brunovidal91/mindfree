@@ -15,7 +15,7 @@
 		{
 			<p class="text-light">@_msg</p>
 		}
-		
+
 		<EditForm Model="user" OnSubmit="Sigin">
 			<DataAnnotationsValidator/>
 			<ValidationSummary/>
@@ -25,20 +25,28 @@
 			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="submit">Acessar</button>
 		</EditForm>
 		<a href="#">Recuperar Senha</a>
+
+		<div id="load" class="@rotacionar"></div>
 	</div>
+
 </div>
 
 @code {
-
+	private string? rotacionar { get; set; }
 	private string? _msg { get; set; }
 	private string? _email { get; set; }
 	private string? _password { get; set; }
+	private string? _token { get; set; }
 
 	User user = new();
 
 
 	private async Task Sigin()
 	{
+		if (string.IsNullOrEmpty(_token))
+		{
+			rotacionar = "rotacionar";
+		}
 
 		if (string.IsNullOrEmpty(_email) || string.IsNullOrEmpty(_password))
 		{
@@ -53,6 +61,7 @@
 
 			if (!string.IsNullOrEmpty(user.Token))
 			{
+				_token = user.Token;
 				await cookie.SetValue("app_token", user.Token, 30);
 				_msg = "";
 				NavigationManager.NavigateTo("dashboard");
