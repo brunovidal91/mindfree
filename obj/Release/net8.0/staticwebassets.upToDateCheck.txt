@@ -1,5 +1,6 @@
 wwwroot\.nojekyll
 wwwroot\bgimg.jpg
+wwwroot\btn_close.png
 wwwroot\chart.png
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
@@ -8,5 +9,8 @@ wwwroot\exit.png
 wwwroot\favicon.png
 wwwroot\icon-192.png
 wwwroot\index.html
+wwwroot\menu-config.png
+wwwroot\menu-exit.png
+wwwroot\menu-info.png
 wwwroot\mindfree.png
 wwwroot\sample-data\weather.json

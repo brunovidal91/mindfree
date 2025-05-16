@@ -1,6 +1,8 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Components;
+using MindFree.Interfaces;
 using MindFree.Models;
 
 namespace MindFree.Services
@@ -8,8 +10,13 @@ namespace MindFree.Services
     public class UserService
     {
         private readonly HttpClient _httpClient;
-        public UserService( HttpClient httpClient) { 
+        private readonly ICookie _cookie;
+        private readonly NavigationManager _navigationManager;
+
+        public UserService( HttpClient httpClient, ICookie cookie, NavigationManager navigation) { 
             _httpClient = httpClient;
+            _cookie = cookie;
+            _navigationManager = navigation;
         }
         public async Task<User> Login(User user)
         {
@@ -23,6 +30,12 @@ namespace MindFree.Services
             }
 
             return userData;
+        }
+
+        public async Task Logout()
+        {
+            await _cookie.SetValue("app_token", "");
+            _navigationManager.NavigateTo("login");
         }
     }
 }

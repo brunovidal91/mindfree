@@ -1058,6 +1058,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\wsl1
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\djtobgf9kh-zh50v33b5b.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\4v84nkj5e6-7omcb0wz8j.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\vfftiqc9fz-gmpqvllqk3.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-evyno5mad3.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-ekdl8khtfu.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-l670ifvaan.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-hw3ulshqlg.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-dkwd2my0zn.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-nk31r42mga.gz

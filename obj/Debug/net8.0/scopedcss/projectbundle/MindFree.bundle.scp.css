@@ -49,29 +49,27 @@ main[b-qhqvot6ore] {
         text-decoration: none;
     }
 
-    .top-row[b-qhqvot6ore]  a:hover, .top-row[b-qhqvot6ore]  .btn-link:hover {
-        text-decoration: underline;
-    }
+        .top-row[b-qhqvot6ore]  a:hover, .top-row[b-qhqvot6ore]  .btn-link:hover {
+            text-decoration: underline;
+        }
 
-    .top-row[b-qhqvot6ore]  a:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+        .top-row[b-qhqvot6ore]  a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
 @media (max-width: 640.98px) {
     .top-row[b-qhqvot6ore] {
         justify-content: space-between;
     }
 
-    .top-row[b-qhqvot6ore]  a, .top-row[b-qhqvot6ore]  .btn-link {
-        margin-left: 0;
-    }
-   
-
+        .top-row[b-qhqvot6ore]  a, .top-row[b-qhqvot6ore]  .btn-link {
+            margin-left: 0;
+        }
 }
 
 
-.menu-item[b-qhqvot6ore]{
+.menu-item[b-qhqvot6ore] {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     margin-right: 5px;
@@ -80,25 +78,22 @@ main[b-qhqvot6ore] {
     font-weight: bold;
     margin-top: 5px;
     width: 100%;
- 
+    text-align: left;
 }
 
-    .menu-item:hover[b-qhqvot6ore] {
-        cursor: pointer;
-/*        color: var(--azulPrincipal);*/
-        transition: all .8s;
-        background-color: #ddd;
-/*        border: .5px solid #ccc;*/
-        border-radius: 5px;
-    }
+.menu-item:hover[b-qhqvot6ore] {
+    cursor: pointer;
+    opacity: .6;
+    /*        border: .5px solid #ccc;*/
+}
 
-    @media (min-width: 641px) {
-        .page[b-qhqvot6ore] {
+@media (min-width: 641px) {
+    .page[b-qhqvot6ore] {
         flex-direction: row;
     }
 
     .sidebar[b-qhqvot6ore] {
-/*        width: 250px;*/
+        /*        width: 250px;*/
         height: 100vh;
         position: sticky;
         top: 0;
@@ -110,11 +105,11 @@ main[b-qhqvot6ore] {
         z-index: 1;
     }
 
-    .top-row.auth[b-qhqvot6ore]  a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
+        .top-row.auth[b-qhqvot6ore]  a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
 
     .top-row[b-qhqvot6ore], article[b-qhqvot6ore] {
         padding-left: 2rem !important;

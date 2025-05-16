@@ -2,6 +2,8 @@
     --verdePrincipal: #30E3B3;
     --vermelhoPrincipal: #E6444E;
     --azulPrincipal: #231058;
+    --amareloLoad: #ffb801;
+    --cinzaBotoes: #C6BFBF;
 }
 
 html, body {
@@ -138,8 +140,102 @@ code {
 
 }
 
-@media (max-width: 880px) {
 
+#mainModal{
+    width: 185px;
+    height: 110px;
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    background-color: #e7f7f6;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    visibility: hidden;
+    z-index: 100;
+}
+
+#mainModal.aparecer{
+    animation-name: slide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+/* também da para simplificar:    animation: slide .3s forwards;*/
+}
+
+.validacaoLoad {
+    color: var(--amareloLoad);
+}
+
+#load {
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    /*    margin: 0 auto;*/
+    color: var(--amareloLoad);
+    visibility: hidden;
+}
+
+#load.rotacionar {
+    animation: load .5s linear infinite;
+}
+
+@keyframes load{
+    to{
+        transform: rotate(360deg);
+        visibility: visible;
+    }
+}
+
+
+@keyframes slide{
+    from{
+        opacity: 0;
+        top: 5px;
+    }
+    to {
+        opacity: 1;
+        top: 25px;
+        visibility: visible;
+    }
+}
+
+#load-categories.rotacionar {
+    animation: load .5s linear infinite;
+}
+
+#load-categories {
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    margin: 100px auto;
+    color: #ffb801;
+    visibility: hidden;
+}
+
+.meuModal {
+    width: 400px;
+    height: 250px;
+    border: 1px solid #ccc;
+    background-color: #f5f2f2;
+}
+
+.close{
+    visibility: hidden;
+}
+
+.btn_close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 880px) {
     .tables_div {
         flex-direction: column;
         align-items: center;

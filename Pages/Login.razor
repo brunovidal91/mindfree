@@ -11,10 +11,7 @@
 		<img src="mindfree.png" alt="logo" style="width: 250px; height: 250px;"/>
 	</div>
 	<div class="container_input">
-		@if (!string.IsNullOrEmpty(_msg))
-		{
-			<p class="text-light">@_msg</p>
-		}
+
 
 		<EditForm Model="user" OnSubmit="Sigin">
 			<DataAnnotationsValidator/>
@@ -25,8 +22,15 @@
 			<button class="btn mt-3 form-control" style="background-color: #30e3b3; color: #231058; float: right;" type="submit">Acessar</button>
 		</EditForm>
 		<a href="#">Recuperar Senha</a>
+		@if (string.IsNullOrEmpty(_msg))
+		{
+			<div id="load" class="@rotacionar"></div>
+		}
+		else
+		{
+			<span class="text-center validacaoLoad">@_msg</span>
 
-		<div id="load" class="@rotacionar"></div>
+		}
 	</div>
 
 </div>
@@ -43,6 +47,8 @@
 
 	private async Task Sigin()
 	{
+		_msg = "";
+
 		if (string.IsNullOrEmpty(_token))
 		{
 			rotacionar = "rotacionar";
@@ -53,7 +59,7 @@
 			return;
 		}
 
-		UserService userService = new UserService(httpClient);
+		UserService userService = new UserService(httpClient, cookie, NavigationManager);
 		try
 		{
 

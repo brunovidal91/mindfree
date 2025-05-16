@@ -33,9 +33,10 @@
 
 
     </nav>
-    <NavLink href="login" class="text-center text-decoration-none text-light mb-4 logout" @onclick="@(() => Leave())">
-        <img src="exit.png" alt="logout" width="30px;"/>
-        Logout</NavLink>
+    @* <NavLink href="login" class="text-center text-decoration-none text-light mb-4 logout" @onclick="@(() => Leave())"> *@
+    @*     <img src="exit.png" alt="logout" width="30px;"/> *@
+    @*     Logout *@
+    @* </NavLink> *@
 </div>
 
 @code {
@@ -58,10 +59,10 @@
         collapseNavMenu = !collapseNavMenu;
     }
 
-    private async Task Leave()
-    {
-        navigationManager.NavigateTo("login");
-        await cookie.SetValue("app_token", "", 1);
-    }
+    // private async Task Leave()
+    // {
+    //     navigationManager.NavigateTo("login");
+    //     await cookie.SetValue("app_token", "", 1);
+    // }
 
 }

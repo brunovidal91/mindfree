@@ -13,7 +13,7 @@
 
 	@if (!string.IsNullOrEmpty(_msg))
 	{
-			<p class="alert alert-@status">@_msg</p>
+		<p class="alert alert-@status">@_msg</p>
 	}
 
 
@@ -55,7 +55,7 @@
 
 					@for (int i = 1; i <= 31; i++)
 					{
-							<option selected>@i</option>
+						<option selected>@i</option>
 					}
 
 				</select>
@@ -89,37 +89,45 @@
 
 			@if (categories.Count == 0)
 			{
-				<p id="load-categories" class="rotacionar"></p>
+				if (_isListEmpty == false)
+				{
+
+					<p id="load-categories" class="rotacionar"></p>
+				}
+				else
+				{
+					<p class="text-center" style="color: var(--amareloLoad); margin-top: 100px;">Ainda não há nenhum item cadastrado :(</p>
+				}
 			}
 			else
 			{
 
-					<table class="table table-hover border">
-						<thead>
-							<tr class="text-center" style="background-color: #FFC107">
-								<th colspan="2">Nome</th>
-								<th>É Fixa?</th>
-								<th>Dia de venc.</th>
-									<th style="text-align: left">Valor</th>
-							</tr>
-						</thead>
-						<tbody>
+				<table class="table table-hover border">
+					<thead>
+						<tr class="text-center" style="background-color: #FFC107">
+							<th colspan="2">Nome</th>
+							<th>É Fixa?</th>
+							<th>Dia de venc.</th>
+							<th style="text-align: left">Valor</th>
+						</tr>
+					</thead>
+					<tbody>
 
 						@foreach (Category category in categories)
 						{
 							if (category.isIncome == false)
 							{
-											<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
-												<td colspan="2">@category.title</td>
-												<td>@(category.isMonthly ? "Sim" : "Não")</td>
-												<td>@(category.isMonthly ? category.day : "")</td>
-															<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
-											</tr>
+								<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
+									<td colspan="2">@category.title</td>
+									<td>@(category.isMonthly ? "Sim" : "Não")</td>
+									<td>@(category.isMonthly ? category.day : "")</td>
+									<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
+								</tr>
 							}
 						}
 
-						</tbody>
-					</table>
+					</tbody>
+				</table>
 			}
 
 		</div>
@@ -130,21 +138,31 @@
 
 			@if (categories.Count == 0)
 			{
-				<p id="load-categories" class="rotacionar"></p>
+				if (_isListEmpty == false)
+				{
+
+					<p id="load-categories" class="rotacionar"></p>
+				}
+				else
+				{
+					<p class="text-center" style="color: var(--amareloLoad); margin-top: 100px;">Ainda não há nenhum item cadastrado :(</p>
+				}
+
+
 			}
 			else
 			{
 
-					<table class="table table-hover border">
-						<thead>
-							<tr class="text-center" style="background-color: #231058; color: #fff;">
-								<th colspan="2">Nome</th>
-								<th>É Fixa?</th>
-								<th>Dia de venc.</th>
-									<th style="text-align: left">Valor</th>
-							</tr>
-						</thead>
-						<tbody>
+				<table class="table table-hover border">
+					<thead>
+						<tr class="text-center" style="background-color: #231058; color: #fff;">
+							<th colspan="2">Nome</th>
+							<th>É Fixa?</th>
+							<th>Dia de venc.</th>
+							<th style="text-align: left">Valor</th>
+						</tr>
+					</thead>
+					<tbody>
 
 
 
@@ -152,16 +170,16 @@
 						{
 							if (category.isIncome)
 							{
-											<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
-												<td colspan="2">@category.title</td>
-												<td>@(category.isMonthly ? "Sim" : "Não")</td>
-												<td>@(category.isMonthly ? category.day : "")</td>
-												<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
-											</tr>
+								<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
+									<td colspan="2">@category.title</td>
+									<td>@(category.isMonthly ? "Sim" : "Não")</td>
+									<td>@(category.isMonthly ? category.day : "")</td>
+									<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
+								</tr>
 							}
 						}
-						</tbody>
-					</table>
+					</tbody>
+				</table>
 			}
 
 		</div>
@@ -180,6 +198,8 @@
 	private string? _day { get; set; }
 	private bool _isMonthly { get; set; }
 	public double _amount { get; set; }
+
+	private bool _isListEmpty { get; set; }
 
 	public InputText input_name { get; set; } = null!;
 
@@ -244,6 +264,15 @@
 		{
 
 			categories = await categoryService.GetCategories();
+
+			if(categories.Count == 0)
+			{
+				_isListEmpty = true;
+			}
+			else
+			{
+				_isListEmpty = false;
+			}
 		}
 		catch (Exception ex)
 		{
