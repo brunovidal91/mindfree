@@ -1,0 +1,98 @@
+.transaction-card-container[b-qy3wizfeoj] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.btn-include:hover[b-qy3wizfeoj]{
+    cursor: pointer;
+    opacity: .75;
+}
+.btn-exclude:hover[b-qy3wizfeoj] {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.delete-card[b-qy3wizfeoj]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: fixed;
+    right: 5px;
+    bottom: 50px;
+    visibility: hidden;
+}
+
+.trash[b-qy3wizfeoj]{
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+.delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes riseDeleteCard-b-qy3wizfeoj{
+    from{
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+    to{
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes leaveDeleteCard-b-qy3wizfeoj {
+    from {
+
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+
+    to {
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.clean-delete-card[b-qy3wizfeoj] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--verdePrincipal);
+    position: fixed;
+    right: 5px;
+    bottom: 130px;
+    visibility: hidden;
+}
+
+.clean-delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.clean-delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+.clean-delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}

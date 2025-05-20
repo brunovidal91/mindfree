@@ -24,9 +24,11 @@ namespace MindFree.Services
         {
             List<Category> categories = new List<Category>();
             string _token = await _cookie.GetValue("app_token");
-
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-            categories = await _httpClient.GetFromJsonAsync<List<Category>>("categories") ?? new List<Category>();
+            if (!string.IsNullOrEmpty(_token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+                categories = await _httpClient.GetFromJsonAsync<List<Category>>("categories") ?? new List<Category>();
+            }
 
             return categories;
         }

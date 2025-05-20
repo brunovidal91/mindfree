@@ -1,0 +1,57 @@
+﻿
+<section class="card-container">
+	<p style="background-color: @TitleColor; color: #fff; width: 100%; text-align: center; border-top-left-radius: 5px; border-top-right-radius: 5px;">@Day</p>
+	<div class="list-container">
+
+		@foreach(Transaction transaction in Transactions)
+		{
+			<div class="line" @ondblclick=@(() => GetTransactionData(transaction))>
+				<p style="text-align: left; width: 115px">@transaction?.Category?.title</p>
+				<p style="text-align: left; width: 95px">R$ @transaction?.Value.ToString("F2")</p>
+				@* <img src="Trash.png" class="img-delete"/> *@
+			</div>
+		}
+	</div>
+</section>
+
+@code {
+
+	[Parameter]
+	public string Day { get; set; } = string.Empty;
+
+	[Parameter]
+	public List<Transaction>? Transactions { get; set; } = new();
+
+	[Parameter]
+	public string TitleColor { get; set; } = "var(--roxoCard)";
+
+	[Parameter]
+	public EventCallback<Transaction> EventTransaction { get; set; }
+
+	private string _selectedId { get; set; } = string.Empty;
+
+	// public Transaction Transaction { get; set; } = default!;
+
+	// [Parameter]
+	// public EventCallback<string> EventChangeBorderColor { get; set; }
+	public string BorderColor { get; set; } = "#eee";
+
+	private async Task GetTransactionData(Transaction transaction)
+	{
+		// _selectedId = "";
+		// BorderColor = "#eee";
+		await EventTransaction.InvokeAsync(transaction);
+
+		// if (string.IsNullOrEmpty(_selectedId))
+		// {			
+		// 	_selectedId = transaction.Id;
+		// 	BorderColor = "var(--vermelhorPrincipal)";
+		// }
+		// else
+		// {
+		// 	_selectedId = "";
+		// 	BorderColor = "#eee";
+		// }
+	}
+
+}

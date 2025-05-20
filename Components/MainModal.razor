@@ -1,0 +1,230 @@
+﻿@using System.Net.Http.Headers
+@using MindFree.Services
+@inject HttpClient httpClient
+@inject ICookie cookie
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<!-- Modal -->
+<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px">
+	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal" />
+	<br />
+
+	@if (ModalType == "config")
+	{
+		<div class="d-flex flex-row gap-2">
+
+			<div>
+				<label>Ano Vigente</label>
+				<input type="text" id="currentYear" class="form-control text-center" @bind-value="@_currentYear" disabled="@(!_isAllowed)" style="width: 150px;" />
+			</div>
+			<br />
+			<div>
+				<label>Alíquota de investimento</label>
+				<input type="text" id="investmentRate" class="form-control text-center" @bind-value="@_investmentRate" disabled="@(!_isAllowed)" style="width: 200px;" />
+			</div>
+		</div>
+		<div class="d-flex align-items-center mt-3 gap-1">
+			<input type="checkbox" style="width: 20px; height: 20px;" @bind="_isAllowed" />
+			<label>Alterar</label>
+
+		</div>
+
+		<button class="btn btn-success" @onclick="UpdateConfig" style="position: absolute; bottom: 15px; right: 15px;">Salvar</button>
+	}
+	else
+	{
+		<div class="d-flex flex-row gap-2" style="margin-top: -20px;">
+			<div>
+				<label>Nome</label>
+				<input type="text" id="user-name" class="form-control text-center" @bind-value="_name" disabled="@(!_isAllowedMe)" style="width: 150px;" />
+			</div>
+			<div>
+				<label>Email</label>
+				<input type="text" id="user-email" class="form-control text-center" @bind-value="_email" disabled="@(!_isAllowedMe)" style="width: 200px;" />
+			</div>
+
+		</div>
+		<div class="d-flex flex-row gap-2 mt-3 align-items-center justify-content-center">
+			<div class="d-flex flex-column align-items-center">
+				<label>Criado em</label>
+				<input type="text" id="user-createdAt" class="form-control text-center" @bind-value="_createdAt" disabled="disabled" style="width: 150px;" />
+			</div>
+
+		</div>
+
+		<div class="d-flex align-items-center mt-3 gap-1">
+			<input type="checkbox" style="width: 20px; height: 20px;" @bind="_isAllowedMe" />
+			<label>Alterar Dados</label>
+
+		</div>
+		<div class="d-flex flex-row gap-2" style="margin-top: 20px;">
+			<div>
+				<label>Senha</label>
+				<input type="password" id="user-password" class="form-control text-center" @bind-value="_password" style="width: 180px;" />
+			</div>
+			<div>
+				<label>Confirmação da senha</label>
+				<input type="password" id="user-confirm-password" class="form-control text-center" @bind-value="_confirmPassword" disabled="@(!_isAllowedChangePassword)" style="width: 180px;" />
+			</div>
+
+		</div>
+		<div class="d-flex align-items-center mt-3 gap-1">
+			<input type="checkbox" style="width: 20px; height: 20px;" @bind="_isAllowedChangePassword" />
+			<label>Alterar Senha</label>
+
+		</div>
+		<button class="btn btn-success" @onclick="UpdateUser" style="position: absolute; bottom: 15px; right: 15px;" disabled="@(!_isAllowedMe)">Salvar</button>
+
+	}
+
+
+	@if (ModalType == "config" && !string.IsNullOrEmpty(_msg))
+	{
+		<p class="alert alert-@_status d-flex align-items-center justify-content-center mt-1" style="height: 25px;">@_msg</p>
+	}
+
+	@if (ModalType == "me" && !string.IsNullOrEmpty(_msgMe))
+	{
+		<p class="alert alert-@_status d-flex align-items-center justify-content-center mt-1" style="height: 25px;">@_msgMe</p>
+	}
+
+
+</dialog>
+
+@code {
+
+	[Parameter]
+	public string ModalType { get; set; } = string.Empty;
+
+	[Parameter]
+	public EventCallback<string> EventChangeName { get; set; }
+
+	//Config
+	private string _currentYear { get; set; } = string.Empty;
+	private string _investmentRate { get; set; } = string.Empty;
+	private string? _config { get; set; }
+	private bool _isAllowed { get; set; }
+
+	//Me
+	private string _id { get; set; } = string.Empty;
+	private string _name { get; set; } = string.Empty;
+	private string _email { get; set; } = string.Empty;
+	private string _createdAt { get; set; } = string.Empty;
+	private bool _isAllowedMe { get; set; }
+	private bool _isAllowedChangePassword { get; set; }
+
+	private string _msg { get; set; } = string.Empty;
+	private string _msgMe { get; set; } = string.Empty;
+	private string _status { get; set; } = string.Empty;
+	private string _password { get; set; } = string.Empty;
+	private string _confirmPassword { get; set; } = string.Empty;
+
+	public UserService? userService;
+
+	protected override async Task OnInitializedAsync()
+	{
+		string verify_token = await cookie.GetValue("app_token");
+
+		if (!string.IsNullOrEmpty(verify_token))
+		{
+			Me me = new();
+			me = await GetUserData();
+			_id = me.Id;
+			_name = me.Name;
+			_email = me.Email;
+			_createdAt = me.CreatedAt;
+		}
+
+		await GetUserConfig();
+		await CloseButtonsJs();
+		await GetUserData();
+		// _currentYear = UserGlobalInfo.CurrentYear;
+		// _investmentRate = UserGlobalInfo.InvestmentRate.ToString();
+	}
+
+
+	private async Task GetUserConfig()
+	{
+		_config = await cookie.GetValue($"config");
+
+		if (!string.IsNullOrEmpty(_config))
+		{
+			_currentYear = _config.Split(",")[0].Trim();
+			_investmentRate = _config.Split(",")[1].Trim();
+		}
+	}
+
+	private async Task<Me> GetUserData()
+	{
+		Me me = new();
+		userService = new(httpClient, cookie, NavigationManager);
+		string token = await cookie.GetValue("app_token");
+		if (!string.IsNullOrEmpty(token))
+		{		
+			me = await userService.GetUserData();
+		}
+		return me;
+	}
+
+	private async Task CloseButtonsJs()
+	{
+		_msg = "";
+		await JSRuntime.InvokeVoidAsync("CloseButtons");
+	}
+
+	private async Task UpdateConfig()
+	{
+		ConfigService configService = new ConfigService(httpClient, cookie);
+		try
+		{
+			string token = await cookie.GetValue("app_token");
+			Config config = new Config { CurrentYear = _currentYear, InvestmentRate = int.Parse(_investmentRate) };
+
+			await configService.UpdateConfig(token, config);
+
+			await configService.GetConfig(token);
+
+			_isAllowed = false;
+			_msg = "Alterado com sucesso!";
+			_status = "success";
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+			_status = "danger";
+
+		}
+	}
+
+	private async Task UpdateUser()
+	{
+		userService = new (httpClient, cookie, NavigationManager);
+
+		try
+		{
+			await userService.UpdateUser(_id, _email, _name, _password);
+			_msgMe = "Dados alterados com sucesso!";
+			_status = "success";
+			await GetUserData();
+			_isAllowedChangePassword = false;
+			_isAllowedMe = false;
+			_password = "";
+			_confirmPassword = "";
+
+			UserGlobalInfo.Name = _name;
+			await EventChangeName.InvokeAsync(_name);
+
+		}catch(Exception ex){
+			_msgMe = ex.Message;
+			_status = "danger";
+		}
+	}
+}
+
+<script>
+	$(document).ready(() => {
+		$('#currentYear').mask("0000");
+		$('#investmentRate').mask("00");
+	});
+</script>

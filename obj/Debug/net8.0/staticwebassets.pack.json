@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\.nojekyll"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\Trash.png",
+      "PackagePath": "staticwebassets\\Trash.png"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\bgimg.jpg",
       "PackagePath": "staticwebassets\\bgimg.jpg"
     },
@@ -49,8 +53,24 @@
       "PackagePath": "staticwebassets\\icon-192.png"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-add.png",
+      "PackagePath": "staticwebassets\\icon-add.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-arrow-right.png",
+      "PackagePath": "staticwebassets\\icon-arrow-right.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-remove.png",
+      "PackagePath": "staticwebassets\\icon-remove.png"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\js\\Base.js",
+      "PackagePath": "staticwebassets\\js\\Base.js"
     },
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\menu-config.png",
@@ -67,6 +87,10 @@
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\mindfree.png",
       "PackagePath": "staticwebassets\\mindfree.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\mindfree_menor.png",
+      "PackagePath": "staticwebassets\\mindfree_menor.png"
     },
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\sample-data\\weather.json",

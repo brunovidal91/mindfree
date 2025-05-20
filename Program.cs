@@ -17,6 +17,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped<ICookie, Cookie>();
 //builder.Services.AddScoped<JSRuntime, JSRuntime>();
 
+builder.Services.AddTransient<IMonthList, MonthList>();
 
 builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = new Uri(Api.Url) });
 //builder.Services.AddScoped<Middleware>();

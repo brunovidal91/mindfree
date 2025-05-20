@@ -1,0 +1,98 @@
+﻿.transaction-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.btn-include:hover{
+    cursor: pointer;
+    opacity: .75;
+}
+.btn-exclude:hover {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.delete-card{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: fixed;
+    right: 5px;
+    bottom: 50px;
+    visibility: hidden;
+}
+
+.trash{
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+.delete-card:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.delete-card.riseCardAnimation {
+    animation: riseDeleteCard .1s linear forwards;
+}
+
+@keyframes riseDeleteCard{
+    from{
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+    to{
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.delete-card.leaveCardAnimation {
+    animation: leaveDeleteCard .1s linear forwards;
+}
+
+@keyframes leaveDeleteCard {
+    from {
+
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+
+    to {
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.clean-delete-card {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--verdePrincipal);
+    position: fixed;
+    right: 5px;
+    bottom: 130px;
+    visibility: hidden;
+}
+
+.clean-delete-card:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.clean-delete-card.riseCardAnimation {
+    animation: riseDeleteCard .1s linear forwards;
+}
+
+.clean-delete-card.leaveCardAnimation {
+    animation: leaveDeleteCard .1s linear forwards;
+}

@@ -3,9 +3,12 @@
 @inject ICookie cookie
 @inject NavigationManager navigationManager
 @using System.Net.Http.Headers
+@using System.Text.Json.Serialization
 @inject HttpClient httpClient
 
 @inject Middleware middleware
+
+@inject IJSRuntime JSRuntime
 
 <div class="page">
     <div class="sidebar">
@@ -21,8 +24,8 @@
             <p class="text-black text-center mt-2 position-relative" style="'Helvetica Neue', Helvetica, Arial, sans-serif; cursor: pointer" @onclick="ChangeClass">
                 @_userName
                 <div id="mainModal" class="@addClass d-flex align-items-start flex-column p-1 pt-2">
-                    <p class="menu-item" @onclick="OpenModalMe"> <img src="menu-info.png" alt="informations" width="25" style="margin-right: 4px;" />Minhas informações</p>
-                    <p class="menu-item openModal" data-modal="configModal" style="margin-top: -10px;"> <img src="menu-config.png" alt="informations" width="25" style="margin-right: 2px;" /> Configurações</p>
+                    <p class="menu-item openModal" data-modal="configModal" @onclick="@(() => _modalType = "me")"> <img src="menu-info.png" alt="informations" width="25" style="margin-right: 4px;" />Minhas informações</p>
+                    <p class="menu-item openModal" data-modal="configModal" @onclick="@(() => _modalType = "config")" style="margin-top: -10px;"> <img src="menu-config.png" alt="informations" width="25" style="margin-right: 2px;" /> Configurações</p>
                     <p class="menu-item" @onclick="Sair" style="margin-top: -10px;"> <img src="menu-exit.png" alt="informations" width="25" style="margin-right: 2px;" /> Sair</p>
 
                 </div>
@@ -35,7 +38,7 @@
     </main>
 
     <!-- Modal -->
-    <ConfigModal/>
+    <MainModal ModalType="@_modalType" EventChangeName="ChangeName"/>
 </div>
 
 
@@ -46,14 +49,20 @@
     private string? _token { get; set; }
     private string? _currentUri { get; set; }
 
-    private string? meuTeste { get; set; }
+    private string _modalType { get; set; } = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
         _userName = _userName == null ? "Carregando..." : _userName; 
         await Intercept();
+        await OpenModalMe();
 
         // await middleware.Intercept();
+    }
+
+    public void ChangeName(string name)
+    {
+        _userName = name;
     }
 
     private void ChangeClass()
@@ -76,7 +85,7 @@
         }
 
         await GetUserConfig(_token);
-        
+
     }
 
     private async Task<bool> CheckToken(string token)
@@ -118,14 +127,9 @@
         }
     }
 
-    private void OpenModalMe()
+    private async Task OpenModalMe()
     {
-        meuTeste = "Abriu o modal Me";
-    }
-
-    private void OpenModalConfig()
-    {
-        meuTeste = "Abriu o modal Config";
+        await JSRuntime.InvokeVoidAsync("OpenMyModal");
     }
 
     private async Task Sair()
@@ -136,31 +140,8 @@
 
     private async Task GetUserConfig(string token)
     {
-
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-        var configRequest = await httpClient.GetFromJsonAsync<Config>("config");
-
-        if (configRequest != null)
-        {            
-            UserGlobalInfo.InvestmentRate = configRequest.InvestmentRate;
-            UserGlobalInfo.CurrentYear = configRequest.CurrentYear;
-
-        }
+        ConfigService configService = new ConfigService(httpClient, cookie);
+        var configRequest = await configService.GetConfig(token);
         
     }
 }
-
-
-
-<script>
-    const openModalButtons = document.querySelectorAll(".openModal");
-
-    openModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const modalId = button.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-
-            modal.showModal();
-        });
-    });
-</script>

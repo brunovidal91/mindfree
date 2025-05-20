@@ -14,7 +14,7 @@ a:hover{
 .login-container{
     width: 740px;
     height: 350px;
-    background-color: #30e3b3;
+    background-color: var(--roxoCard);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -30,7 +30,7 @@ a:hover{
 }
 
 .container_input {
-    background-color: #231058;
+    background-color: var(--roxoCard);
     width: 440px;
     height: 350px;
     border-top-right-radius: 5px;
@@ -41,6 +41,7 @@ a:hover{
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+    border-left: 2px solid #fff;
 }
 
 .container_input a{

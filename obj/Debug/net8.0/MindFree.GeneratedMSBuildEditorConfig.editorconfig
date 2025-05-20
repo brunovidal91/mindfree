@@ -28,12 +28,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/ConfigModal.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDb25maWdNb2RhbC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Components/InputAmount.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnB1dEFtb3VudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/MainModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNYWluTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Components/SelectDay.razor]
@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/Card.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-wuoji9qiwc
+
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Layout/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-bi9m9yh4lc
@@ -71,3 +75,7 @@ build_metadata.AdditionalFiles.CssScope = b-97brtswapb
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-9fyw5s05nr
+
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Pages/Transactions.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVHJhbnNhY3Rpb25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-qy3wizfeoj

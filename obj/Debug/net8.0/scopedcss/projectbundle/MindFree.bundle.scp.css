@@ -1,8 +1,38 @@
+/* /Components/Card.razor.rz.scp.css */
+.card-container[b-wuoji9qiwc]{
+    width: 230px;
+    height: 250px;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0,0,0,0.20) 8px 5px 25px;
+    border-radius: 5px;
+}
+
+.list-container[b-wuoji9qiwc]{
+    overflow-y: auto;
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+}
+
+.line[b-wuoji9qiwc]{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border: 1px solid #eee;
+    margin-bottom: 3px;
+    padding: 5px;
+    position: relative;
+}
+
+.line:hover[b-wuoji9qiwc]{
+    background-color: rgba(153,51,153,0.08);
+    cursor: default;
+}
 /* /Layout/LoginLayout.razor.rz.scp.css */
 .containerLogin[b-bi9m9yh4lc]{
     width: 100vw;
     height: 100vh;
-    background-color: #c8e2d7;
+    background-color: aliceblue;
 /*    background-image: url('bgimg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -31,7 +61,7 @@ main[b-qhqvot6ore] {
 
 .sidebar[b-qhqvot6ore] {
     /*    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
-    background-color: #231058;
+    background-color: var(--roxoCard);
 }
 
 .top-row[b-qhqvot6ore] {
@@ -240,7 +270,7 @@ a:hover[b-9fyw5s05nr]{
 .login-container[b-9fyw5s05nr]{
     width: 740px;
     height: 350px;
-    background-color: #30e3b3;
+    background-color: var(--roxoCard);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -256,7 +286,7 @@ a:hover[b-9fyw5s05nr]{
 }
 
 .container_input[b-9fyw5s05nr] {
-    background-color: #231058;
+    background-color: var(--roxoCard);
     width: 440px;
     height: 350px;
     border-top-right-radius: 5px;
@@ -267,6 +297,7 @@ a:hover[b-9fyw5s05nr]{
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+    border-left: 2px solid #fff;
 }
 
 .container_input a[b-9fyw5s05nr]{
@@ -306,4 +337,103 @@ a:hover[b-9fyw5s05nr]{
         right: -20px;
 
     }
+}
+/* /Pages/Transactions.razor.rz.scp.css */
+.transaction-card-container[b-qy3wizfeoj] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.btn-include:hover[b-qy3wizfeoj]{
+    cursor: pointer;
+    opacity: .75;
+}
+.btn-exclude:hover[b-qy3wizfeoj] {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.delete-card[b-qy3wizfeoj]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: fixed;
+    right: 5px;
+    bottom: 50px;
+    visibility: hidden;
+}
+
+.trash[b-qy3wizfeoj]{
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+.delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes riseDeleteCard-b-qy3wizfeoj{
+    from{
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+    to{
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes leaveDeleteCard-b-qy3wizfeoj {
+    from {
+
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+
+    to {
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.clean-delete-card[b-qy3wizfeoj] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--verdePrincipal);
+    position: fixed;
+    right: 5px;
+    bottom: 130px;
+    visibility: hidden;
+}
+
+.clean-delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.clean-delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+.clean-delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
 }

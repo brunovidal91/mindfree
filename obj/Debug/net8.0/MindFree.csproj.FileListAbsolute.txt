@@ -1057,6 +1057,8 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\refint\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\ref\MindFree.dll
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-f74av1abgj.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-0p8v9sdbmz.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-0zs6egl0wm.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Components\Card.razor.rz.scp.css
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Transactions.razor.rz.scp.css
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-a9ytefdo3h.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-slbtahn4n4.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-xb5rkximvw.gz
