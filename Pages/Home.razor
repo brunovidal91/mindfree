@@ -1,8 +1,25 @@
 ﻿@page "/"
 @page "/dashboard"
 
+@inject AppState State
+@implements IDisposable
+
 <PageTitle>painel</PageTitle>
 <SectionContent SectionName="Top">
 	<p class="text-center mt-3">Painel Administrativo</p>
 </SectionContent>
 <h3>Aqui ficarão os paineis do dash</h3>
+<p>Current Year: @State.CurrentYear</p>
+
+
+@code{
+	protected override void OnInitialized()
+	{
+		State.Notification += StateHasChanged;
+	}
+
+	public void Dispose()
+	{
+		State.Notification -= StateHasChanged;
+	}
+}

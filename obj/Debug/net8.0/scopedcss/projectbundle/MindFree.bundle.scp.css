@@ -187,6 +187,15 @@ main[b-qhqvot6ore] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath d='M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
 }
 
+.bi-arrow-down-up-nav-menu[b-97brtswapb] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-arrow-down-up' viewBox='0 0 16 16'%3E%3Cpath d='M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5'/%3E%3C/svg%3E");
+}
+
+.bi-people-fill-nav-menu[b-97brtswapb] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-people-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5'/%3E%3C/svg%3E");
+}
+
+
 .nav-item[b-97brtswapb] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
@@ -436,4 +445,27 @@ a:hover[b-9fyw5s05nr]{
 
 .clean-delete-card.leaveCardAnimation[b-qy3wizfeoj] {
     animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+.total-container[b-qy3wizfeoj]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.total[b-qy3wizfeoj]{
+    width: 140px;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+@media (max-width: 950px){
+    .total-container[b-qy3wizfeoj]{
+        visibility: hidden;
+    }
+}
+/* /Pages/Usuarios.razor.rz.scp.css */
+.user-form-container[b-o9nkrfuly4]{
+
 }

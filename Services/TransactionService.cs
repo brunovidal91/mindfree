@@ -47,11 +47,11 @@ namespace MindFree.Services
         public async Task InsertTransaction(Transaction transaction)
         {
             if (transaction == null) throw new Exception("O lançamento não pode ser nula");
-            if (transaction.Category == null) throw new Exception("A categoria não pode ser nula");
-            if (transaction.Category.title == null) throw new Exception("O título da categoria não pode ser nulo");
+            if (string.IsNullOrEmpty(transaction.Category.id)) throw new Exception("A categoria não pode ser nula");
             if (transaction.Year == null) throw new Exception("O ano do lançamento não pode ser nulo");
             if (transaction.Date == null) throw new Exception("O dia do lançamento não pode ser nulo");
-
+            if (transaction.Value == 0) throw new Exception("O valor precisa ser maior que zero.");
+            
 
             string _token = await _cookie.GetValue("app_token");
             if (!string.IsNullOrEmpty(_token))

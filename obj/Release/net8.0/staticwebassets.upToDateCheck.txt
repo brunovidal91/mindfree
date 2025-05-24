@@ -8,9 +8,15 @@ wwwroot\css\bootstrap\bootstrap.min.css.map
 wwwroot\exit.png
 wwwroot\favicon.png
 wwwroot\icon-192.png
+wwwroot\icon-add.png
+wwwroot\icon-arrow-right.png
+wwwroot\icon-remove.png
 wwwroot\index.html
+wwwroot\js\Base.js
 wwwroot\menu-config.png
 wwwroot\menu-exit.png
 wwwroot\menu-info.png
 wwwroot\mindfree.png
+wwwroot\mindfree_menor.png
 wwwroot\sample-data\weather.json
+wwwroot\Trash.png

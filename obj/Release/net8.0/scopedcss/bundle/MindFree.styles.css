@@ -1,8 +1,38 @@
+/* /Components/Card.razor.rz.scp.css */
+.card-container[b-wuoji9qiwc]{
+    width: 230px;
+    height: 250px;
+    border: 1px solid #ccc;
+    box-shadow: rgba(0,0,0,0.20) 8px 5px 25px;
+    border-radius: 5px;
+}
+
+.list-container[b-wuoji9qiwc]{
+    overflow-y: auto;
+    width: 100%;
+    height: 200px;
+    padding: 5px;
+}
+
+.line[b-wuoji9qiwc]{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border: 1px solid #eee;
+    margin-bottom: 3px;
+    padding: 5px;
+    position: relative;
+}
+
+.line:hover[b-wuoji9qiwc]{
+    background-color: rgba(153,51,153,0.08);
+    cursor: default;
+}
 /* /Layout/LoginLayout.razor.rz.scp.css */
 .containerLogin[b-bi9m9yh4lc]{
     width: 100vw;
     height: 100vh;
-    background-color: #c8e2d7;
+    background-color: aliceblue;
 /*    background-image: url('bgimg.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -31,7 +61,7 @@ main[b-qhqvot6ore] {
 
 .sidebar[b-qhqvot6ore] {
     /*    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
-    background-color: #231058;
+    background-color: var(--roxoCard);
 }
 
 .top-row[b-qhqvot6ore] {
@@ -157,6 +187,15 @@ main[b-qhqvot6ore] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-list-nested' viewBox='0 0 16 16'%3E%3Cpath d='M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3'/%3E%3C/svg%3E");
 }
 
+.bi-arrow-down-up-nav-menu[b-97brtswapb] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-arrow-down-up' viewBox='0 0 16 16'%3E%3Cpath d='M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5'/%3E%3C/svg%3E");
+}
+
+.bi-people-fill-nav-menu[b-97brtswapb] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-people-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5'/%3E%3C/svg%3E");
+}
+
+
 .nav-item[b-97brtswapb] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
@@ -240,7 +279,7 @@ a:hover[b-9fyw5s05nr]{
 .login-container[b-9fyw5s05nr]{
     width: 740px;
     height: 350px;
-    background-color: #30e3b3;
+    background-color: var(--roxoCard);
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -256,7 +295,7 @@ a:hover[b-9fyw5s05nr]{
 }
 
 .container_input[b-9fyw5s05nr] {
-    background-color: #231058;
+    background-color: var(--roxoCard);
     width: 440px;
     height: 350px;
     border-top-right-radius: 5px;
@@ -267,6 +306,7 @@ a:hover[b-9fyw5s05nr]{
     flex-direction: column;
     gap: 5px;
     padding: 10px;
+    border-left: 2px solid #fff;
 }
 
 .container_input a[b-9fyw5s05nr]{
@@ -306,4 +346,126 @@ a:hover[b-9fyw5s05nr]{
         right: -20px;
 
     }
+}
+/* /Pages/Transactions.razor.rz.scp.css */
+.transaction-card-container[b-qy3wizfeoj] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.btn-include:hover[b-qy3wizfeoj]{
+    cursor: pointer;
+    opacity: .75;
+}
+.btn-exclude:hover[b-qy3wizfeoj] {
+    cursor: pointer;
+    opacity: .75;
+}
+
+.delete-card[b-qy3wizfeoj]{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: fixed;
+    right: 5px;
+    bottom: 50px;
+    visibility: hidden;
+}
+
+.trash[b-qy3wizfeoj]{
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+.delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes riseDeleteCard-b-qy3wizfeoj{
+    from{
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+    to{
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+@keyframes leaveDeleteCard-b-qy3wizfeoj {
+    from {
+
+        visibility: visible;
+        width: 60px;
+        height: 60px;
+    }
+
+    to {
+        visibility: hidden;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.clean-delete-card[b-qy3wizfeoj] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--verdePrincipal);
+    position: fixed;
+    right: 5px;
+    bottom: 130px;
+    visibility: hidden;
+}
+
+.clean-delete-card:hover[b-qy3wizfeoj] {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.clean-delete-card.riseCardAnimation[b-qy3wizfeoj] {
+    animation: riseDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+.clean-delete-card.leaveCardAnimation[b-qy3wizfeoj] {
+    animation: leaveDeleteCard-b-qy3wizfeoj .1s linear forwards;
+}
+
+.total-container[b-qy3wizfeoj]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.total[b-qy3wizfeoj]{
+    width: 140px;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+@media (max-width: 950px){
+    .total-container[b-qy3wizfeoj]{
+        visibility: hidden;
+    }
+}
+/* /Pages/Usuarios.razor.rz.scp.css */
+.user-form-container[b-o9nkrfuly4]{
+
 }

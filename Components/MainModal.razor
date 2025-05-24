@@ -5,6 +5,8 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 
+@inject AppState State
+
 <!-- Modal -->
 <dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px">
 	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal" />
@@ -181,6 +183,9 @@
 			string token = await cookie.GetValue("app_token");
 			Config config = new Config { CurrentYear = _currentYear, InvestmentRate = int.Parse(_investmentRate) };
 
+			//Atualizando o state global
+			State.CurrentYear = _currentYear;
+
 			await configService.UpdateConfig(token, config);
 
 			await configService.GetConfig(token);
@@ -212,14 +217,17 @@
 			_password = "";
 			_confirmPassword = "";
 
-			UserGlobalInfo.Name = _name;
-			await EventChangeName.InvokeAsync(_name);
+			// UserGlobalInfo.Name = _name;
+			// await EventChangeName.InvokeAsync(_name);
+			State.UserName = _name;
 
 		}catch(Exception ex){
 			_msgMe = ex.Message;
 			_status = "danger";
 		}
 	}
+
+
 }
 
 <script>

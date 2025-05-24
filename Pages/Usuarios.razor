@@ -1,0 +1,151 @@
+﻿@page "/usuarios"
+@inject HttpClient HttpClient
+@inject ICookie Cookie
+@inject NavigationManager NavigationManager
+
+<SectionContent SectionName="Top">
+	<p class="text-center mt-3">Gestão de Usuários</p>
+</SectionContent>
+
+<div class="user-form-container">
+
+	<div class="d-flex gap-2">
+
+		<div class="d-flex flex-column">
+			<label>Nome</label>
+			<input type="text" @bind-value="_userName" class="form-control"/>
+		</div>
+		<div class="d-flex flex-column">
+			<label>Email</label>
+			<input type="email" @bind-value="_email" class="form-control" />
+		</div>
+		<div class="d-flex flex-column">
+			<label>Senha</label>
+			<input type="password" @bind-value="_password" class="form-control" />
+		</div>
+		<div class="d-flex flex-column">
+			<label>Confirmar Senha</label>
+			<input type="password" @bind-value="_confirmPassword" class="form-control" />
+		</div>
+		<div class="d-flex flex-column align-items-center">
+			<label>Administrador</label>
+			<input type="checkbox" @bind="_isAdmin" style="width: 20px; height: 20px; accent-color: var(--verdePrincipal)"/>
+		</div>
+	</div>
+	<div class="d-flex flex-row align-items-center gap-2 mb-4" style="float: left;">
+		<button @onclick="HandleCreateUser" class="btn btn-success mt-2">Salvar</button>
+		<button @onclick="HandleDeleteUser" class="btn btn-danger mt-2">Deletar</button>
+		<button @onclick="CleanFields" class="btn btn-outline-info mt-2">Limpar</button>
+	</div>
+</div>
+
+@if (!string.IsNullOrEmpty(_msg))
+{
+	<p class="alert alert-danger">@_msg</p>
+}
+
+<table class="table mt-5 table-bordered table-hover table-dark" style="margin-top: 15px;">
+	<thead>
+		<tr class="text-center">
+			<th>Nome</th>
+			<th>Emai</th>
+			<th>Data de Criação</th>
+			<th>Admin</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(UsersRequest user in users.OrderBy(item => item.Name))
+		{
+			<tr class="text-center" style="cursor: pointer;" @ondblclick=@(() => GetData(user))>
+				<td>@user.Name</td>
+				<td>@user.Email</td>
+				<td>@user.CreatedAt</td>
+				<td>@(user.Admin ? "Sim" : "Não")</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+@code {
+	private User user = new();
+	private UsersRequest usersRequest = new();
+	private UserService? userService;
+	private List<UsersRequest> users = new();
+	private string _id { get; set; } = string.Empty;
+	private string _userName { get; set; } = string.Empty;
+	private string _email { get; set; } = string.Empty;
+	private string _password { get; set; } = string.Empty;
+	private string _confirmPassword { get; set; } = string.Empty;
+	private bool _isAdmin { get; set; } = false;
+	private string _msg { get; set; } = string.Empty;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await HandleGetUsers();
+	}
+
+	private async Task HandleGetUsers()
+	{
+		userService = new(HttpClient, Cookie, NavigationManager);
+
+		try
+		{
+			users = await userService.GetUsers();
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+
+	}
+
+	private async Task HandleCreateUser()
+	{
+		userService = new(HttpClient, Cookie, NavigationManager);
+
+		try
+		{
+			await userService.CreateUser(_userName, _email, _password, _confirmPassword);
+			await HandleGetUsers();
+			CleanFields();
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+	}
+
+	private async Task HandleDeleteUser()
+	{
+		userService = new(HttpClient, Cookie, NavigationManager);
+
+		try
+		{
+			await userService.DeleteUser(_id);
+			await HandleGetUsers();
+			CleanFields();
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+	}
+
+	private void CleanFields()
+	{
+		_id = "";
+		_userName = "";
+		_email = "";
+		_password = "";
+		_confirmPassword = "";
+		// _msg = "";
+	}
+
+	private void GetData(UsersRequest user)
+	{
+		_id = user.Id;
+		_userName = user.Name;
+		_email = user.Email;
+	}
+}

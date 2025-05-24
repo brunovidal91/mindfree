@@ -10,9 +10,11 @@
 
 @inject IJSRuntime JSRuntime
 
+@inject AppState State
+
 <div class="page">
     <div class="sidebar">
-        <NavMenu />
+        <NavMenu/>
     </div>
 
     <main>
@@ -48,7 +50,7 @@
     private string? _userName { get; set; }
     private string? _token { get; set; }
     private string? _currentUri { get; set; }
-
+    private bool _isAdmin { get; set; }
     private string _modalType { get; set; } = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -58,11 +60,20 @@
         await OpenModalMe();
 
         // await middleware.Intercept();
+
+        State.Notification += NameHasChanged;
+    }
+
+
+    private void NameHasChanged()
+    {
+        _userName = State.UserName;
+        StateHasChanged();
     }
 
     public void ChangeName(string name)
     {
-        _userName = name;
+        // _userName = name;
     }
 
     private void ChangeClass()
@@ -110,7 +121,10 @@
             UserGlobalInfo.Name = me.Name;
             UserGlobalInfo.Email = me.Email;
             UserGlobalInfo.CreatedAt = me.CreatedAt;
-            UserGlobalInfo.IsAdmin = me.Admin;
+            // UserGlobalInfo.IsAdmin = me.Admin;
+            // _isAdmin = me.Admin;
+
+            State.IsAdmin = me.Admin;   //Alterando o estado global Admin
 
 
             await cookie.SetValue("userCode", me.Name);
@@ -142,6 +156,6 @@
     {
         ConfigService configService = new ConfigService(httpClient, cookie);
         var configRequest = await configService.GetConfig(token);
-        
+        State.CurrentYear = configRequest.CurrentYear;
     }
 }

@@ -96,3 +96,22 @@
 .clean-delete-card.leaveCardAnimation {
     animation: leaveDeleteCard .1s linear forwards;
 }
+
+.total-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.total{
+    width: 140px;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+@media (max-width: 950px){
+    .total-container{
+        visibility: hidden;
+    }
+}

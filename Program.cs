@@ -7,6 +7,7 @@ using MindFree.Interfaces;
 using MindFree.Utils;
 
 
+
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 
@@ -25,6 +26,10 @@ builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = ne
 //{
 //    BaseAddress = new Uri(Api.Url)
 //});
+
+//Classe de gerenciamento global de estados
+builder.Services.AddScoped<AppState>();
+
 
 builder.Services.AddScoped<Middleware>();
 

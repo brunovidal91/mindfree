@@ -1,9 +1,11 @@
 :root {
     --verdePrincipal: #30E3B3;
+    --verdePrincipalEscuro: #26c399;
     --vermelhoPrincipal: #E6444E;
     --azulPrincipal: #231058;
     --amareloLoad: #ffb801;
     --cinzaBotoes: #C6BFBF;
+    --roxoCard: #993399;
 }
 
 html, body {
@@ -235,6 +237,11 @@ code {
     cursor: pointer;
 }
 
+.btn-container{
+    display: flex;
+    gap: 5px;
+}
+
 @media (max-width: 880px) {
     .tables_div {
         flex-direction: column;
@@ -245,10 +252,24 @@ code {
         flex-direction: column;
         align-items: center;
     }
-}
 
-@media (max-width: 641px) {
-    .logout {
-       visibility: hidden;
+    #container-input{
+        flex-direction: column;
+    }
+
+    #input-month{
+        flex-direction: column;
     }
 }
+    .btn-container {
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+
+    @media (max-width: 641px) {
+        .logout {
+            visibility: hidden;
+        }
+    }

@@ -2,6 +2,7 @@
 @inject NavigationManager NavigationManager
 @inject ICookie cookie
 @inject HttpClient httpClient
+@inject AppState State
 
 
 <Router AppAssembly="@typeof(App).Assembly">
@@ -70,7 +71,13 @@
             }
 
             await cookie.SetValue("userCode", me.Name);
-            UserGlobalInfo.Name =  me.Name;
+
+            // UserGlobalInfo.Name =  me.Name;
+            // UserGlobalInfo.IsAdmin = me.Admin;
+
+            State.UserName = me.Name;
+
+
             await cookie.SetValue("erro", "");
             return true;
 
