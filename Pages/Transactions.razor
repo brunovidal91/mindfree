@@ -60,7 +60,7 @@
     <div class="btn-container">
         <div class="d-flex align-items-start flex-column">
             <label for="input_amount">Valor R$</label>
-            <input type="text" class="form-control" id="input-amount-transaction" @bind-value="_value"/>
+            <input type="text" class="form-control" id="input-amount-transaction" @bind-value="_value" step=".01"/>
         </div>
         <button @onclick="InsertTransaction" class="mt-4" style="border: none; background-color: transparent; height: 50px; display: flex; align-items: center; justify-content: center; padding: 0px;">
             <img src="icon-add.png" width="50" class="btn-include" />
@@ -219,7 +219,7 @@
         string _currentYear = _currentYearCookie.Split(",")[0].Trim();
 
         transaction.Year = _currentYear;
-        transaction.Value = _value;
+        transaction.Value = double.Parse(_value.ToString("F2"));
         transaction.Category.id = selectedCategory.id;
         transaction.Date = _day.ToString();
         transaction.Month = monthIndex.ToString();
@@ -240,7 +240,7 @@
 
     private void CleanFields()
     {
-        _day = DateTime.Now.Day;
+        // _day = DateTime.Now.Day;
         _value = 0;
         _msg = "";
         _isSelected = false;

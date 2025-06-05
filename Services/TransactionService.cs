@@ -51,7 +51,10 @@ namespace MindFree.Services
             if (transaction.Year == null) throw new Exception("O ano do lançamento não pode ser nulo");
             if (transaction.Date == null) throw new Exception("O dia do lançamento não pode ser nulo");
             if (transaction.Value == 0) throw new Exception("O valor precisa ser maior que zero.");
-            
+
+            //Tratamento para sempre ter duas casas decimais no valor
+            string valuef = transaction.Value.ToString("F2");
+            transaction.Value = double.Parse(valuef);
 
             string _token = await _cookie.GetValue("app_token");
             if (!string.IsNullOrEmpty(_token))
