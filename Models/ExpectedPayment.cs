@@ -1,9 +1,14 @@
 ﻿namespace MindFree.Models
 {
-    public class ExpectedPayment
+    public class ExpectedPayment: IComparable<ExpectedPayment>
     {
         public string Name { get; set; } = string.Empty;
         public string Date { get; set; } = string.Empty;
         public double Value { get; set; }
+
+        public int CompareTo(ExpectedPayment? other)
+        {
+            return int.Parse(Date).CompareTo(int.Parse(other?.Date));
+        }
     }
 }

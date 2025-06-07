@@ -6,7 +6,7 @@
 
 		@foreach(Transaction transaction in Transactions.OrderByDescending(item => item.Id))
 		{
-			<div class="line" @ondblclick=@(() => GetTransactionData(transaction)) style="background-color: @(transaction.Category.isIncome && !transaction.Category.isMonthly ? "#00cbff" : "")" id="@transaction.Id">
+			<div class="line" @ondblclick=@(() => GetTransactionData(transaction)) style="background-color: @(transaction.Category.isIncome && !transaction.Category.isMonthly ? "var(--verdePrincipal)" : ""); border-radius: 5px;" id="@transaction.Id">
 
 				<p style="text-align: left; width: 115px; font-size: 13.5px;">@transaction?.Category?.title</p>
 				<p style="text-align: left; width: 95px; font-size: 13.5px;">R$ @transaction?.Value.ToString("F2")</p>

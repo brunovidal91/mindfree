@@ -1,10 +1,14 @@
-﻿namespace MindFree.Models
+﻿using MindFree.Utils;
+
+namespace MindFree.Models
 {
     public class Dashboard
     {
         public List<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public List<Category> Categories { get; set; } = new List<Category>();
         public List<CategoryCompare> CategoriesCompare { get; set; } = new List<CategoryCompare>();
-        public List<ExpectedPayment> ExpectedPayments { get; set; } = new List<ExpectedPayment>();
+        public List<ExpectedPayment> NextPayments { get; set; } = new List<ExpectedPayment>();
+        public List<MonthResult> MonthResults { get; set; } = new List<MonthResult>();
         public double EconomyCard { get; set; }
         public double ExpensesCard { get; set; }
         public double IncomeCard { get; set; }
@@ -12,14 +16,24 @@
         public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();
     
     
-        public Dashboard(List<Transaction> transactions, string currentMonth) { 
+        public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories) { 
             Transactions = transactions;
+            Categories = categories;
             CurrentMonth = currentMonth;
+
+
             if(Transactions.Where(item => item.Month == currentMonth).Count() > 0)
             {
                 WriteResults();
                 CalcCompare();
+                
             }
+
+            if (Categories.Count() > 0) {
+                GetNextPayments();
+            }
+
+            GetOlderMonthsResult();
         }     
     
         public void WriteResults()
@@ -59,6 +73,68 @@
             }
         }
     
+        public void GetNextPayments()
+        {
+            int today = DateTime.Now.Day;
+            List<Category> nextPaymentsCategorie = Categories.Where(item => item.isIncome == false).Where(item => item.isMonthly == true).Where(item => int.Parse(item.day) >= today).ToList();
+            List<Transaction> transactions = Transactions.Where(item => item.Month == CurrentMonth).ToList();
+            double value = 0;
+
+            foreach (Category category in nextPaymentsCategorie) {
+                if(category.amount == 0)
+                {
+                    if (Transactions.Count > 0) {
+
+                        Transaction? transaction = transactions.Where(item => item?.Category?.title == category.title).FirstOrDefault();
+                        if (transaction != null) {
+
+                            value = transaction.Value;
+                        }
+
+                    }
+                }
+                else
+                {
+                    value = category.amount;
+                }
+                    NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day });
+                value = 0;
+            }
+        }
+    
+        public void GetOlderMonthsResult()
+        {
+            MonthList monthList = new();
+
+
+            List<Transaction> olderTransactions = Transactions.Where(item => int.Parse(item.Month) < DateTime.Now.Month).ToList();
+
+            var olderTransationsPerMonth = from transaction in olderTransactions group transaction by int.Parse(transaction.Month);
+
+            int monthIndex = 0;
+            string monthName = string.Empty;
+            double expenses = 0;
+            double incomes = 0;
+            double balance = 0;
+
+            foreach (var transactionGroup in olderTransationsPerMonth) {
+
+                monthIndex = int.Parse(transactionGroup.FirstOrDefault().Month);
+                monthName = monthList.SelectedMonth(monthIndex).MonthName!;
+                expenses = transactionGroup.Where(item => item.Category.isIncome == false).Sum(item => item.Value);
+                incomes = transactionGroup.Where(item => item.Category.isIncome == true).Sum(item => item.Value);
+                balance = incomes - expenses;
+
+                MonthResults.Add(new MonthResult { MonthIndex = monthIndex, MonthName = monthName, Expenses = expenses, Incomes = incomes, Balance = balance });
+
+                monthIndex = 0;
+                monthName = string.Empty;
+                expenses = 0;
+                incomes = 0;
+                balance = 0;
+            }
+
+        }
     }
 
 

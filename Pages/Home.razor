@@ -3,6 +3,7 @@
 @inject IMonthList MonthList
 @inject AppState State
 @implements IDisposable
+@inject IMonthList MonthList
 
 @inject HttpClient HttpClient
 @inject ICookie Cookie
@@ -13,7 +14,22 @@
 	<p class="text-center mt-3">Painel Administrativo • @_currentMonthName • @State.CurrentYear </p>
 </SectionContent>
 
+<img src="@(_isShowedValues ? "icon-opened-eye" : "icon-blind-eye").png" id="img-eye" @onclick="HideValues" />
 
+<div class="d-flex flex-column mb-3" id="input-month">
+	@* <label class="lbl">Mês atual</label> *@
+	<select class="form-select" @onchange="UpdateSelectedMonth" style="width: 150px;">
+		@foreach (Month month in MonthList.Months().Take(12))
+		{
+			<option value=@month.MonthPosition selected="@(month.MonthPosition == DateTime.Now.Month)">@month.MonthName</option>
+		}
+
+	</select>
+</div>
+
+@* <section id="btn-section" class="top-row"> *@
+@* 	<img src="icon-close-arrow.png" id="btn-img" /> *@
+@* </section> *@
 
 <section id="results-card-section">
 
@@ -27,7 +43,7 @@
 
 	<div class="results-card" id="card-saidas">
 		<div class="results-lbl-container">
-			<label class="results-value-label">R$ @(_expensesCard.ToString("F2"))</label>
+			<label class="results-value-label">R$ @(_isShowedValues ? _expensesCard.ToString("F2") : "***")</label>
 			<label class="results-title-label">Total saídas</label>
 		</div>
 		<img src="icon-decrease.png" width="40" height="40" />
@@ -35,7 +51,7 @@
 
 	<div class="results-card" id="card-entradas">
 		<div class="results-lbl-container">
-			<label class="results-value-label">R$ @(_incomeCard.ToString("F2"))</label>
+			<label class="results-value-label">R$ @(_isShowedValues ? _incomeCard.ToString("F2") : "***")</label>
 			<label class="results-title-label">Total entradas</label>
 		</div>
 		<img src="icon-increase.png" width="40" height="40" />
@@ -43,7 +59,7 @@
 
 	<div class="results-card" id="card-saldo">
 		<div class="results-lbl-container">
-			<label class="results-value-label">R$ @(_totalCard.ToString("F2"))</label>
+			<label class="results-value-label">R$ @(_isShowedValues ? _totalCard.ToString("F2") : "***")</label>
 			<label class="results-title-label">Saldo atual</label>
 		</div>
 		<img src="icon-saldo.png" width="45" height="45" />
@@ -54,36 +70,80 @@
 	<div>
 
 		<label class="category-cards-title">Gastos por Categoria</label>
-	<div id="category-compare-area">
+		<div id="category-compare-area">
 
-		<div id="category-compare-itens" style="width: 100%; margin-top: 10px;">
-			@foreach (CategoryCompare category in categoryCompares.OrderDescending())
-			{
-				<div class="d-flex gap-5">
-				<span style="color: #ff5; font-size: 14px; width: 140px; white-space: nowrap;">@category.Title</span>
-				<span style="text-align: left; font-size: 13px; color: #fff;">R$ @(category.Value.ToString("F2"))</span>
-				<span></span>
-				</div>
-
-				<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="@_expensesCard.ToString()">
-					<div class="progress-bar" style="width: @(category.Percentage.ToString("F0"))%; background-color: var(--roxoCard);">
-						@(category.Percentage.ToString("F0"))%
+			<div id="category-compare-itens" style="width: 100%; margin-top: 10px;">
+				@foreach (CategoryCompare category in categoryCompares.OrderDescending())
+				{
+					<div class="d-flex gap-5">
+						<span style="color: #ff5; font-size: 14px; width: 140px; white-space: nowrap;">@category.Title</span>
+						<span style="text-align: left; font-size: 13px; color: #fff;">R$ @(_isShowedValues ? category.Value.ToString("F2") : "***")</span>
+						<span></span>
 					</div>
-				</div>
-			}
 
+					<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="@_expensesCard.ToString()">
+						<div class="progress-bar" style="width: @(category.Percentage.ToString("F0"))%; background-color: var(--roxoCard);">
+							@(category.Percentage.ToString("F0"))%
+						</div>
+					</div>
+				}
+
+			</div>
 		</div>
 	</div>
-	</div>
 
-	<div id="category-next-payments-area">
-			<label class="next-payments-cards-title">Pagamentos Previstos</label>
-		<div>
+	<div>
+		<label class="next-payments-cards-title">Pagamentos Previstos</label>
+		<div id="category-next-payments-area">
 			<div id="category-next-payments-itens">
+				<table class="table" style="width: 340px; max-width: 360px;">
+					<thead>
+						<tr style="color: #fff; font-size: 14px;">
+							<th>Dia</th>
+							<th colspan="2">Conta</th>
+							<th colspan="2">Valor à Pagar</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (ExpectedPayment expectedPayment in expectedPayments.OrderBy(item => int.Parse(item.Date)))
+						{
+							<tr style="color: @( int.Parse(expectedPayment.Date) == _today && _currentMonthIndex == DateTime.Now.Month? "var(--amareloLoad)" : "#fff"); font-size: 14px;">
+								<td>@expectedPayment.Date</td>
+								<td colspan="2">@expectedPayment.Name</td>
+								<td colspan="2">R$ @(_isShowedValues ? expectedPayment.Value.ToString("F2") : "***")</td>
+							</tr>
+						}
+					</tbody>
+				</table>
 			</div>
 		</div>
 
 	</div>
+</section>
+
+<section id="older-results-section">
+
+	@foreach (MonthResult monthResult in monthResults.OrderBy(item => item.MonthIndex))
+	{
+		<div class="older-month-card">
+			<p class="older-month-title">@monthResult.MonthName</p>
+			<div style="font-size: 14px; width: 150px;">
+				<div class="d-flex flex-row justify-content-between">
+					<span style="color: #ff5;">Saídas:</span>
+					<span style="color: #fff;">R$ @(_isShowedValues ? monthResult.Expenses.ToString("F2") : "***")</span>
+				</div>
+				<div class="d-flex flex-row mt-2 justify-content-between">
+					<span style="color: #ff5;">Entradas:</span>
+					<span style="color: #fff;">R$ @(_isShowedValues ? monthResult.Incomes.ToString("F2") : "***")</span>
+				</div>
+				<div class="d-flex flex-row mt-5 justify-content-between">
+					<span style="color: #ff5;">Saldo:</span>
+					<span style="color: #fff;">R$ @(_isShowedValues ? monthResult.Balance.ToString("F2") : "***")</span>
+				</div>
+			</div>
+		</div>
+	}
+
 </section>
 
 
@@ -91,30 +151,56 @@
 
 	private int _currentMonthIndex { get; set; }
 	private string _currentMonthName { get; set; } = string.Empty;
+	private int _today { get; set; }
 	private double _econommyCard { get; set; }
 	private double _expensesCard { get; set; }
 	private double _incomeCard { get; set; }
 	private double _totalCard { get; set; }
+	private bool _isShowedValues { get; set; } = true;
+	private string _eye { get; set; } = string.Empty;
 
 
-	TransactionService transactionService;
-	Dashboard dashboard;
+	TransactionService? transactionService;
+	Dashboard? dashboard;
 	List<Transaction> transactions = new();
 	List<CategoryCompare> categoryCompares = new();
+	CategoryService? categoryService;
+	List<Category> categories = new();
+	List<ExpectedPayment> expectedPayments = new();
+	List<MonthResult> monthResults = new();
 
 
 	protected override async Task OnInitializedAsync()
 	{
-		//Pegar o ano atual
+		string showCookie = await Cookie.GetValue("eval");
+		if (!string.IsNullOrEmpty(showCookie))
+		{
+			_isShowedValues = bool.Parse(showCookie);
+		}
+
+		_eye = _isShowedValues == true ? "icon-opened-eye" : "icon-blind-eye";
+		_today = DateTime.Now.Day;
+		_currentMonthIndex = DateTime.Now.Month;
+		await GetLists();
+
+		//States
+		State.Notification += StateHasChanged;
+		_currentMonthIndex = MonthList.Months()[DateTime.Now.Month - 1].MonthPosition;
+		_currentMonthName = MonthList.Months()[DateTime.Now.Month - 1].MonthName!;
+	}
+
+	private async Task GetLists()
+	{
 		string _currentYearCookie = await Cookie.GetValue("config");
 		string _currentYear = _currentYearCookie.Split(",")[0].Trim() ?? State.CurrentYear ?? DateTime.Now.Year.ToString();
 
-		_currentMonthIndex = 5; //alterar dinamicamente
-
-		//Popular a class Dashboard
 		transactionService = new(HttpClient, Cookie, NavigationManager);
 		transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
-		dashboard = new(transactions, _currentMonthIndex.ToString());
+
+		categoryService = new(HttpClient, Cookie, NavigationManager);
+		categories = await categoryService.GetCategories();
+
+		dashboard = new(transactions, _currentMonthIndex.ToString(), categories);
 
 		//Preencher os cards de resultados
 		_econommyCard = dashboard.EconomyCard;
@@ -123,16 +209,29 @@
 		_totalCard = dashboard.TotalCard;
 
 		categoryCompares = dashboard.CategoriesCompare;
+		expectedPayments = dashboard.NextPayments;
+		monthResults = dashboard.MonthResults;
+	}
 
+	private async Task UpdateSelectedMonth(ChangeEventArgs e)
+	{
 
-		//States
-		State.Notification += StateHasChanged;
-		_currentMonthIndex = MonthList.Months()[DateTime.Now.Month - 1].MonthPosition;
-		_currentMonthName = MonthList.Months()[DateTime.Now.Month - 1].MonthName!;
+		_currentMonthIndex = int.Parse(e.Value.ToString());
+		_currentMonthName = MonthList.SelectedMonth(_currentMonthIndex).MonthName!;
+		await GetLists();
+	}
+
+	private async Task HideValues()
+	{
+		_isShowedValues = !_isShowedValues;
+		_eye = _isShowedValues == true ? "icon-opened-eye" : "icon-blind-eye";
+		await Cookie.SetValue("eval", _isShowedValues.ToString());
 	}
 
 	public void Dispose()
 	{
 		State.Notification -= StateHasChanged;
 	}
+
+
 }
