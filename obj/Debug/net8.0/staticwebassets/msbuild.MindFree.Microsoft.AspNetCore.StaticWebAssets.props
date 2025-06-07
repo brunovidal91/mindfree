@@ -516,8 +516,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>f8intjr9v4</Fingerprint>
-      <Integrity>8eqHVemY3nCi+4XvZxLrfbJE7ds/i7edKHQeWmAunfo=</Integrity>
+      <Fingerprint>kuz9z82gle</Fingerprint>
+      <Integrity>RJ9jCMmZDc+raThnbJ6v1wzsm/3RcWwW9HrCawKrsVE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</OriginalItemSpec>

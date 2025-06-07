@@ -192,7 +192,9 @@
 	private async Task GetLists()
 	{
 		string _currentYearCookie = await Cookie.GetValue("config");
-		string _currentYear = _currentYearCookie.Split(",")[0].Trim() ?? State.CurrentYear ?? DateTime.Now.Year.ToString();
+		string _currentYear = _currentYearCookie.Split(",")[0].Trim();
+
+		if (string.IsNullOrEmpty(_currentYear)) _currentYear = DateTime.Now.Year.ToString();
 
 		transactionService = new(HttpClient, Cookie, NavigationManager);
 		transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);

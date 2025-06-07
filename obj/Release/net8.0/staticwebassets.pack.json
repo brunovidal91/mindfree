@@ -61,6 +61,14 @@
       "PackagePath": "staticwebassets\\icon-arrow-right.png"
     },
     {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-blind-eye.png",
+      "PackagePath": "staticwebassets\\icon-blind-eye.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-close-arrow.png",
+      "PackagePath": "staticwebassets\\icon-close-arrow.png"
+    },
+    {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-decrease.png",
       "PackagePath": "staticwebassets\\icon-decrease.png"
     },
@@ -71,6 +79,14 @@
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-increase.png",
       "PackagePath": "staticwebassets\\icon-increase.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-open-arrow.png",
+      "PackagePath": "staticwebassets\\icon-open-arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-opened-eye.png",
+      "PackagePath": "staticwebassets\\icon-opened-eye.png"
     },
     {
       "Id": "C:\\Users\\Bruno\\source\\repos\\MindFree\\MindFree\\wwwroot\\icon-percent.png",

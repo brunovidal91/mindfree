@@ -267,7 +267,6 @@ main[b-qhqvot6ore] {
 }
 /* /Pages/Home.razor.rz.scp.css */
 
-/***************  CARDS DE RESULTADOS DO MÊS VIGENTE  *****************/
 
 #results-card-section[b-xy8lf02n18]{
     display: flex;
@@ -327,9 +326,6 @@ main[b-qhqvot6ore] {
 }
 
 
-
-/***************  PAINEL DE GASTOS POR CATEGORIAS  *****************/
-
 #category-section[b-xy8lf02n18]{
     display: flex;
     flex-wrap: wrap;
@@ -384,7 +380,7 @@ main[b-qhqvot6ore] {
     border-top-right-radius: 8px;
 }
 
-/***************  Menu lateral de botões  *****************/
+
 #btn-section[b-xy8lf02n18]{
     position: fixed;
     right: 0px;
@@ -407,9 +403,6 @@ main[b-qhqvot6ore] {
 #btn-img:hover[b-xy8lf02n18]{
     cursor: pointer;
 }
-
-
-/***************  Seção dos meses antetiores  *****************/
 
 #older-results-section[b-xy8lf02n18]{
     display: flex;

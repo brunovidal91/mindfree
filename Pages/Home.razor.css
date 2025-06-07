@@ -1,5 +1,4 @@
 ﻿
-/***************  CARDS DE RESULTADOS DO MÊS VIGENTE  *****************/
 
 #results-card-section{
     display: flex;
@@ -59,9 +58,6 @@
 }
 
 
-
-/***************  PAINEL DE GASTOS POR CATEGORIAS  *****************/
-
 #category-section{
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +112,7 @@
     border-top-right-radius: 8px;
 }
 
-/***************  Menu lateral de botões  *****************/
+
 #btn-section{
     position: fixed;
     right: 0px;
@@ -139,9 +135,6 @@
 #btn-img:hover{
     cursor: pointer;
 }
-
-
-/***************  Seção dos meses antetiores  *****************/
 
 #older-results-section{
     display: flex;

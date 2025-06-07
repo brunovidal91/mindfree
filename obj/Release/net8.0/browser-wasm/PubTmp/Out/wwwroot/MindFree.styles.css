@@ -267,7 +267,6 @@ main[b-qhqvot6ore] {
 }
 /* /Pages/Home.razor.rz.scp.css */
 
-/***************  CARDS DE RESULTADOS DO MÊS VIGENTE  *****************/
 
 #results-card-section[b-xy8lf02n18]{
     display: flex;
@@ -327,9 +326,6 @@ main[b-qhqvot6ore] {
 }
 
 
-
-/***************  PAINEL DE GASTOS POR CATEGORIAS  *****************/
-
 #category-section[b-xy8lf02n18]{
     display: flex;
     flex-wrap: wrap;
@@ -344,9 +340,9 @@ main[b-qhqvot6ore] {
 #category-compare-area[b-xy8lf02n18]{
     width: 450px;
     height: 250px;
-    border: 1px solid #ccc;
     overflow-y: auto;
-    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     background-color: rgb(31, 171, 185);
     display: flex;
     align-items: center;
@@ -357,9 +353,9 @@ main[b-qhqvot6ore] {
 #category-next-payments-area[b-xy8lf02n18] {
     width: 380px;
     height: 200px;
-    border: 1px solid #ccc;
     overflow-y: auto;
-    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     background-color: rgb(31, 171, 185);
     display: flex;
     align-items: center;
@@ -367,13 +363,95 @@ main[b-qhqvot6ore] {
     padding: 5px;
 }
 
-.category-cards-title[b-xy8lf02n18]{
+.category-cards-title[b-xy8lf02n18] {
     color: #fff;
-
+    background-color: rgb(31, 171, 185);
+    width: 450px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.next-payments-cards-title[b-xy8lf02n18] {
+    color: #fff;
+    background-color: rgb(31, 171, 185);
+    width: 380px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
-.category-compare-itens[b-xy8lf02n18]{
 
+#btn-section[b-xy8lf02n18]{
+    position: fixed;
+    right: 0px;
+    top: 70px;
+    width: 160px;
+    height: 120px;
+    background-color: var(--roxoCard);
+}
+
+#btn-img[b-xy8lf02n18] {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: calc(50% - 20px);
+    left: -35px;
+    background-color: var(--roxoCard);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+#btn-img:hover[b-xy8lf02n18]{
+    cursor: pointer;
+}
+
+#older-results-section[b-xy8lf02n18]{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.older-month-card[b-xy8lf02n18] {
+    width: 160px;
+    height: 180px;
+    background-color: var(--roxoCard);
+    border: 1px solid var(--roxoCard);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.older-month-title[b-xy8lf02n18] {
+    width: 159px;
+    background-color: #fff;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+#img-eye[b-xy8lf02n18] {
+    width: 30px; 
+    float: right;
+}
+
+#img-eye:hover[b-xy8lf02n18]{
+    cursor: pointer;
+}
+
+@media(max-width: 640px) {
+    #btn-section[b-xy8lf02n18] {
+        position: relative;
+        top: 0px;
+        float: right;
+        right: -20px;
+    }
 }
 /* /Pages/Login.razor.rz.scp.css */
 a[b-9fyw5s05nr]{

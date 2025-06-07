@@ -10,9 +10,13 @@ wwwroot\favicon.png
 wwwroot\icon-192.png
 wwwroot\icon-add.png
 wwwroot\icon-arrow-right.png
+wwwroot\icon-blind-eye.png
+wwwroot\icon-close-arrow.png
 wwwroot\icon-decrease.png
 wwwroot\icon-edit.png
 wwwroot\icon-increase.png
+wwwroot\icon-open-arrow.png
+wwwroot\icon-opened-eye.png
 wwwroot\icon-percent.png
 wwwroot\icon-remove.png
 wwwroot\icon-saldo.png
