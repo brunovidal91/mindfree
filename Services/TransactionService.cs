@@ -2,6 +2,7 @@
 using MindFree.Interfaces;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Components;
 
 namespace MindFree.Services
 {
@@ -10,11 +11,14 @@ namespace MindFree.Services
         private HttpClient _httpClient { get; set; } = default!;
         private ICookie _cookie { get; set; } = default!;
 
+        private NavigationManager _navigationManager { get; set; }
+
         private TransactionResponse _transactionResponse { get; set; } = new();
 
-        public TransactionService(HttpClient httpClient, ICookie cookie) { 
+        public TransactionService(HttpClient httpClient, ICookie cookie, NavigationManager navigationManager) { 
             _cookie = cookie;
             _httpClient = httpClient;
+            _navigationManager = navigationManager;
         }
 
         public async Task<List<Transaction>> GetTransactions(string date, string datareq, string month, string year)
@@ -22,20 +26,30 @@ namespace MindFree.Services
             string _token = await _cookie.GetValue("app_token");
             List<Transaction> _transactions = new List<Transaction>();
 
+            UserService userService = new UserService(_httpClient, _cookie, _navigationManager);
+
             if (!string.IsNullOrEmpty(_token))
             {
                 try
                 {
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                    _transactionResponse = await _httpClient.GetFromJsonAsync<TransactionResponse>($"transactions/12/{datareq}/{month}/{year}");
+                    _transactionResponse = await _httpClient.GetFromJsonAsync<TransactionResponse>($"transactions/{date}/{datareq}/{month}/{year}");
                     _transactions = _transactionResponse.Transactions;
                     return _transactions;
                 }
 
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.Message + "teste");
-                    
+                    if (ex.Message.Contains("Unauthorized"))
+                    {
+                        await userService.Logout();
+                        return _transactions;
+                    }
+                    else
+                    {
+                        throw new Exception(ex.Message);
+                    }
+
                 }
             }
             else
@@ -43,7 +57,6 @@ namespace MindFree.Services
                 return new List<Transaction>();
             }
         }
-    
         public async Task InsertTransaction(Transaction transaction)
         {
             if (transaction == null) throw new Exception("O lançamento não pode ser nula");
@@ -70,7 +83,6 @@ namespace MindFree.Services
                 }
             }
         }
-
         public async Task DeleteTransaction(Transaction transaction)
         {
             if (transaction == null) throw new Exception("O lançamento não pode ser nulo.");
@@ -91,6 +103,24 @@ namespace MindFree.Services
             }
 
         }
+        public async Task EditTransaction(Transaction transaction)
+        {
+            if (transaction == null) throw new Exception("Para alteração é preciso informar uma transação.");
+            string token = await _cookie.GetValue("app_token");
+
+            TransactionEdit transactionEdit = new TransactionEdit { Id = transaction.Id, Value = transaction.Value };
+
+            try
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                await _httpClient.PutAsJsonAsync<TransactionEdit>("transactions", transactionEdit);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 
     public class TransactionResponse
@@ -99,5 +129,12 @@ namespace MindFree.Services
         public string Message { get; set; } = string.Empty;
         public int Status { get; set; }
         public List<Transaction> Transactions { get; set; } = new();
+    }
+
+    public class TransactionEdit
+    {
+        public string Id { get; set; } = string.Empty;
+        public double Value { get; set; }
+
     }
 }

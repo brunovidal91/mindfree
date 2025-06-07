@@ -12,8 +12,6 @@ function CloseButtons() {
 		});
 	});
 }
-
-
 function OpenMyModal() {
 
     const openModalButtons = document.querySelectorAll(".openModal");
@@ -26,4 +24,26 @@ function OpenMyModal() {
             modal.showModal();
         });
     });
+}
+function SetFocus(id) {
+    const inputToFocus = document.getElementById(id);
+    inputToFocus && inputToFocus.focus();
+}
+const previousSelected = [];
+function changeLineColor(id) {
+
+    if (previousSelected.length > 0) {
+        turnBackLineColor(previousSelected[0]);
+        previousSelected.pop();
+
+    }
+
+    previousSelected.push(id);
+    //$(`#${id}`).closest("div").css('background-color', '#ff0');
+    $(`#${id}`).css('border-width', '2px');
+    $(`#${id}`).css('border-color', 'tomato');
+
+}
+function turnBackLineColor(id) {
+    $(`#${id}`).css('border-color', '#eee');
 }

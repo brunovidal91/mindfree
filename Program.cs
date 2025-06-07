@@ -20,7 +20,9 @@ builder.Services.AddScoped<ICookie, Cookie>();
 
 builder.Services.AddTransient<IMonthList, MonthList>();
 
-builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = new Uri(Api.Url) });
+builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = new Uri(Api.ProdUrl) });
+//builder.Services.AddScoped(IServiceProvider => new HttpClient { BaseAddress = new Uri(Api.DevUrl) });
+
 //builder.Services.AddScoped<Middleware>();
 //builder.Services.AddScoped(IServiceProvider => new HttpClient(new AddHeadersDelegatingHandler())
 //{

@@ -1,0 +1,109 @@
+
+/***************  CARDS DE RESULTADOS DO MÊS VIGENTE  *****************/
+
+#results-card-section[b-xy8lf02n18]{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.results-card[b-xy8lf02n18] {
+    width: 220px;
+    height: 70px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    padding-left: 25px;
+    padding-right: 15px;
+    box-shadow: 10px 10px 15px #ccc;
+}
+
+.results-value-label[b-xy8lf02n18] {
+    color: #fff;
+    font-weight: bold;
+    font-size: 17px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.results-title-label[b-xy8lf02n18]{
+    color: #fff;
+    font-size: 14px;
+}
+
+#card-percent[b-xy8lf02n18] {
+    background: linear-gradient(90deg, rgb(246,165,16) 0%, rgb(250,185,30) 50%, rgb(255,200,40) 100% );
+}
+
+#card-saidas[b-xy8lf02n18]{
+    background: linear-gradient(90deg, rgb(220,93,145) 0%, rgb(230,80,125) 50%, rgb(245,60,110) 100% );
+}
+
+#card-entradas[b-xy8lf02n18] {
+    background-color: #E64AAD;
+    background: linear-gradient(90deg, rgb(31,171,185) 0%, rgb(85,165,185) 50%, rgb(125,145,185) 100% );
+}
+
+#card-saldo[b-xy8lf02n18] {
+    background-color: #E64AAD;
+    background: linear-gradient(90deg, rgb(230,74,173) 0%, rgb(215,74,183) 50%, rgb(200,74,190) 100% );
+}
+
+.results-lbl-container[b-xy8lf02n18]{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+
+/***************  PAINEL DE GASTOS POR CATEGORIAS  *****************/
+
+#category-section[b-xy8lf02n18]{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+
+}
+
+#category-compare-area[b-xy8lf02n18]{
+    width: 450px;
+    height: 250px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    border-radius: 8px;
+    background-color: rgb(31, 171, 185);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+#category-next-payments-area[b-xy8lf02n18] {
+    width: 380px;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    border-radius: 8px;
+    background-color: rgb(31, 171, 185);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.category-cards-title[b-xy8lf02n18]{
+    color: #fff;
+
+}
+
+.category-compare-itens[b-xy8lf02n18]{
+
+}

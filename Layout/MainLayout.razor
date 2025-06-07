@@ -125,6 +125,7 @@
             // _isAdmin = me.Admin;
 
             State.IsAdmin = me.Admin;   //Alterando o estado global Admin
+            State.CurrentMonth = DateTime.Now.Month;
 
 
             await cookie.SetValue("userCode", me.Name);

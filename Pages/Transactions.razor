@@ -4,343 +4,382 @@
 @inject ICookie Cookie
 @inject IMonthList MonthList
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 @inject AppState State
 @implements IDisposable;
 
 <SectionContent SectionName="Top">
-    <p class="text-center mt-3">Lançamentos - @_mesReferencia - @State.CurrentYear</p>
-
-    @* <div class="total-container"> *@
-    @* 	<div class="saida total"></div> *@
-    @* 	<div class="entrada total"></div> *@
-    @* 	<div class="saldo total"></div> *@
-    @* </div> *@
-
+	<p class="text-center mt-3">Lançamentos • @_mesReferencia • @State.CurrentYear</p>
 </SectionContent>
 
-<div class="d-flex align-items-center gap-3" style="float: right;" id="input-month">
-    <label>Mês atual</label>
-    <select class="form-select" @onchange="UpdateSelectedMonth" style="width: 150px;">
-        @foreach (Month month in MonthList.Months().Take(12))
-        {
-            <option value=@month.MonthPosition selected="@(month.MonthPosition == DateTime.Now.Month)">@month.MonthName</option>
-        }
+<section class="top-row input-area">
 
-    </select>
-</div>
+	<div class="d-flex month-container lbl-container" id="input-month">
+		<label class="lbl">Mês atual</label>
+		<select class="form-select" @onchange="UpdateSelectedMonth" style="width: 150px;">
+			@foreach (Month month in MonthList.Months().Take(12))
+			{
+				<option value=@month.MonthPosition selected="@(month.MonthPosition == DateTime.Now.Month)">@month.MonthName</option>
+			}
 
-<div class="d-flex align-items-center justify-content-center gap-3" id="container-input">
-    <div class="d-flex flex-column">
-        <label>Categoria</label>
-        <select class="form-select" @onchange="LoadCategoryData" style="width: 150px;">
-            <option value="0" disabled selected>Selecione</option>
-            @foreach (Category category in categories.OrderBy(item => item.title))
-            {
-                <option value="@category.id">@category.title</option>
-            }
+		</select>
+	</div>
 
-        </select>
-    </div>
-    <div class="d-flex align-items-start flex-column">
-        <label for="input_amount">Dia</label>
+	<div class="d-flex container-input" id="container-input">
+		<div class="d-flex flex-column lbl-container">
+			<label class="lbl">Categoria</label>
+			<select class="form-select input-month" @onchange="LoadCategoryData" style="width: 200px;" id="select-category" disabled="@(_isSelected)">
+				<option value="0" disabled selected>Selecione</option>
 
-        <select @bind="_day" class="form-select" id="input_repeatPer" style="width: 80px;">
+				@if (_isSelected == true)
+				{
+					<option value="@transaction?.Category?.id" selected>@transaction?.Category?.title</option>
 
-            @for (int i = 1; i <= 31; i++)
-            {
-                <option selected="@(i == DateTime.Now.Day)">@i</option>
-            }
+				}else{
+					@foreach (Category category in categories.OrderBy(item => item.title))
+					{
 
-        </select>
+						<option value="@category.id">@category.title</option>
+					}
+				}
+
+			</select>
+		</div>
+		<div class="d-flex flex-column lbl-container">
+			<label for="input_repeatPer" class="lbl">Dia</label>
+
+			<select @bind="_day" class="form-select" id="input_repeatPer" style="width: 80px;" disabled="@(_isSelected)">
+
+				@for (int i = 1; i <= 31; i++)
+				{
+					<option selected="@(i == DateTime.Now.Day)">@i</option>
+				}
+
+			</select>
 
 
-    </div>
+		</div>
+		<div class="btn-container">
+			<div class="d-flex  flex-column lbl-container">
+				<label for="input_amount" class="lbl">Valor R$</label>
+				<input type="text" class="form-control" id="input-amount-transaction" @bind-value="_value" />
+			</div>
+			<button @onclick="InsertTransaction" disabled="@(_isSelected)" class="mt-4" style="border: none; background-color: transparent; height: 50px; display: flex; align-items: center; justify-content: center; padding: 0px;">
+				<img src="icon-add.png" width="50" class="btn-include" />
+			</button>
+		</div>
 
-    <div class="btn-container">
-        <div class="d-flex align-items-start flex-column">
-            <label for="input_amount">Valor R$</label>
-            <input type="text" class="form-control" id="input-amount-transaction" @bind-value="_value" step=".01"/>
-        </div>
-        <button @onclick="InsertTransaction" class="mt-4" style="border: none; background-color: transparent; height: 50px; display: flex; align-items: center; justify-content: center; padding: 0px;">
-            <img src="icon-add.png" width="50" class="btn-include" />
-        </button>
-        @* <button class="mt-4" style="border: none; background-color: transparent; height: 50px; display: flex; align-items: center; justify-content: center; padding: 0px;"> *@
-        @* 	<img src="icon-remove.png" width="50" class="btn-exclude" /> *@
-        @* </button> *@
-    </div>
-</div>
+	</div>
+</section>
+
+<p class="break-point"></p>
 
 @if (!string.IsNullOrEmpty(_msg))
 {
 
-    <p class="alert alert-danger">@_msg</p>
+	<p class="alert alert-danger">@_msg</p>
 }
 
 <div class="transaction-card-container">
 
 
-    <Card Day="Entradas Fixas" Transactions="monthlyTransactionsIncome" TitleColor="var(--verdePrincipalEscuro)" EventTransaction="GetTransData" />
-    <Card Day="Saídas Fixas" Transactions="monthlyTransactionsNotIncome" TitleColor="var(--vermelhoPrincipal)" EventTransaction="GetTransData" />
+	<Card Day="Entradas Fixas" Transactions="monthlyTransactionsIncome" TitleColor="var(--verdePrincipalEscuro)" EventTransaction="GetTransData" />
+	<Card Day="Saídas Fixas" Transactions="monthlyTransactionsNotIncome" TitleColor="var(--vermelhoPrincipal)" EventTransaction="GetTransData" />
 
-    @for (int i = 1; i <= 31; i++)
-    {
-        List<Transaction> _transactions = BuildList(i);
+	@for (int i = 1; i <= 31; i++)
+	{
+		List<Transaction> _transactions = BuildList(i);
 
-        if (_transactions.Count > 0)
-        {
-            <Card Day="@i.ToString()" Transactions="@(_transactions)" TitleColor="var(--roxoCard)" EventTransaction="GetTransData" />
-        }
-    }
+		if (_transactions.Count > 0)
+		{
+			<Card Day="@i.ToString()" Transactions="@(_transactions)" TitleColor="var(--roxoCard)" EventTransaction="GetTransData" />
+		}
+	}
 
 </div>
 
-<div class="clean-delete-card @animationRef" @onclick="CleanDeleteCard">
-    <img src="icon-arrow-right.png" width="30" class="trash" />
+<div class="close-card @animationRef" @onclick="CleanSelectionCard">
+	<img src="icon-arrow-right.png" width="30" class="trash" />
+</div>
+<div class="edit-card @animationRef" @onclick="HandleEditTransaction">
+	<img src="icon-edit.png" width="30" class="trash" />
 </div>
 
 <div class="delete-card @animationRef" @onclick="DeleteCard">
-    <img src="Trash.png" width="30" class="trash"/>
+	<img src="Trash.png" width="30" class="trash" />
 </div>
 
 @code {
 
-    private List<Transaction> transactions = new();
-    private List<Transaction> monthlyTransactions = new();
-    private List<Transaction> monthlyTransactionsIncome = new();
-    private List<Transaction> monthlyTransactionsNotIncome = new();
-    private string _mesReferencia { get; set; } = string.Empty;
-    private int monthIndex { get; set; }
-    public List<Category> categories { get; set; } = new();
-    public CategoryService? categoryService { get; set; }
-    public Category selectedCategory { get; set; } = new();
+	private List<Transaction> transactions = new();
+	private List<Transaction> monthlyTransactions = new();
+	private List<Transaction> monthlyTransactionsIncome = new();
+	private List<Transaction> monthlyTransactionsNotIncome = new();
+	private string _mesReferencia { get; set; } = string.Empty;
+	private int monthIndex { get; set; }
+	public List<Category> categories { get; set; } = new();
+	public CategoryService? categoryService { get; set; }
+	public Category selectedCategory { get; set; } = new();
 
-    private int _day { get; set; }
-    private double _value { get; set; }
+	private int _day { get; set; }
+	private double _value { get; set; }
 
-    public TransactionService? transactionService;
-    public Transaction transaction = new();
+	public TransactionService? transactionService;
+	public Transaction transaction = new();
 
-    private string _msg { get; set; } = string.Empty;
-    private string _currentGlobalYear { get; set; } = string.Empty;
+	private string _msg { get; set; } = string.Empty;
+	private string _currentGlobalYear { get; set; } = string.Empty;
 
-    private bool _isSelected { get; set; }
+	private bool _isSelected { get; set; }
 
-    private string animationRef { get; set; } = string.Empty;
+	private string animationRef { get; set; } = string.Empty;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await GetCurrentYear();
+	protected override async Task OnInitializedAsync()
+	{
+		await GetCurrentYear();
 
-        await GetTransactionList();
-        monthIndex = DateTime.Now.Month;
-        _day = DateTime.Now.Day;
-        _mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
+		await GetTransactionList();
+		monthIndex = DateTime.Now.Month;
+		_day = DateTime.Now.Day;
+		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
-        string _token = await Cookie.GetValue("app_token");
+		string _token = await Cookie.GetValue("app_token");
 
-        if (!string.IsNullOrEmpty(_token))
-        {
-            categoryService = new(HttpClient, Cookie);
-            categories = await categoryService.GetCategories();
-        }
+		if (!string.IsNullOrEmpty(_token))
+		{
+			categoryService = new(HttpClient, Cookie, NavigationManager);
+			categories = await categoryService.GetCategories();
+		}
 
-        BuildFixedCards();
+		BuildFixedCards();
 
-        State.Notification += CurrentYearHasChanged;
-    }
+		State.Notification += CurrentYearHasChanged;
+		await JSRuntime.InvokeVoidAsync("SetFocus", "select-category");
+	}
 
-    private void BuildFixedCards()
-    {
-        monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-        monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-    }
+	private void BuildFixedCards()
+	{
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+	}
 
-    private async Task GetCurrentYear()
-    {
-        string _currentYearCookie = await Cookie.GetValue("config");
-        _currentGlobalYear = _currentYearCookie.Split(",")[0].Trim();
-    }
+	private async Task GetCurrentYear()
+	{
+		string _currentYearCookie = await Cookie.GetValue("config");
+		_currentGlobalYear = _currentYearCookie.Split(",")[0].Trim();
+	}
 
-    private async Task UpdateSelectedMonth(ChangeEventArgs e)
-    {
-        monthIndex = int.Parse(e.Value.ToString());
-        _mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
+	private async Task UpdateSelectedMonth(ChangeEventArgs e)
+	{
+		await CleanSelectionCard();
+		monthIndex = int.Parse(e.Value.ToString());
+		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
-        monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-        monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-        await GetTransactionList();
-    }
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		await GetTransactionList();
+	}
 
-    private void UpdateAllLists()
-    {
-        monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-        monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-    }
+	private void UpdateAllLists()
+	{
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+	}
 
-    private List<Transaction> BuildList(int day)
-    {
-        List<Transaction> transactionsPerDay = transactions.Where(transaction => transaction.Date == day.ToString()).Where(transaction => transaction?.Category?.isMonthly == false)
-        .Where(transaction => transaction.Month == monthIndex.ToString()).ToList();
+	private List<Transaction> BuildList(int day)
+	{
+		List<Transaction> transactionsPerDay = transactions.Where(transaction => transaction.Date == day.ToString()).Where(transaction => transaction?.Category?.isMonthly == false)
+		.Where(transaction => transaction.Month == monthIndex.ToString()).ToList();
 
-        return transactionsPerDay;
-    }
+		return transactionsPerDay;
+	}
 
-    private List<Transaction> BuildMonthlyList()
-    {
-        monthlyTransactions = transactions.Where(item => item?.Category?.isMonthly == true).ToList() ?? new List<Transaction>();
+	private List<Transaction> BuildMonthlyList()
+	{
+		monthlyTransactions = transactions.Where(item => item?.Category?.isMonthly == true).ToList() ?? new List<Transaction>();
 
-        return monthlyTransactions;
-    }
+		return monthlyTransactions;
+	}
 
-    private async Task GetTransactionList()
-    {
-        transactionService = new(HttpClient, Cookie);
-        string _currentYearCookie = await Cookie.GetValue("config");
-        string _currentYear = _currentYearCookie.Split(",")[0].Trim();
+	private async Task GetTransactionList()
+	{
+		_isSelected = false;
+		transactionService = new(HttpClient, Cookie, NavigationManager);
+		string _currentYearCookie = await Cookie.GetValue("config");
+		string _currentYear = _currentYearCookie.Split(",")[0].Trim();
 
-        try
-        {
-            transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
-            BuildMonthlyList();
-            UpdateAllLists();
+		try
+		{
+			transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
+			BuildMonthlyList();
+			UpdateAllLists();
 
-        }
-        catch (Exception ex)
-        {
-            _msg = ex.Message;
-        }
-    }
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+	}
 
-    private async Task InsertTransaction()
-    {
-        transactionService = new(HttpClient, Cookie);
-        string _currentYearCookie = await Cookie.GetValue("config");
-        string _currentYear = _currentYearCookie.Split(",")[0].Trim();
+	private async Task InsertTransaction()
+	{
+		transactionService = new(HttpClient, Cookie, NavigationManager);
+		string _currentYearCookie = await Cookie.GetValue("config");
+		string _currentYear = _currentYearCookie.Split(",")[0].Trim();
 
-        transaction.Year = _currentYear;
-        transaction.Value = double.Parse(_value.ToString("F2"));
-        transaction.Category.id = selectedCategory.id;
-        transaction.Date = _day.ToString();
-        transaction.Month = monthIndex.ToString();
-
-
-        try
-        {
-            await transactionService.InsertTransaction(transaction);
-            await GetTransactionList();
-            CleanFields();
-            _msg = "";
-        }
-        catch (Exception ex)
-        {
-            _msg = ex.Message;
-        }
-    }
-
-    private void CleanFields()
-    {
-        // _day = DateTime.Now.Day;
-        _value = 0;
-        _msg = "";
-        _isSelected = false;
-        animationRef = "leaveCardAnimation";
-    }
-
-    private async Task LoadCategoryData(ChangeEventArgs e)
-    {
-        Category verifyCategory = new();
-        List<Category> verifyCategories = new();
-        categoryService = new(HttpClient, Cookie);
-        verifyCategories = await categoryService.GetCategories();
-
-        selectedCategory.id = e.Value.ToString();
-        verifyCategory = verifyCategories.Where(item => item.id == selectedCategory.id).FirstOrDefault<Category>()!;
-
-        if (verifyCategory.amount > 0)
-        {
-            _value = verifyCategory.amount;
-        } else { _value = 0; }
-        if (!string.IsNullOrEmpty(verifyCategory.day) && verifyCategory.isMonthly == true)
-        {
-            _day = int.Parse(verifyCategory.day);
-        }
-        else
-        {
-            _day = DateTime.Now.Day;
-        }
-    }
-
-    private async Task GetTransData(Transaction trans)
-    {
-        _isSelected = true;
-        // _value = trans.Value;
-        // _day = int.Parse(trans.Date);
-
-        // selectedCategory.id = trans.Category.id;
-
-        transaction = trans;
-
-        animationRef = "riseCardAnimation";
+		transaction.Year = _currentYear;
+		transaction.Value = double.Parse(_value.ToString("F2"));
+		transaction.Category.id = selectedCategory.id;
+		transaction.Date = _day.ToString();
+		transaction.Month = monthIndex.ToString();
 
 
-        // Delay para recolher os botões laterais
+		try
+		{
+			await transactionService.InsertTransaction(transaction);
+			await GetTransactionList();
+			await CleanFields();
+			_msg = "";
+			await JSRuntime.InvokeVoidAsync("SetFocus", "select-category");
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+	}
 
-        if (_isSelected)
-        {
-            int delay = 5000;
+	private async Task CleanFields()
+	{
+		// _day = DateTime.Now.Day;
+		_value = 0;
+		_msg = "";
+		_isSelected = false;
+		animationRef = "leaveCardAnimation";
+		await JSRuntime.InvokeVoidAsync("SetFocus", "select-category");
+	}
 
-            await Task.Delay(delay).ContinueWith((task) =>
-            {
-                CleanDeleteCard();
-            });
-        }
-    }
+	private async Task LoadCategoryData(ChangeEventArgs e)
+	{
+		Category verifyCategory = new();
+		List<Category> verifyCategories = new();
+		categoryService = new(HttpClient, Cookie, NavigationManager);
+		verifyCategories = await categoryService.GetCategories();
 
-    private async Task DeleteCard()
-    {
-        transactionService = new(HttpClient, Cookie);
-        try
-        {
-            await transactionService.DeleteTransaction(transaction);
-        }
-        catch (Exception ex)
-        {
-            _msg = ex.Message;
-        }
+		selectedCategory.id = e.Value.ToString();
+		verifyCategory = verifyCategories.Where(item => item.id == selectedCategory.id).FirstOrDefault<Category>()!;
 
-        CleanDeleteCard();
-        CleanFields();
-        await GetTransactionList();
-    }
+		if (verifyCategory.amount > 0)
+		{
+			_value = verifyCategory.amount;
+		}
+		else { _value = 0; }
+		if (!string.IsNullOrEmpty(verifyCategory.day) && verifyCategory.isMonthly == true)
+		{
+			_day = int.Parse(verifyCategory.day);
+		}
+		// else
+		// {
+		// 	_day = DateTime.Now.Day;
+		// }
+	}
 
-    private void CleanDeleteCard()
-    {
-        _isSelected = false;
-        animationRef = "leaveCardAnimation";
-        transaction = new();
+	private async Task GetTransData(Transaction trans)
+	{
+		_isSelected = true;
+		_value = trans.Value;
+		_day = int.Parse(trans.Date);
 
-    }
+		selectedCategory.id = trans.Category.id;
 
-    // private void InputMask( e)
-    // {
-    // 	JSRuntime.InvokeVoidAsync($"mascara({e.target.value})");
-    // }
+		transaction = trans;
+		animationRef = "riseCardAnimation";
 
-    private void CurrentYearHasChanged()
-    {
-        Task lista = GetTransactionList();
-        Task task = GetCurrentYear();
-        UpdateAllLists();
-        BuildFixedCards();
-        StateHasChanged();
+		if (!string.IsNullOrEmpty(transaction.Id))
+		{
+			await JSRuntime.InvokeVoidAsync("SetFocus", "input-amount-transaction");
+		}
 
-    }
+		// Delay para recolher os botões laterais
+
+		// if (_isSelected)
+		// {
+		//     int delay = 5000;
+
+		//     await Task.Delay(delay).ContinueWith((task) =>
+		//     {
+		//         CleanSelectionCard();
+		//     });
+		// }
+	}
+
+	private async Task DeleteCard()
+	{
+		transactionService = new(HttpClient, Cookie, NavigationManager);
+		try
+		{
+			await transactionService.DeleteTransaction(transaction);
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
+
+		await CleanSelectionCard();
+		await CleanFields();
+		await GetTransactionList();
+	}
+
+	private async Task CleanSelectionCard()
+	{
+		if (!string.IsNullOrEmpty(transaction.Id))
+		{
+			await JSRuntime.InvokeVoidAsync("turnBackLineColor", transaction.Id);
+		}
+
+		await CleanFields();
+		animationRef = "leaveCardAnimation";
+		transaction = new();
+		_day = DateTime.Now.Day;
 
 
-    public void Dispose()
-    {
-        State.Notification -= CurrentYearHasChanged;
+	}
+
+	private void CurrentYearHasChanged()
+	{
+		Task lista = GetTransactionList();
+		Task task = GetCurrentYear();
+		UpdateAllLists();
+		BuildFixedCards();
+		StateHasChanged();
+
+	}
+
+	public void Dispose()
+	{
+		State.Notification -= CurrentYearHasChanged;
+	}
+
+	private async Task HandleEditTransaction()
+	{
+		TransactionService transactionService = new(HttpClient, Cookie, NavigationManager);
+
+		try
+		{
+			if (transaction != null)
+			{
+				transaction.Value = _value;
+				await transactionService.EditTransaction(transaction);
+			}
+
+			await GetTransactionList();
+			await CleanFields();
+
+		}
+		catch (Exception ex)
+		{
+			_msg = ex.Message;
+		}
 	}
 }
 
@@ -348,43 +387,4 @@
 	$(document).ready(() => {
 		$("#input-amount-transaction").mask("##.#00,00", {reverse: true});
 	});
-		// input = document.getElementById("input-amount-transaction");
-
-		// input.addEventListener('input', (e) => {
-		// 	let valorAlterado = event.target.value;
-
-		// 	valorAlterado = valorAlterado.replace(/\D/g, ""); Remove todos os não dígitos
-		// 	valorAlterado = valorAlterado.replace(/(\d+)(\d{2})$/, "$1,$2"); Adiciona a parte de centavos
-		// 	valorAlterado = valorAlterado.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); Adiciona pontos a cada três dígitos
-		// 	valorAlterado = "R$" + valorAlterado;
-		// 	event.target.value = valorAlterado;
-		// });
-
-	// 	function mascara(valor) {
-	// 	var valorAlterado = valor.value;
-	// 	valorAlterado = valorAlterado.replace(/\D/g, ""); Remove todos os não dígitos
-	// 	valorAlterado = valorAlterado.replace(/(\d+)(\d{2})$/, "$1,$2"); Adiciona a parte de centavos
-	// 	valorAlterado = valorAlterado.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); Adiciona pontos a cada três dígitos
-	// 	valorAlterado = "R$" + valorAlterado;
-	// 	valor.value = valorAlterado;
-	// }
-	
-
-
-	// input.addEventListener('input', function(event) {
-	//   let value = event.target.value;
-
-	//   Remover caracteres não numéricos (opcional)
-	//   value = value.replace(/[^0-9]/g, '');
-
-	//   Formatar com Intl.NumberFormat
-	//   const formatter = new Intl.NumberFormat('pt-BR', {
-	// 	style: 'currency',
-	// 	currency: 'BRL'
-	//   });
-
-	//   const formattedValue = formatter.format(value / 100); Dividido por 100 para converter centavos em reais
-
-	//   event.target.value = formattedValue;
-	// });
 </script>

@@ -8,7 +8,7 @@
 @inject AppState State
 
 <!-- Modal -->
-<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px">
+<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px; z-index: 20;">
 	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal" />
 	<br />
 
@@ -145,7 +145,6 @@
 		// _investmentRate = UserGlobalInfo.InvestmentRate.ToString();
 	}
 
-
 	private async Task GetUserConfig()
 	{
 		_config = await cookie.GetValue($"config");
@@ -226,7 +225,6 @@
 			_status = "danger";
 		}
 	}
-
 
 }
 

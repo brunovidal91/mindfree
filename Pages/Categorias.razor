@@ -3,6 +3,7 @@
 @inject ICookie cookie
 @inject HttpClient httpClient
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 
 
 
@@ -114,7 +115,7 @@
 					</thead>
 					<tbody>
 
-						@foreach (Category category in categories)
+						@foreach (Category category in categories.OrderBy(item => item.title))
 						{
 							if (category.isIncome == false)
 							{
@@ -167,7 +168,7 @@
 
 
 
-						@foreach (Category category in categories)
+						@foreach (Category category in categories.OrderBy(item => item.title))
 						{
 							if (category.isIncome)
 							{
@@ -219,7 +220,7 @@
 	private async Task AddCategory()
 	{
 
-		CategoryService categoryService = new(httpClient, cookie);
+		CategoryService categoryService = new(httpClient, cookie, NavigationManager);
 		Category category = new Category { title = Title, amount = _amount, day = _day, isIncome = _isIncome, isMonthly = _isMonthly };
 
 		if (!string.IsNullOrEmpty(Title))
@@ -237,6 +238,7 @@
 					await CleanFields();
 					_msg = "Categoria inserida com sucesso!";
 					status = "success";
+					await JSRuntime.InvokeVoidAsync("SetFocus", "input_name");
 				}
 				else
 				{
@@ -261,7 +263,7 @@
 	private async Task SelectCategories()
 	{
 		UserService userService = new(httpClient, cookie, NavigationManager);
-		CategoryService categoryService = new(httpClient, cookie);
+		CategoryService categoryService = new(httpClient, cookie, NavigationManager);
 		try
 		{
 
@@ -290,7 +292,7 @@
 
 	private async Task Delete()
 	{
-		CategoryService categoryService = new(httpClient, cookie);
+		CategoryService categoryService = new(httpClient, cookie, NavigationManager);
 
 		try
 		{
@@ -307,7 +309,6 @@
 			status = "danger";
 		}
 	}
-
 
 	private void ErrorAddCategory()
 	{

@@ -5,6 +5,7 @@
         private bool _isAdmin;
         private string? _userName;
         private string? _currentYear;
+        private int _currentMonth;
 
         //Global Prop IsAdmin
         public bool IsAdmin { 
@@ -36,6 +37,18 @@
             set
             {
                 _currentYear = value;
+                HasChanged();
+            }
+
+        }
+
+        //Global Prop currentYear 
+        public int CurrentMonth
+        {
+            get { return _currentMonth; }
+            set
+            {
+                _currentMonth = value;
                 HasChanged();
             }
 

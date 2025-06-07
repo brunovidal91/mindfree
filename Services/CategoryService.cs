@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Components;
 using MindFree.Interfaces;
 using MindFree.Models;
 using MindFree.Pages;
@@ -13,21 +14,41 @@ namespace MindFree.Services
 
         private HttpClient? _httpClient { get; set; }
         private ICookie? _cookie { get; set; }
+        private NavigationManager _navigationManager { get; set; }
 
 
-        public CategoryService(HttpClient httpClient, ICookie cookie)
+        public CategoryService(HttpClient httpClient, ICookie cookie, NavigationManager navigationManager)
         {
             _cookie = cookie;
             _httpClient = httpClient;
+            _navigationManager = navigationManager;
         }
         public async Task<List<Category>> GetCategories()
         {
+            UserService userService = new UserService(_httpClient, _cookie, _navigationManager);
             List<Category> categories = new List<Category>();
             string _token = await _cookie.GetValue("app_token");
+
+        
             if (!string.IsNullOrEmpty(_token))
             {
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                categories = await _httpClient.GetFromJsonAsync<List<Category>>("categories") ?? new List<Category>();
+                try
+                {
+                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+                    categories = await _httpClient.GetFromJsonAsync<List<Category>>("categories") ?? new List<Category>();
+                }
+                catch (Exception ex)
+                {
+
+                    if (ex.Message.Contains("Unauthorized"))
+                    {
+                        await userService.Logout();
+                    }
+                    else
+                    {
+                        throw new Exception(ex.Message);
+                    }
+                }
             }
 
             return categories;

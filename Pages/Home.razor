@@ -1,21 +1,134 @@
 ﻿@page "/"
 @page "/dashboard"
-
+@inject IMonthList MonthList
 @inject AppState State
 @implements IDisposable
 
+@inject HttpClient HttpClient
+@inject ICookie Cookie
+@inject NavigationManager NavigationManager
+
 <PageTitle>painel</PageTitle>
 <SectionContent SectionName="Top">
-	<p class="text-center mt-3">Painel Administrativo</p>
+	<p class="text-center mt-3">Painel Administrativo • @_currentMonthName • @State.CurrentYear </p>
 </SectionContent>
-<h3>Aqui ficarão os paineis do dash</h3>
-<p>Current Year: @State.CurrentYear</p>
 
 
-@code{
-	protected override void OnInitialized()
+
+<section id="results-card-section">
+
+	<div class="results-card" id="card-percent">
+		<div class="results-lbl-container">
+			<label class="results-value-label">@(_econommyCard.ToString("F1")) %</label>
+			<label class="results-title-label">Economia</label>
+		</div>
+		<img src="icon-percent.png" width="40" height="40" />
+	</div>
+
+	<div class="results-card" id="card-saidas">
+		<div class="results-lbl-container">
+			<label class="results-value-label">R$ @(_expensesCard.ToString("F2"))</label>
+			<label class="results-title-label">Total saídas</label>
+		</div>
+		<img src="icon-decrease.png" width="40" height="40" />
+	</div>
+
+	<div class="results-card" id="card-entradas">
+		<div class="results-lbl-container">
+			<label class="results-value-label">R$ @(_incomeCard.ToString("F2"))</label>
+			<label class="results-title-label">Total entradas</label>
+		</div>
+		<img src="icon-increase.png" width="40" height="40" />
+	</div>
+
+	<div class="results-card" id="card-saldo">
+		<div class="results-lbl-container">
+			<label class="results-value-label">R$ @(_totalCard.ToString("F2"))</label>
+			<label class="results-title-label">Saldo atual</label>
+		</div>
+		<img src="icon-saldo.png" width="45" height="45" />
+	</div>
+</section>
+
+<section id="category-section">
+	<div>
+
+		<label class="category-cards-title">Gastos por Categoria</label>
+	<div id="category-compare-area">
+
+		<div id="category-compare-itens" style="width: 100%; margin-top: 10px;">
+			@foreach (CategoryCompare category in categoryCompares.OrderDescending())
+			{
+				<div class="d-flex gap-5">
+				<span style="color: #ff5; font-size: 14px; width: 140px; white-space: nowrap;">@category.Title</span>
+				<span style="text-align: left; font-size: 13px; color: #fff;">R$ @(category.Value.ToString("F2"))</span>
+				<span></span>
+				</div>
+
+				<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="@_expensesCard.ToString()">
+					<div class="progress-bar" style="width: @(category.Percentage.ToString("F0"))%; background-color: var(--roxoCard);">
+						@(category.Percentage.ToString("F0"))%
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+	</div>
+
+	<div id="category-next-payments-area">
+			<label class="next-payments-cards-title">Pagamentos Previstos</label>
+		<div>
+			<div id="category-next-payments-itens">
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+@code {
+
+	private int _currentMonthIndex { get; set; }
+	private string _currentMonthName { get; set; } = string.Empty;
+	private double _econommyCard { get; set; }
+	private double _expensesCard { get; set; }
+	private double _incomeCard { get; set; }
+	private double _totalCard { get; set; }
+
+
+	TransactionService transactionService;
+	Dashboard dashboard;
+	List<Transaction> transactions = new();
+	List<CategoryCompare> categoryCompares = new();
+
+
+	protected override async Task OnInitializedAsync()
 	{
+		//Pegar o ano atual
+		string _currentYearCookie = await Cookie.GetValue("config");
+		string _currentYear = _currentYearCookie.Split(",")[0].Trim() ?? State.CurrentYear ?? DateTime.Now.Year.ToString();
+
+		_currentMonthIndex = 5; //alterar dinamicamente
+
+		//Popular a class Dashboard
+		transactionService = new(HttpClient, Cookie, NavigationManager);
+		transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
+		dashboard = new(transactions, _currentMonthIndex.ToString());
+
+		//Preencher os cards de resultados
+		_econommyCard = dashboard.EconomyCard;
+		_expensesCard = dashboard.ExpensesCard;
+		_incomeCard = dashboard.IncomeCard;
+		_totalCard = dashboard.TotalCard;
+
+		categoryCompares = dashboard.CategoriesCompare;
+
+
+		//States
 		State.Notification += StateHasChanged;
+		_currentMonthIndex = MonthList.Months()[DateTime.Now.Month - 1].MonthPosition;
+		_currentMonthName = MonthList.Months()[DateTime.Now.Month - 1].MonthName!;
 	}
 
 	public void Dispose()

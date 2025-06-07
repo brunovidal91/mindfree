@@ -10,7 +10,12 @@ wwwroot\favicon.png
 wwwroot\icon-192.png
 wwwroot\icon-add.png
 wwwroot\icon-arrow-right.png
+wwwroot\icon-decrease.png
+wwwroot\icon-edit.png
+wwwroot\icon-increase.png
+wwwroot\icon-percent.png
 wwwroot\icon-remove.png
+wwwroot\icon-saldo.png
 wwwroot\index.html
 wwwroot\js\Base.js
 wwwroot\menu-config.png
