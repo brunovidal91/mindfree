@@ -544,6 +544,94 @@ a:hover[b-9fyw5s05nr]{
 
     }
 }
+/* /Pages/Recovery.razor.rz.scp.css */
+a[b-06272gylo9] {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+    a:hover[b-06272gylo9] {
+        cursor: pointer;
+        color: #30e3b3;
+        transition: all .3s;
+    }
+
+.login-zone[b-06272gylo9] {
+    width: 740px;
+    height: 350px;
+    background-color: var(--roxoCard);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.login_container_logo[b-06272gylo9] {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container_input[b-06272gylo9] {
+    background-color: var(--roxoCard);
+    width: 440px;
+    height: 350px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-left: 2px solid #fff;
+}
+
+    .container_input a[b-06272gylo9] {
+        text-decoration: none;
+    }
+
+.logomarca[b-06272gylo9] {
+    position: absolute;
+    top: 10px;
+    font-family: cursive;
+    color: #231058;
+    font-size: 28px;
+    letter-spacing: 0.01px;
+}
+
+input[b-06272gylo9], button[b-06272gylo9]{
+    width: 250px;
+}
+
+@media screen and (max-width: 800px) {
+    .login-zone[b-06272gylo9] {
+        flex-direction: column;
+        width: 355px;
+        height: 500px;
+    }
+
+    .login_container_logo[b-06272gylo9] {
+        height: 355px;
+        width: 300px;
+    }
+
+
+    .container_input[b-06272gylo9] {
+        width: 350px;
+        height: 600px;
+        border-left: 0px;
+    }
+
+    .logomarca[b-06272gylo9] {
+        top: 60px;
+        right: -20px;
+    }
+}
 /* /Pages/Transactions.razor.rz.scp.css */
 .transaction-card-container[b-qy3wizfeoj] {
     display: flex;

@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "MindFree",
   "resources": {
-    "hash": "sha256-QTzVy7+S40f0sXu1GiUywCzcJBec+IQiNKieAxUjmGE=",
+    "hash": "sha256-FGk1qWCd2Ebm4myq/4EvbkAm5Y1CqruafE75wGFqqPs=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-ftpNqtARtVNE8ku5eB/jXoklb41UQ+EutUHfwmbNTBY="
     },
@@ -213,10 +213,10 @@
       "mscorlib.wasm": "sha256-BeLfFpg9iS3DkEdywsYY7sV6ML3knqkMaMq0JBEbWlw=",
       "netstandard.wasm": "sha256-VkjUtJ6DK5bFTc2JwwGHmQY3tBcNSC7zMSJXuiXcnJA=",
       "System.Private.CoreLib.wasm": "sha256-VIQEPUSb48N39LR+ncGDP5xU02xuRbyZU8MhMho26wQ=",
-      "MindFree.wasm": "sha256-VGsuIW6L7/Tw2Y7SdpBf4W7Ib8uLJPwL5l6ZnJ9HSn4="
+      "MindFree.wasm": "sha256-qHAVp1VsjqDZKofQfAlby1iqqF8KSa1j7lC9b/XaUqQ="
     },
     "pdb": {
-      "MindFree.pdb": "sha256-sPzAX9uh4orrQIfuhwT5jM41rdhC91UHpSgWB4tSzpw="
+      "MindFree.pdb": "sha256-5hyUerK192Yzz/gyLGYXdWG4PBMmw3lf0UebhtuSOtc="
     }
   },
   "cacheBootResources": true,
