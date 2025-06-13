@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>t6yddekh0d</Fingerprint>
-      <Integrity>q2xwuEp0V6WzDbMKNHiQbFDG43PD3fvQveYgc7g4Hck=</Integrity>
+      <Fingerprint>jxp41b3d9i</Fingerprint>
+      <Integrity>R3lpCiN9vEwsAEDWUu0lOsCnNYfyknYm5xCLPe1CWEQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e2i5wf82ap</Fingerprint>
-      <Integrity>SlklUQJkZdz/dRJ2kxdPHd6v4h9BHNz7UXDHbz4h2VU=</Integrity>
+      <Fingerprint>fynjcb1bog</Fingerprint>
+      <Integrity>B2jKzR1RC6c0fexeaWQWSezsyuADI5DMv2lgjOjyVU4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\mindfree.png'))</OriginalItemSpec>
@@ -516,8 +516,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>fm1i2pzvf6</Fingerprint>
-      <Integrity>SfFVV/QG7vbalAKfWYEZ64/KrOpNEa803JjXzlCWNt8=</Integrity>
+      <Fingerprint>4x0agggnrc</Fingerprint>
+      <Integrity>2MwgkQGc0o7ryJungj/y/BtwaEZdSgF2QieYiY2Gt+o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</OriginalItemSpec>
@@ -534,8 +534,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gigjdchmqo</Fingerprint>
-      <Integrity>qLjRiH3kGK3rN3EXc4W/ihbNuL3ZDT/z2ODkEZ30Y2c=</Integrity>
+      <Fingerprint>cn4fobmtvn</Fingerprint>
+      <Integrity>uHZ1KK8azaDILx67F16R79DjOF9D1zXTm9fa1xuT0B0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\mindfree_menor.png'))</OriginalItemSpec>

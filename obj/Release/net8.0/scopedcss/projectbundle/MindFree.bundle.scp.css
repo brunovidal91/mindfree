@@ -408,7 +408,7 @@ main[b-qhqvot6ore] {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
     align-items: center;
     justify-content: flex-start;
@@ -418,7 +418,7 @@ main[b-qhqvot6ore] {
     width: 160px;
     height: 180px;
     background-color: var(--roxoCard);
-    border: 1px solid var(--roxoCard);
+    border: 1.5px solid var(--roxoCard);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -429,7 +429,7 @@ main[b-qhqvot6ore] {
 }
 
 .older-month-title[b-xy8lf02n18] {
-    width: 159px;
+    width: 158.5px;
     background-color: #fff;
     text-align: center;
     border-top-left-radius: 8px;
@@ -445,8 +445,25 @@ main[b-qhqvot6ore] {
     cursor: pointer;
 }
 
-@media(max-width: 640px) {
-    #btn-section[b-xy8lf02n18] {
+#older_results-title[b-xy8lf02n18] {
+    width: 80%;
+    height: 25px;
+    background-color: aliceblue;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+
+}
+
+#older_results-title span[b-xy8lf02n18]{
+    color: #555;
+}
+
+    @media(max-width: 640px) {
+        #btn-section[b-xy8lf02n18] {
         position: relative;
         top: 0px;
         float: right;
@@ -542,6 +559,94 @@ a:hover[b-9fyw5s05nr]{
         top: 60px;
         right: -20px;
 
+    }
+}
+/* /Pages/Recovery.razor.rz.scp.css */
+a[b-06272gylo9] {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+    a:hover[b-06272gylo9] {
+        cursor: pointer;
+        color: #30e3b3;
+        transition: all .3s;
+    }
+
+.login-zone[b-06272gylo9] {
+    width: 740px;
+    height: 350px;
+    background-color: var(--roxoCard);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.login_container_logo[b-06272gylo9] {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container_input[b-06272gylo9] {
+    background-color: var(--roxoCard);
+    width: 440px;
+    height: 350px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    border-left: 2px solid #fff;
+}
+
+    .container_input a[b-06272gylo9] {
+        text-decoration: none;
+    }
+
+.logomarca[b-06272gylo9] {
+    position: absolute;
+    top: 10px;
+    font-family: cursive;
+    color: #231058;
+    font-size: 28px;
+    letter-spacing: 0.01px;
+}
+
+input[b-06272gylo9], button[b-06272gylo9]{
+    width: 250px;
+}
+
+@media screen and (max-width: 800px) {
+    .login-zone[b-06272gylo9] {
+        flex-direction: column;
+        width: 355px;
+        height: 500px;
+    }
+
+    .login_container_logo[b-06272gylo9] {
+        height: 355px;
+        width: 300px;
+    }
+
+
+    .container_input[b-06272gylo9] {
+        width: 350px;
+        height: 600px;
+        border-left: 0px;
+    }
+
+    .logomarca[b-06272gylo9] {
+        top: 60px;
+        right: -20px;
     }
 }
 /* /Pages/Transactions.razor.rz.scp.css */

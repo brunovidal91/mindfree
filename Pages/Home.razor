@@ -27,10 +27,6 @@
 	</select>
 </div>
 
-@* <section id="btn-section" class="top-row"> *@
-@* 	<img src="icon-close-arrow.png" id="btn-img" /> *@
-@* </section> *@
-
 <section id="results-card-section">
 
 	<div class="results-card" id="card-percent">
@@ -82,7 +78,7 @@
 					</div>
 
 					<div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="@_expensesCard.ToString()">
-						<div class="progress-bar" style="width: @(category.Percentage.ToString("F0"))%; background-color: var(--roxoCard);">
+						<div class="progress-bar" style="width: @(category.Percentage.ToString("F0"))%; background-color: var(--roxoCardOld);">
 							@(category.Percentage.ToString("F0"))%
 						</div>
 					</div>
@@ -120,7 +116,9 @@
 
 	</div>
 </section>
-
+<div id="older_results-title">
+	<span>Resumo dos meses anteriores</span>
+</div>
 <section id="older-results-section">
 
 	@foreach (MonthResult monthResult in monthResults.OrderBy(item => item.MonthIndex))

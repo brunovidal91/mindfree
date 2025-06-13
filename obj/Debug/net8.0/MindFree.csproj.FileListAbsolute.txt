@@ -1062,6 +1062,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\T
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Usuarios.razor.rz.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\scopedcss\Pages\Recovery.razor.rz.scp.css
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-jotjjnoqcb.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-kw5o4p6xdb.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-wr8w8lkinp.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\pp1pjaylaq-6s98xrlil9.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\bj87j58viv-5zjunpbs5d.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Debug\net8.0\compressed\jbiqjbw7ro-vsdi6sjq48.gz

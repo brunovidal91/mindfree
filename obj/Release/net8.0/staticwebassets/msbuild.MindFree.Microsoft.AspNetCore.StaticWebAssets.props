@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>t6yddekh0d</Fingerprint>
-      <Integrity>q2xwuEp0V6WzDbMKNHiQbFDG43PD3fvQveYgc7g4Hck=</Integrity>
+      <Fingerprint>jxp41b3d9i</Fingerprint>
+      <Integrity>R3lpCiN9vEwsAEDWUu0lOsCnNYfyknYm5xCLPe1CWEQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -498,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e2i5wf82ap</Fingerprint>
-      <Integrity>SlklUQJkZdz/dRJ2kxdPHd6v4h9BHNz7UXDHbz4h2VU=</Integrity>
+      <Fingerprint>fynjcb1bog</Fingerprint>
+      <Integrity>B2jKzR1RC6c0fexeaWQWSezsyuADI5DMv2lgjOjyVU4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\mindfree.png'))</OriginalItemSpec>
@@ -516,8 +516,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>kuz9z82gle</Fingerprint>
-      <Integrity>RJ9jCMmZDc+raThnbJ6v1wzsm/3RcWwW9HrCawKrsVE=</Integrity>
+      <Fingerprint>2qarz6aock</Fingerprint>
+      <Integrity>CuocvXx/gCZm2p8P9sPalEn1fqr2Tazv9iDi0vx3uIA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</OriginalItemSpec>
