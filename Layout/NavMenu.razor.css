@@ -95,6 +95,24 @@
     background-color: #fff;
 }
 
+#info-area{
+    position: absolute;
+    bottom: 5px;
+    left: 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    visibility: visible;
+}
+
+#info-area span{
+    font-size: 10px;
+    color: #fff;
+}
+
 @media (min-width: 641px) {
     .navbar-toggler {
         display: none;
@@ -112,4 +130,16 @@
     }
 
 
+}
+
+@media (max-width: 640px){
+    #info-area{
+        visibility: hidden;
+    }
+}
+
+@media (max-height: 320px) {
+    #info-area {
+        visibility: hidden;
+    }
 }

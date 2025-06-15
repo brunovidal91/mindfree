@@ -75,7 +75,7 @@
     overflow-y: auto;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    background-color: rgb(31, 171, 185);
+    background-color: rgb(109, 140, 232);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -88,7 +88,7 @@
     overflow-y: auto;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    background-color: rgb(31, 171, 185);
+    background-color: rgb(109, 140, 232);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -97,7 +97,7 @@
 
 .category-cards-title[b-xy8lf02n18] {
     color: #fff;
-    background-color: rgb(31, 171, 185);
+    background-color: rgb(109, 140, 232);
     width: 450px;
     text-align: center;
     border-top-left-radius: 8px;
@@ -105,7 +105,7 @@
 }
 .next-payments-cards-title[b-xy8lf02n18] {
     color: #fff;
-    background-color: rgb(31, 171, 185);
+    background-color: rgb(109, 140, 232);
     width: 380px;
     text-align: center;
     border-top-left-radius: 8px;

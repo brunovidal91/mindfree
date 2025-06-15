@@ -18,24 +18,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\.nojekyll'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\bgimg.jpg'))">
-      <SourceType>Package</SourceType>
-      <SourceId>MindFree</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>/</BasePath>
-      <RelativePath>bgimg.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3ef5semtnl</Fingerprint>
-      <Integrity>1e6VFECvU5yd2a7X0V3lkzyl0o+oKbiiBJRkawlaEfc=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\bgimg.jpg'))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\btn_close.png'))">
       <SourceType>Package</SourceType>
       <SourceId>MindFree</SourceId>
@@ -84,8 +66,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>jxp41b3d9i</Fingerprint>
-      <Integrity>R3lpCiN9vEwsAEDWUu0lOsCnNYfyknYm5xCLPe1CWEQ=</Integrity>
+      <Fingerprint>ehce2xd3m1</Fingerprint>
+      <Integrity>siyFmBzu6oA0bZu2q94VPtDZMt5g4RNSFBzV/EtoPA0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</OriginalItemSpec>
@@ -125,24 +107,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\bootstrap\bootstrap.min.css.map'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\exit.png'))">
-      <SourceType>Package</SourceType>
-      <SourceId>MindFree</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>/</BasePath>
-      <RelativePath>exit.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>mtenpjssdr</Fingerprint>
-      <Integrity>NrDG9cR/FM7j4a/ORGuuxmj/dPXOo1gcNrf7HZS+Nbg=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\exit.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))">
       <SourceType>Package</SourceType>
@@ -228,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>6vs7202x5w</Fingerprint>
-      <Integrity>HtDNNVz0xvu4BBWNfy0qiR6KRHyrOM7DusqrgIVrFo0=</Integrity>
+      <Fingerprint>zmdirpa3ts</Fingerprint>
+      <Integrity>dYs2FH+uoBqL9vs1/Q1fxSjxzjsLADKcRiIpfVNgnTg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\icon-blind-eye.png'))</OriginalItemSpec>
@@ -336,8 +300,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gsxv66lfxl</Fingerprint>
-      <Integrity>0GqXB9FMMKFzWMzAVPJq6s9hR/1ZlNxxZdxSUkOOEvE=</Integrity>
+      <Fingerprint>k7b66mddu3</Fingerprint>
+      <Integrity>QGwvjl+8qqgu2ideW3Pp59xXTmYrgPauvdq9N712/0E=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\icon-opened-eye.png'))</OriginalItemSpec>
@@ -516,8 +480,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>2qarz6aock</Fingerprint>
-      <Integrity>CuocvXx/gCZm2p8P9sPalEn1fqr2Tazv9iDi0vx3uIA=</Integrity>
+      <Fingerprint>blsce1c7v6</Fingerprint>
+      <Integrity>QfLV+TqfrZXmlRGFt59insEaZNlak3ODwLmmwFEnUZg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\MindFree.styles.css'))</OriginalItemSpec>
@@ -534,8 +498,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>gigjdchmqo</Fingerprint>
-      <Integrity>qLjRiH3kGK3rN3EXc4W/ihbNuL3ZDT/z2ODkEZ30Y2c=</Integrity>
+      <Fingerprint>cn4fobmtvn</Fingerprint>
+      <Integrity>uHZ1KK8azaDILx67F16R79DjOF9D1zXTm9fa1xuT0B0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\mindfree_menor.png'))</OriginalItemSpec>
