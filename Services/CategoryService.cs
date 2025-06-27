@@ -64,9 +64,9 @@ namespace MindFree.Services
             if (string.IsNullOrEmpty(category.day)) category.day = "1";
 
             //category = new Category { title = "Teste", isIncome=false, isMonthly = false, amount = 30.25, day= "20" };
-            category = new Category { title = category.title, isIncome=category.isIncome, isMonthly = category.isMonthly, amount = category.amount, day = category.day };
+            category = new Category { title = category.title, isIncome=category.isIncome, isMonthly = category.isMonthly, amount = category.amount, day = category.day, custom = category.custom };
 
-            await _cookie.SetValue("teste", $"title = {category.title}, isIncome={category.isIncome}, isMonthly = {category.isMonthly}, amount = {category.amount}, day = {category.day}");
+            //await _cookie.SetValue("teste", $"title = {category.title}, isIncome={category.isIncome}, isMonthly = {category.isMonthly}, amount = {category.amount}, day = {category.day}");
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
             HttpResponseMessage response = await _httpClient.PostAsJsonAsync("categories/add", category);

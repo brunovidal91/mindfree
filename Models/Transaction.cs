@@ -8,6 +8,7 @@
         public string Date { get; set; } = string.Empty;
         public string Month { get; set; } = string.Empty;
         public string Year { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         public Transaction()
         {

@@ -8,7 +8,7 @@
 @inject AppState State
 
 <!-- Modal -->
-<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px; z-index: 20;">
+<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px; z-index: 20; background-color: var(--roxoCard)">
 	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal" />
 	<br />
 
@@ -71,11 +71,11 @@
 			</div>
 
 		</div>
-		<div class="d-flex align-items-center mt-3 gap-1">
+		@* <div class="d-flex align-items-center mt-3 gap-1">
 			<input type="checkbox" style="width: 20px; height: 20px;" @bind="_isAllowedChangePassword" />
 			<label>Alterar Senha</label>
 
-		</div>
+		</div> *@
 		<button class="btn btn-success" @onclick="UpdateUser" style="position: absolute; bottom: 15px; right: 15px;" disabled="@(!_isAllowedMe)">Salvar</button>
 
 	}

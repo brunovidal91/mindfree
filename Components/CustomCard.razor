@@ -1,0 +1,182 @@
+﻿@inject IJSRuntime JSRuntime
+@inject ICookie Cookie
+
+<section class="card-container">
+	<p style="background-color: @headColor; color: #fff; width: 100%; text-align: center; border-top-left-radius: 5px; border-top-right-radius: 5px;">@Day</p>
+	<div class="list-container">
+
+		@foreach(Transaction transaction in Transactions.OrderByDescending(item => item.Id))
+		{
+			<div class="line" @ondblclick=@(() => GetTransactionData(transaction)) style="background-color: @(transaction.Category.isIncome && !transaction.Category.isMonthly ? "var(--verdePrincipal)" : ""); border-radius: 5px;" id="@transaction.Id">
+
+				<p style="text-align: left; width: 115px; font-size: 13.5px;">@(string.IsNullOrEmpty(transaction?.Description) ? "sem descrição" : transaction?.Description)</p>
+				<p style="text-align: left; width: 95px; font-size: 13.5px;">R$ @transaction?.Value.ToString("F2")</p>
+				<p>@colorsList</p>
+			</div>
+		}
+	</div>
+	@* <input type="color" @onchange="ChangeTitleColor" class="input-title-color" value="@headColor" /> *@
+</section>
+
+@code {
+
+	private string headColor { get; set; } = "#993399";
+	private string colorsList { get; set; } = string.Empty;
+
+	[Parameter]
+	public string Day { get; set; } = string.Empty;
+
+	[Parameter]
+	public List<Transaction>? Transactions { get; set; } = new();
+
+	private List<CustomColor> customColors;
+	private CustomColor customColor;
+
+	public string TitleColor { get; set; } = "var(--roxoCard)";
+
+	[Parameter]
+	public EventCallback<Transaction> EventTransaction { get; set; }
+
+	private string _selectedId { get; set; } = string.Empty;
+
+
+	public string BorderColor { get; set; } = "#eee";
+
+
+	// protected override async Task OnInitializedAsync()
+	// {
+
+	// 	await GetColors();
+
+	// }
+
+
+	private async Task GetTransactionData(Transaction transaction)
+	{
+
+		await EventTransaction.InvokeAsync(transaction);
+		await JSRuntime.InvokeVoidAsync("changeLineColor", transaction.Id);
+	}
+
+	// public async Task GetColors()
+	// {
+	// 	headColor = "#993399";
+	// 	customColors = new();
+
+	// 	if(Transactions?.Count > 0)
+	// 	{
+	// 		string colors = await Cookie.GetValue("colors");
+
+	// 		if(!string.IsNullOrEmpty(colors))
+	// 		{
+	// 			string[] listaCores = colors.Split("&");
+	// 			foreach (string item in listaCores)
+	// 			{
+	// 				customColor = new();
+	// 				string _title = item.Split(":")[0];
+	// 				string _color = item.Split(":")[1];
+
+	// 				customColor.Title = _title;
+	// 				customColor.Color = _color;
+
+
+	// 				customColors.Add(customColor);
+
+	// 			}
+
+
+	// 			foreach (Transaction transaction in Transactions)
+	// 			{
+	// 				if (customColors.Count > 0)
+	// 				{
+	// 					CustomColor CustomColor = customColors.Where(item => item.Title == transaction.Category.title).FirstOrDefault();
+
+	// 					if(transaction.Category.title == customColor.Title)
+	// 					{
+	// 						headColor = customColor.Color;
+	// 					}
+	// 				}
+
+	// 			}
+
+	// 		}
+
+
+	// 	}
+	// }
+
+	// private async Task ChangeTitleColor(ChangeEventArgs e)
+	// {
+
+	// 	List<CustomColor> customColors = new();
+	// 	string colorsString = string.Empty;
+	// 	string colors = await Cookie.GetValue("colors");
+
+	// 	if (!string.IsNullOrEmpty(colors))
+	// 	{
+
+	// 		if (Transactions?.Count > 0)
+	// 		{
+	// 			string[] listaCores = colors.Split("&");
+	// 			foreach (string item in listaCores)
+	// 			{
+	// 				string _title = item.Split(":")[0];
+	// 				string _color = item.Split(":")[1];
+
+	// 				customColors.Add(new CustomColor { Title = _title, Color = _color });
+
+	// 			}
+
+	// 		}
+	// 	}
+
+
+	// 	string Title = Transactions!.FirstOrDefault()!.Category!.title;
+	// 	headColor = e.Value!.ToString()!;
+
+	// 	CustomColor customColor = customColors.Where(item => item.Title == Title).FirstOrDefault()!;
+
+	// 	if(customColor != null)
+	// 	{
+	// 		customColor.Color = headColor;
+	// 		fazer com que todos os itens da lista entrem no setvalue da forma correta
+
+	// 		for(int i = 0; i < customColors.Count; i++)
+	// 		{
+	// 			if(i == customColors.Count + 1)
+	// 			{
+	// 				colorsString += customColors[i].Title + ":" + customColors[i].Color;
+	// 			}
+	// 			else
+	// 			{
+	// 				colorsString += customColors[i].Title + ":" + customColors[i].Color + "&";
+	// 			}
+	// 		}
+
+	// 		await Cookie.SetValue("colors", colorsString);
+
+	// 	}fazer o else para os casos onde o title não está na lista
+	// 	else
+	// 	{
+	// 		if (!string.IsNullOrEmpty(colors))
+	// 		{
+	// 			colorsString =  colors + "&" + Title + ":" + headColor;
+
+	// 		}
+	// 		else
+	// 		{
+	// 			colorsString =  Title + ":" + headColor;
+				
+	// 		}
+
+			
+	// 		await Cookie.SetValue("colors", colorsString);
+
+	// 	}
+
+
+
+	// 	await Cookie.SetValue(Title, $"{Title}&{headColor}");
+	// }
+
+}

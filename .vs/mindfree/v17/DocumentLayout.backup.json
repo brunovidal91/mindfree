@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\pages\\transactions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:pages\\transactions.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\models\\customcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:models\\customcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\components\\customcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:components\\customcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\pages\\categorias.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:pages\\categorias.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|c:\\users\\brunovidal\\desktop\\projetos\\mindfree\\mindfree\\pages\\transactions.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B7925965-8B11-C769-F520-12217228C6BB}|MindFree.csproj|solutionrelative:pages\\transactions.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\Category.cs",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Models\\Category.cs",
+              "RelativeToolTip": "Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-27T01:45:54.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Categorias.razor",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Categorias.razor",
+              "RelativeDocumentMoniker": "Pages\\Categorias.razor",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Categorias.razor",
+              "RelativeToolTip": "Pages\\Categorias.razor",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-27T01:38:07.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomColor.cs",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Models\\CustomColor.cs",
+              "RelativeDocumentMoniker": "Models\\CustomColor.cs",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Models\\CustomColor.cs",
+              "RelativeToolTip": "Models\\CustomColor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T21:44:19.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomCard.razor",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Components\\CustomCard.razor",
+              "RelativeDocumentMoniker": "Components\\CustomCard.razor",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Components\\CustomCard.razor",
+              "RelativeToolTip": "Components\\CustomCard.razor",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-22T15:39:48.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Transactions.razor",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Transactions.razor",
+              "RelativeDocumentMoniker": "Pages\\Transactions.razor",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Transactions.razor",
+              "RelativeToolTip": "Pages\\Transactions.razor",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAuwFAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-20T00:50:12.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Transactions.razor.css",
+              "DocumentMoniker": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Transactions.razor.css",
+              "RelativeDocumentMoniker": "Pages\\Transactions.razor.css",
+              "ToolTip": "C:\\Users\\brunovidal\\Desktop\\Projetos\\mindfree\\mindfree\\Pages\\Transactions.razor.css",
+              "RelativeToolTip": "Pages\\Transactions.razor.css",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAAMAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-22T14:46:19.661Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

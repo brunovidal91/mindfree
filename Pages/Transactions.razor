@@ -24,6 +24,12 @@
 			}
 
 		</select>
+
+		<div class="description-container">
+			<label for="customDescription" style="color: #fff;">Descrição</label>
+			<input type="text" id="customDescription" class="form-control" disabled="@(!_isCustom)" @bind-value="@_description" maxlength="20"/>
+		</div>
+		
 	</div>
 
 
@@ -88,6 +94,14 @@
 	<Card Day="Entradas Fixas" Transactions="monthlyTransactionsIncome" TitleColor="var(--verdePrincipalEscuro)" EventTransaction="GetTransData" />
 	<Card Day="Saídas Fixas" Transactions="monthlyTransactionsNotIncome" TitleColor="var(--vermelhoPrincipal)" EventTransaction="GetTransData" />
 
+	@* Custom cards *@
+	@foreach (var transactionList in customGroup.OrderBy(items => items[0]?.Category?.title)){
+
+		<CustomCard Day="@transactionList?.FirstOrDefault()?.Category!.title" Transactions="@transactionList" EventTransaction="GetTransData" @ref="customCard" />
+		
+	}
+
+
 	@for (int i = 1; i <= 31; i++)
 	{
 		List<Transaction> _transactions = BuildList(i);
@@ -117,6 +131,9 @@
 	private List<Transaction> monthlyTransactions = new();
 	private List<Transaction> monthlyTransactionsIncome = new();
 	private List<Transaction> monthlyTransactionsNotIncome = new();
+	private List<Transaction> customTransactions = new();
+	private List<List<Transaction>> customGroup = new();
+	private bool _isCustom { get; set; }
 	private string _mesReferencia { get; set; } = string.Empty;
 	private int monthIndex { get; set; }
 	public List<Category> categories { get; set; } = new();
@@ -135,6 +152,9 @@
 	private bool _isSelected { get; set; }
 
 	private string animationRef { get; set; } = string.Empty;
+	private string _description { get; set; } = string.Empty;
+
+	private CustomCard customCard;
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -161,8 +181,19 @@
 
 	private void BuildFixedCards()
 	{
-		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category!.custom == false).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category!.custom == false).ToList() ?? new List<Transaction>();
+
+		customTransactions = transactions.Where(item => item.Category!.custom == true).Where(item => item.Month == monthIndex.ToString()).ToList();
+
+		customGroup.Clear();
+		var group = from transaction in customTransactions group transaction by transaction.Category!.title;
+
+		foreach (var transactions in group)
+		{
+			customGroup.Add(transactions.ToList());
+
+		}
 	}
 
 	private async Task GetCurrentYear()
@@ -173,25 +204,49 @@
 
 	private async Task UpdateSelectedMonth(ChangeEventArgs e)
 	{
-		await CleanSelectionCard();
+
+		// await CleanSelectionCard();
 		monthIndex = int.Parse(e.Value.ToString());
 		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
-		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+		customTransactions = transactions.Where(item => item.Category!.custom == true).Where(item => item.Month == monthIndex.ToString()).ToList();
+
+		customGroup.Clear();
+		var group = from transaction in customTransactions group transaction by transaction.Category!.title;
+
+		foreach (var transactions in group)
+		{
+			customGroup.Add(transactions.ToList());
+
+		}
+
+
 		await GetTransactionList();
 	}
 
 	private void UpdateAllLists()
 	{
-		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
-		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).ToList() ?? new List<Transaction>();
+		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+
+		customTransactions = transactions.Where(item => item.Category!.custom == true).Where(item => item.Month == monthIndex.ToString()).ToList();
+
+		customGroup.Clear();
+		var group = from transaction in customTransactions group transaction by transaction.Category!.title;
+
+		foreach(var transactions in group)
+		{
+			customGroup.Add(transactions.ToList());
+
+		}
 	}
 
 	private List<Transaction> BuildList(int day)
 	{
 		List<Transaction> transactionsPerDay = transactions.Where(transaction => transaction.Date == day.ToString()).Where(transaction => transaction?.Category?.isMonthly == false)
-		.Where(transaction => transaction.Month == monthIndex.ToString()).ToList();
+		.Where(transaction => transaction.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList();
 
 		return transactionsPerDay;
 	}
@@ -234,6 +289,7 @@
 		transaction.Category.id = selectedCategory.id;
 		transaction.Date = _day.ToString();
 		transaction.Month = monthIndex.ToString();
+		transaction.Description = _description;
 
 
 		try
@@ -256,8 +312,13 @@
 		_value = 0;
 		_msg = "";
 		_isSelected = false;
+		_description = "";
 		animationRef = "leaveCardAnimation";
 		await JSRuntime.InvokeVoidAsync("SetFocus", "select-category");
+		if (!string.IsNullOrEmpty(transaction.Id))
+		{
+			await JSRuntime.InvokeVoidAsync("turnBackLineColor", transaction.Id);
+		}
 	}
 
 	private async Task LoadCategoryData(ChangeEventArgs e)
@@ -269,6 +330,7 @@
 
 		selectedCategory.id = e.Value.ToString();
 		verifyCategory = verifyCategories.Where(item => item.id == selectedCategory.id).FirstOrDefault<Category>()!;
+		_isCustom = verifyCategory.custom;
 
 		if (verifyCategory.amount > 0)
 		{
@@ -287,9 +349,12 @@
 
 	private async Task GetTransData(Transaction trans)
 	{
+
 		_isSelected = true;
+		_isCustom = false;
 		_value = trans.Value;
 		_day = int.Parse(trans.Date);
+		_description = trans.Description;
 
 		selectedCategory.id = trans.Category.id;
 

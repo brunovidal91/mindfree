@@ -167,6 +167,14 @@
     color: #fff;
 }
 
+
+.description-container {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
 @media (max-width: 1010px){
     .input-area {
         width: 60%;
@@ -178,7 +186,14 @@
         visibility: hidden;
     }
 
-    .inputs-container{
+    .description-container{
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .inputs-container {
         flex-direction: column;
     }
 

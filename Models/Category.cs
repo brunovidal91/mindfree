@@ -11,5 +11,6 @@ namespace MindFree.Models
         public bool isMonthly { get; set; } = false;
         public string day { get; set; } = "";
         public double amount { get; set; } = 0.00;
+        public bool custom {get; set; } = false;
     }
 }
