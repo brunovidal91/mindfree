@@ -293,9 +293,6 @@ code {
         }
     }
 
-
-
-
 @media (max-height: 320px) {
     #info-area {
         visibility: hidden;

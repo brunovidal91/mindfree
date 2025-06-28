@@ -2130,6 +2130,6 @@ C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\MindFr
 C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\refint\MindFree.dll
 C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\MindFree.pdb
 C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\ref\MindFree.dll
-C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\pp1pjaylaq-wz4hgq9758.gz
-C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\bj87j58viv-na06ppxl0g.gz
-C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\jbiqjbw7ro-xs091yhovt.gz
+C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\pp1pjaylaq-n3qs8bfccd.gz
+C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\bj87j58viv-68m7pvdvno.gz
+C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\obj\Release\net8.0\compressed\jbiqjbw7ro-4ypqz58c6r.gz
