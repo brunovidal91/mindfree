@@ -1,4 +1,8 @@
 is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -6,12 +10,12 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = false
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = browser
 build_property.RootNamespace = MindFree
 build_property.RootNamespace = MindFree
 build_property.ProjectDir = C:\Users\brunovidal\Desktop\Projetos\mindfree\mindfree\
 build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
@@ -51,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/brunovidal/Desktop/Projetos/mindfree/mindfree/Components/Card.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-wuoji9qiwc
+
+[C:/Users/brunovidal/Desktop/Projetos/mindfree/mindfree/Components/CustomCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDdXN0b21DYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-2zrcbpnga6
 
 [C:/Users/brunovidal/Desktop/Projetos/mindfree/mindfree/Layout/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y

@@ -186,6 +186,18 @@ code {
     animation: load .5s linear infinite;
 }
 
+#info-area {
+    position: absolute;
+    bottom: 5px;
+    left: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    visibility: visible;
+}
+
 @keyframes load{
     to{
         transform: rotate(360deg);
@@ -270,8 +282,22 @@ code {
     }
 
 
+
+
     @media (max-width: 641px) {
         .logout {
             visibility: hidden;
         }
+        #info-area {
+            visibility: hidden;
+        }
     }
+
+
+
+
+@media (max-height: 320px) {
+    #info-area {
+        visibility: hidden;
+    }
+}
