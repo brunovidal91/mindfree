@@ -95,11 +95,10 @@
     background-color: #fff;
 }
 
-#info-area[b-97brtswapb]{
+.info-area-version[b-97brtswapb]{
     position: absolute;
     bottom: 5px;
     left: 25%;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,7 +107,7 @@
     visibility: visible;
 }
 
-#info-area span[b-97brtswapb]{
+.info-area-version span[b-97brtswapb] {
     font-size: 10px;
     color: #fff;
 }
@@ -133,13 +132,13 @@
 }
 
 @media (max-width: 640px){
-    #info-area[b-97brtswapb]{
+    .info-area-version[b-97brtswapb]{
         visibility: hidden;
     }
 }
 
 @media (max-height: 320px) {
-    #info-area[b-97brtswapb] {
+    .info-area-version[b-97brtswapb]{
         visibility: hidden;
     }
 }

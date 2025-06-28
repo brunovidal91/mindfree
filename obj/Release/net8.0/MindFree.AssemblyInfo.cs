@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0088ba9d59598373d0446435b07edecca1f2cc6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbb34751280ed59a09fad1c83b8c6ce605bd46cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
