@@ -27,9 +27,7 @@
 
 			<div class="d-flex align-items-start flex-column">
 				<label for="input_name">Nome</label>
-				<InputText id="input_name" @bind-Value="Title" class="form-control" @ref="input_name" />
-
-
+				<input type="text" id="input_name" @bind-value="Title" class="form-control" maxlength="20"/>
 
 			</div>
 
@@ -39,12 +37,15 @@
 					<label for="input_isIncome">É receita?</label>
 					<InputCheckbox id="input_isIncome" @bind-Value="_isIncome" style="width: 20px; height: 20px; accent-color: var(--verdePrincipal)" />
 
-
-
 				</div>
 				<div class="d-flex align-items-center flex-column">
 					<label for="_isMonthly">É recorrente?</label>
 					<InputCheckbox id="_isMonthly" @bind-Value="_isMonthly" style="width: 20px; height: 20px; accent-color: var(--verdePrincipal)" />
+
+				</div>
+				<div class="d-flex align-items-center flex-column">
+					<label for="_isCustom">É detalhado?</label>
+					<InputCheckbox id="_isCustom" @bind-Value="_isCustom" style="width: 20px; height: 20px; accent-color: var(--verdePrincipal)" />
 
 				</div>
 
@@ -52,7 +53,7 @@
 
 			<div class="d-flex align-items-start flex-column mt-2">
 				<label for="input_amount">Dia Vcto. </label>
-				@* <SelectDay @bind-value="_day" disabled="@IsMonthlyType()" /> *@
+
 				<select @bind="_day" class="form-select" id="input_repeatPer" style="width: 80px;" disabled="@IsMonthlyType()">
 
 					@for (int i = 1; i <= 31; i++)
@@ -67,7 +68,7 @@
 
 			<div class="d-flex align-items-start flex-column mt-2">
 				<label for="input_amount">Valor R$</label>
-				@* <InputAmount disabled=@IsMonthlyType() Amount="@_amount"/> *@
+
 				<input type="text" class="form-control" id="input-amount" @bind-value="@_amount" disabled="@IsMonthlyType()" />
 
 
@@ -120,7 +121,7 @@
 							if (category.isIncome == false)
 							{
 								<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
-									<td colspan="2">@category.title</td>
+									<td colspan="2">@(category.custom ? $"• {category.title}" : category.title)</td>
 									<td>@(category.isMonthly ? "Sim" : "Não")</td>
 									<td>@(category.isMonthly ? category.day : "")</td>
 									<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
@@ -173,7 +174,7 @@
 							if (category.isIncome)
 							{
 								<tr class="text-center" @ondblclick="@(() => GetInfo(category))" style="cursor: pointer;">
-									<td colspan="2">@category.title</td>
+									<td colspan="2">@(category.custom ? $"• {category.title}" : category.title)</td>
 									<td>@(category.isMonthly ? "Sim" : "Não")</td>
 									<td>@(category.isMonthly ? category.day : "")</td>
 									<td style="text-align: left">R$ @category.amount.ToString("F2")</td>
@@ -200,6 +201,7 @@
 	private string? _day { get; set; }
 	private bool _isMonthly { get; set; }
 	public double _amount { get; set; }
+	public bool _isCustom { get; set; }
 
 	private bool _isListEmpty { get; set; }
 
@@ -221,7 +223,7 @@
 	{
 
 		CategoryService categoryService = new(httpClient, cookie, NavigationManager);
-		Category category = new Category { title = Title, amount = _amount, day = _day, isIncome = _isIncome, isMonthly = _isMonthly };
+		Category category = new Category { title = Title, amount = _amount, day = _day, isIncome = _isIncome, isMonthly = _isMonthly, custom = _isCustom };
 
 		if (!string.IsNullOrEmpty(Title))
 		{
@@ -238,7 +240,7 @@
 					await CleanFields();
 					_msg = "Categoria inserida com sucesso!";
 					status = "success";
-					await JSRuntime.InvokeVoidAsync("SetFocus", "input_name");
+					
 				}
 				else
 				{
@@ -336,8 +338,9 @@
 		_isMonthly = false;
 		_amount = 0;
 		_day = "";
+		_isCustom = false;
+		await JSRuntime.InvokeVoidAsync("SetFocus", "input_name");
 
-		// await Utils.SetFocus(input_name);
 
 	}
 
@@ -356,7 +359,8 @@
 		_isMonthly = cat.isMonthly;
 		_amount = cat.amount;
 		if(cat.isMonthly)
-		_day = cat.day;
+			_day = cat.day;
+		_isCustom = cat.custom;
 	}
 
 }

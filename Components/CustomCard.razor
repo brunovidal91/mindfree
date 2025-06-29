@@ -1,0 +1,56 @@
+﻿@inject IJSRuntime JSRuntime
+@inject ICookie Cookie
+
+<section class="card-container">
+	<p style="background-color: @headColor; color: #fff; width: 100%; text-align: center; border-top-left-radius: 5px; border-top-right-radius: 5px;">@Day</p>
+	<div class="list-container">
+
+		@foreach(Transaction transaction in Transactions.OrderByDescending(item => item.Id))
+		{
+			<div class="line" @ondblclick=@(() => GetTransactionData(transaction)) style="background-color: @(transaction.Category.isIncome && !transaction.Category.isMonthly ? "var(--verdePrincipal)" : ""); border-radius: 5px;" id="@transaction.Id">
+
+				<p style="text-align: left; width: 115px; font-size: 13.5px;">@(string.IsNullOrEmpty(transaction?.Description) ? "sem descrição" : transaction?.Description)</p>
+				<p style="text-align: left; width: 95px; font-size: 13.5px;">R$ @transaction?.Value.ToString("F2")</p>
+				<p>@colorsList</p>
+			</div>
+		}
+	</div>
+
+</section>
+
+@code {
+
+	private string headColor { get; set; } = "#993399";
+	private string colorsList { get; set; } = string.Empty;
+
+	[Parameter]
+	public string Day { get; set; } = string.Empty;
+
+	[Parameter]
+	public List<Transaction>? Transactions { get; set; } = new();
+
+	private List<CustomColor> customColors;
+	private CustomColor customColor;
+
+	public string TitleColor { get; set; } = "var(--roxoCard)";
+
+	[Parameter]
+	public EventCallback<Transaction> EventTransaction { get; set; }
+
+	private string _selectedId { get; set; } = string.Empty;
+
+
+	public string BorderColor { get; set; } = "#eee";
+
+
+
+
+
+	private async Task GetTransactionData(Transaction transaction)
+	{
+
+		await EventTransaction.InvokeAsync(transaction);
+		await JSRuntime.InvokeVoidAsync("changeLineColor", transaction.Id);
+	}
+
+}

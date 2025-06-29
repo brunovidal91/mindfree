@@ -270,6 +270,8 @@ code {
     }
 
 
+
+
     @media (max-width: 641px) {
         .logout {
             visibility: hidden;
