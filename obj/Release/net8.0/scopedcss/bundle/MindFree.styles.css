@@ -247,6 +247,24 @@ main[b-qhqvot6ore] {
     background-color: #fff;
 }
 
+#info-area[b-97brtswapb]{
+    position: absolute;
+    bottom: 5px;
+    left: 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    visibility: visible;
+}
+
+#info-area span[b-97brtswapb]{
+    font-size: 10px;
+    color: #fff;
+}
+
 @media (min-width: 641px) {
     .navbar-toggler[b-97brtswapb] {
         display: none;
@@ -264,6 +282,18 @@ main[b-qhqvot6ore] {
     }
 
 
+}
+
+@media (max-width: 640px){
+    #info-area[b-97brtswapb]{
+        visibility: hidden;
+    }
+}
+
+@media (max-height: 320px) {
+    #info-area[b-97brtswapb] {
+        visibility: hidden;
+    }
 }
 /* /Pages/Home.razor.rz.scp.css */
 
