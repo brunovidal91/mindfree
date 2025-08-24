@@ -8,8 +8,8 @@
 @inject AppState State
 
 <!-- Modal -->
-<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px; z-index: 20; background-color: var(--roxoCard)">
-	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal" />
+<dialog id="configModal" class="meuModal" style="height: @(ModalType == "me" ? 420 : 250)px; z-index: 20; border-radius: 5px;">
+	<img src="btn_close.png" class="btn_close" width="27" data-modal="configModal"/>
 	<br />
 
 	@if (ModalType == "config")
@@ -32,7 +32,7 @@
 
 		</div>
 
-		<button class="btn btn-success" @onclick="UpdateConfig" style="position: absolute; bottom: 15px; right: 15px;">Salvar</button>
+		<button class="btn btn-success" @onclick="UpdateConfig" style="position: absolute; bottom: 15px; right: 15px; background-color: var(--roxoCard);">Salvar</button>
 	}
 	else
 	{
@@ -76,7 +76,7 @@
 			<label>Alterar Senha</label>
 
 		</div> *@
-		<button class="btn btn-success" @onclick="UpdateUser" style="position: absolute; bottom: 15px; right: 15px;" disabled="@(!_isAllowedMe)">Salvar</button>
+		<button class="btn btn-success" @onclick="UpdateUser" style="position: absolute; bottom: 15px; right: 15px; background-color: var(--roxoCard)" disabled="@(!_isAllowedMe)">Salvar</button>
 
 	}
 
@@ -121,6 +121,7 @@
 	private string _status { get; set; } = string.Empty;
 	private string _password { get; set; } = string.Empty;
 	private string _confirmPassword { get; set; } = string.Empty;
+
 
 	public UserService? userService;
 

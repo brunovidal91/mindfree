@@ -88,7 +88,7 @@
 	<div class="tables_div row-cols-2">
 		<!-- Table de categorias de saída -->
 		<div class="d-flex flex-column align-items-center">
-			<p class="mb-0">Categorias de Saída</p>
+			<p class="mb-0 w-100 p-2 text-center" style="background-color: var(--roxoCard); color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px;">Categorias de Saída</p>
 
 			@if (categories.Count == 0)
 			{
@@ -105,7 +105,7 @@
 			else
 			{
 
-				<table class="table table-hover border">
+				<table class="table table-hover border border-top-0">
 					<thead>
 						<tr class="text-center" style="background-color: var(--roxoCard); color: #fff;">
 							<th colspan="2">Nome</th>
@@ -137,7 +137,7 @@
 
 		<!-- Table de categorias de entrada -->
 		<div class="d-flex flex-column align-items-center">
-			<p class="mb-0">Categorias de Entrada</p>
+			<p class="mb-0 w-100 p-2 text-center" style="background-color: var(--verdePrincipalEscuro); color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px;">Categorias de Entrada</p>
 
 			@if (categories.Count == 0)
 			{
@@ -156,9 +156,9 @@
 			else
 			{
 
-				<table class="table table-hover border">
+				<table class="table table-hover border border-top-0">
 					<thead>
-						<tr class="text-center" style="background-color: var(--verdePrincipal); color: #fff;">
+						<tr class="text-center" style="background-color: var(--verdePrincipalEscuro); color: #fff;">
 							<th colspan="2">Nome</th>
 							<th>É Fixa?</th>
 							<th>Dia de venc.</th>
