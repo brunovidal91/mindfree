@@ -558,6 +558,8 @@ a:hover[b-9fyw5s05nr]{
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+    box-shadow: 5px 5px 5px #ccc;
+    margin-top: -50px;
 }
 
 .login_container_logo[b-9fyw5s05nr]{
@@ -649,6 +651,8 @@ a[b-06272gylo9] {
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+    box-shadow: 5px 5px 5px #ccc;
+    margin-top: -50px;
 }
 
 .login_container_logo[b-06272gylo9] {

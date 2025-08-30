@@ -15,6 +15,7 @@
 </SectionContent>
 
 <img src="@(_isShowedValues ? "icon-opened-eye" : "icon-blind-eye").png" id="img-eye" @onclick="HideValues" />
+<img src="icon-refresh-30.png" id="img-refresh" @onclick="RefreshPage" />
 
 <div class="d-flex flex-column mb-3" id="input-month">
 	@* <label class="lbl">Mês atual</label> *@
@@ -115,11 +116,30 @@
 		</div>
 
 	</div>
-</section>
 
-@*
-	Aqui que ficará a parte de investimento
-*@
+	<div>
+		<label class="investment-title">Total para Investir</label>
+		<div id="investment-area">
+			<div id="category-next-payments-itens">
+				<table class="table" style="width: 240px; max-width: 240px;">
+					<thead>
+						<tr style="color: #fff; font-size: 14px; text-align: center;">
+							<th>Alíquota <span class="text-warning">@(_investmentRate.ToString("F2"))%</span></th>
+						</tr>
+					</thead>
+					<tbody>
+
+							<tr style="color: #fff; font-size: 15px; font-weight: normal;">
+								<td style="text-align: center;">R$ @( _isShowedValues ? _totalInvestment.ToString("F2") : "***")</td>
+							</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</section>
 
 <div id="older_results-title">
 	<span>Resumo dos meses anteriores</span>
@@ -161,6 +181,8 @@
 	private double _totalCard { get; set; }
 	private bool _isShowedValues { get; set; } = true;
 	private string _eye { get; set; } = string.Empty;
+	private double _totalInvestment { get; set; }
+	private double _investmentRate { get; set; }
 
 
 	TransactionService? transactionService;
@@ -196,6 +218,7 @@
 	{
 		string _currentYearCookie = await Cookie.GetValue("config");
 		string _currentYear = _currentYearCookie.Split(",")[0].Trim();
+		_investmentRate = double.Parse(_currentYearCookie.Split(",")[1].Trim());
 
 		if (string.IsNullOrEmpty(_currentYear)) _currentYear = DateTime.Now.Year.ToString();
 
@@ -215,6 +238,7 @@
 
 		categoryCompares = dashboard.CategoriesCompare;
 		expectedPayments = dashboard.NextPayments;
+		_totalInvestment = dashboard.GetTotalInvestment(_totalCard, _investmentRate);
 		monthResults = dashboard.MonthResults;
 	}
 
@@ -233,6 +257,13 @@
 		await Cookie.SetValue("eval", _isShowedValues.ToString());
 	}
 
+	private async Task RefreshPage()
+	{
+		string _currentYearCookie = await Cookie.GetValue("config");
+		_investmentRate = double.Parse(_currentYearCookie.Split(",")[1].Trim());
+		dashboard = new(transactions, _currentMonthIndex.ToString(), categories);
+		_totalInvestment = dashboard.GetTotalInvestment(_totalCard, _investmentRate);
+	}
 	public void Dispose()
 	{
 		State.Notification -= StateHasChanged;

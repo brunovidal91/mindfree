@@ -1,4 +1,6 @@
-﻿using MindFree.Utils;
+﻿using Microsoft.AspNetCore.Components;
+using MindFree.Interfaces;
+using MindFree.Utils;
 
 namespace MindFree.Models
 {
@@ -13,8 +15,7 @@ namespace MindFree.Models
         public double ExpensesCard { get; set; }
         public double IncomeCard { get; set; }
         public double TotalCard { get; set; }
-        public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();
-    
+        public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();    
     
         public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories) { 
             Transactions = transactions;
@@ -72,7 +73,15 @@ namespace MindFree.Models
                 percentage = 0;
             }
         }
-    
+        
+        public double GetTotalInvestment(double totalReq, double _investmentRate)
+        {
+            double rate = _investmentRate;
+            double total = totalReq * rate / 100;
+
+            return total;
+
+        }
         public void GetNextPayments()
         {
             int today = DateTime.Now.Day;
