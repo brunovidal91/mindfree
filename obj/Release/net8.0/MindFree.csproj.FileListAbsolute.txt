@@ -1063,6 +1063,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\refint\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\ref\MindFree.dll
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-l4wqgjfi55.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-e8yrezuevt.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-4v5pnxpbue.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-frskq0kjjl.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-k6fivd3hul.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-0nce5p7gar.gz

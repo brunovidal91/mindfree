@@ -27,3 +27,4 @@ wwwroot\mindfree.png
 wwwroot\mindfree_menor.png
 wwwroot\sample-data\weather.json
 wwwroot\Trash.png
+wwwroot\icon-refresh-30.png

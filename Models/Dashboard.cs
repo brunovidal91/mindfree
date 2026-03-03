@@ -17,7 +17,7 @@ namespace MindFree.Models
         public double TotalCard { get; set; }
         public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();    
     
-        public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories) { 
+        public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories, Boolean isIncomeList) { 
             Transactions = transactions;
             Categories = categories;
             CurrentMonth = currentMonth;
@@ -26,7 +26,7 @@ namespace MindFree.Models
             if(Transactions.Where(item => item.Month == currentMonth).Count() > 0)
             {
                 WriteResults();
-                CalcCompare();
+                CalcCompare(isIncomeList);
                 
             }
 
@@ -45,9 +45,9 @@ namespace MindFree.Models
             EconomyCard = TotalCard * 100 / IncomeCard;
         }    
         
-        public void CalcCompare()
+        public void CalcCompare(Boolean isIncomeList)
         {
-            List<Transaction> expensesList = Transactions.Where(item => item.Month == CurrentMonth).Where(item => item.Category.isIncome == false).ToList();
+            List<Transaction> expensesList = Transactions.Where(item => item.Month == CurrentMonth).Where(item => item.Category.isIncome == isIncomeList).ToList();
 
             var group = from transaction in expensesList
                         group transaction by transaction.Category.title into agroupedItems

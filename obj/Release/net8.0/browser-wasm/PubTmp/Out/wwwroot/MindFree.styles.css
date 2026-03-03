@@ -430,6 +430,19 @@ main[b-qhqvot6ore] {
     padding: 5px;
 }
 
+#investment-area[b-xy8lf02n18] {
+    width: 250px;
+    height: 105px;
+    overflow-y: auto;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: rgb(109, 140, 232);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
 .category-cards-title[b-xy8lf02n18] {
     color: #fff;
     background-color: rgb(109, 140, 232);
@@ -442,6 +455,15 @@ main[b-qhqvot6ore] {
     color: #fff;
     background-color: rgb(109, 140, 232);
     width: 380px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.investment-title[b-xy8lf02n18] {
+    color: #fff;
+    background-color: rgb(109, 140, 232);
+    width: 250px;
     text-align: center;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -511,6 +533,17 @@ main[b-qhqvot6ore] {
 #img-eye:hover[b-xy8lf02n18]{
     cursor: pointer;
 }
+
+#img-refresh[b-xy8lf02n18] {
+    width: 30px;
+    float: right;
+    margin-right: 20px;
+}
+
+#img-refresh:hover[b-xy8lf02n18] {
+    cursor: pointer;
+}
+
 
 #older_results-title[b-xy8lf02n18] {
     width: 80%;

@@ -63,10 +63,21 @@
 	</div>
 </section>
 
-<section id="category-section">
-	<div>
 
-		<label class="category-cards-title">Gastos por Categoria</label>
+
+
+<section id="category-section">
+
+	
+	<div  style="position: relative">
+	<div style="position: absolute; top: -25px; left: 1px;">
+		<div class="form-check form-switch">
+			<input class="form-check-input" type="checkbox" role="switch" id="@(isIncomeList ? "switchCheckChecked" : "switchCheckDefault")" @onclick="ChangeViewCategories" style="background-color: var(--roxoCard)">
+			<label class="form-check-label" for="switchCheckChecked">Ver as @(isIncomeList ? "Despesas" : "Receitas")</label>
+		</div>
+	</div>
+
+		<label class="category-cards-title">@(isIncomeList ? "Ganhos" : "Gastos") por Categoria</label> 
 		<div id="category-compare-area">
 
 			<div id="category-compare-itens" style="width: 100%; margin-top: 10px;">
@@ -194,6 +205,8 @@
 	List<ExpectedPayment> expectedPayments = new();
 	List<MonthResult> monthResults = new();
 
+	Boolean isIncomeList;
+
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -228,7 +241,7 @@
 		categoryService = new(HttpClient, Cookie, NavigationManager);
 		categories = await categoryService.GetCategories();
 
-		dashboard = new(transactions, _currentMonthIndex.ToString(), categories);
+		dashboard = new(transactions, _currentMonthIndex.ToString(), categories, isIncomeList);
 
 		//Preencher os cards de resultados
 		_econommyCard = dashboard.EconomyCard;
@@ -261,9 +274,17 @@
 	{
 		string _currentYearCookie = await Cookie.GetValue("config");
 		_investmentRate = double.Parse(_currentYearCookie.Split(",")[1].Trim());
-		dashboard = new(transactions, _currentMonthIndex.ToString(), categories);
+		dashboard = new(transactions, _currentMonthIndex.ToString(), categories, isIncomeList);
 		_totalInvestment = dashboard.GetTotalInvestment(_totalCard, _investmentRate);
 	}
+
+	private async Task ChangeViewCategories()
+	{
+		isIncomeList = !isIncomeList;
+		await GetLists();
+	}
+
+
 	public void Dispose()
 	{
 		State.Notification -= StateHasChanged;
