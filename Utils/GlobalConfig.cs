@@ -2,6 +2,6 @@
 {
     public static class GlobalConfig
     {
-        public static string SystemVersion { get; set; } = "02.00.003";
+        public static string SystemVersion { get; set; } = "02.00.004";
     }
 }

@@ -90,8 +90,8 @@ namespace MindFree.Models
             double value = 0;
 
             foreach (Category category in nextPaymentsCategorie) {
-                if(category.amount == 0)
-                {
+                //if(category.amount == 0)
+                //{
                     if (Transactions.Count > 0) {
 
                         Transaction? transaction = transactions.Where(item => item?.Category?.title == category.title).FirstOrDefault();
@@ -99,14 +99,19 @@ namespace MindFree.Models
 
                             value = transaction.Value;
                         }
+                        else
+                        {
+                            value = category.amount;
+
+                        }
+                    //}
+                    }
+                    else
+                    {
+                        value = category.amount;
 
                     }
-                }
-                else
-                {
-                    value = category.amount;
-                }
-                    NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day });
+                NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day });
                 value = 0;
             }
         }
