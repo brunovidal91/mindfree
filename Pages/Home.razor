@@ -99,9 +99,9 @@
 			</div>
 		</div>
 	</div>
-
+	@* --------------- Contas Mensais ----------------*@
 	<div>
-		<label class="next-payments-cards-title">Pagamentos Previstos</label>
+		<label class="next-payments-cards-title">Contas Mensais</label>
 		<div id="category-next-payments-area">
 			<div id="category-next-payments-itens">
 				<table class="table" style="width: 340px; max-width: 360px;">
@@ -110,15 +110,28 @@
 							<th>Dia</th>
 							<th colspan="2">Conta</th>
 							<th colspan="2">Valor à Pagar</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach (ExpectedPayment expectedPayment in expectedPayments.OrderBy(item => int.Parse(item.Date)))
 						{
-							<tr style="color: @( int.Parse(expectedPayment.Date) == _today && _currentMonthIndex == DateTime.Now.Month? "var(--amareloLoad)" : "#fff"); font-size: 14px;">
+							<tr style="color: @( int.Parse(expectedPayment.Date) == _today && _currentMonthIndex == DateTime.Now.Month? "var(--amareloLoad)" : (expectedPayment.Transaction != null && expectedPayment.Transaction.isPaid ? "var(--verdePrincipal)" : "#fff")); font-size: 14px;">
 								<td>@expectedPayment.Date</td>
 								<td colspan="2">@expectedPayment.Name</td>
 								<td colspan="2">R$ @(_isShowedValues ? expectedPayment.Value.ToString("F2") : "***")</td>
+								<td>
+									@if (expectedPayment.Transaction != null && expectedPayment.Transaction.isPaid == true)
+									{
+										<img src="icons8-check-48.png" width="20" height="20" id="img-check" @onclick="@(() => AlterPaid(expectedPayment))"/>
+									}
+									else
+									{
+										<img src="uncked-circle-48.png" width="20" height="20" id="img-uncheck" @onclick="@(() => AlterPaid(expectedPayment))"/>
+										
+									}
+
+								</td>
 							</tr>
 						}
 					</tbody>
@@ -194,6 +207,7 @@
 	private string _eye { get; set; } = string.Empty;
 	private double _totalInvestment { get; set; }
 	private double _investmentRate { get; set; }
+	private bool _isPaid { get; set; } = false;
 
 
 	TransactionService? transactionService;
@@ -251,6 +265,7 @@
 
 		categoryCompares = dashboard.CategoriesCompare;
 		expectedPayments = dashboard.NextPayments;
+
 		_totalInvestment = dashboard.GetTotalInvestment(_totalCard, _investmentRate);
 		monthResults = dashboard.MonthResults;
 	}
@@ -282,6 +297,28 @@
 	{
 		isIncomeList = !isIncomeList;
 		await GetLists();
+	}
+
+	private async Task AlterPaid(ExpectedPayment expectedPayment)
+	{
+
+		TransactionService transactionService = new(HttpClient, Cookie, NavigationManager);
+
+		try
+		{
+			if (expectedPayment.Transaction != null)
+			{
+				await transactionService.EditTransaction(expectedPayment.Transaction);
+			}
+
+			// await GetLists();
+
+		}
+		catch (Exception ex)
+		{
+			expectedPayment.Transaction.isPaid = false;
+
+		}
 	}
 
 

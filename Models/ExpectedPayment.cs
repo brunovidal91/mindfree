@@ -5,6 +5,14 @@
         public string Name { get; set; } = string.Empty;
         public string Date { get; set; } = string.Empty;
         public double Value { get; set; }
+        public Transaction Transaction { get; set; }
+
+
+        public ExpectedPayment()
+        {
+            Transaction = new Transaction();
+        }
+
 
         public int CompareTo(ExpectedPayment? other)
         {

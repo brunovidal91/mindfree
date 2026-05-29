@@ -209,6 +209,14 @@
     cursor: pointer;
 }
 
+#img-check:hover{
+    cursor: pointer
+}
+
+#img-uncheck:hover {
+    cursor: pointer
+}
+
 
 #older_results-title {
     width: 80%;
@@ -220,7 +228,6 @@
     justify-content: center;
     margin-top: 50px;
     border: 1px solid #ccc;
-
 }
 
 #older_results-title span{

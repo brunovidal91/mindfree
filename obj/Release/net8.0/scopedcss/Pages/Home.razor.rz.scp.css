@@ -209,6 +209,14 @@
     cursor: pointer;
 }
 
+#img-check:hover[b-xy8lf02n18]{
+    cursor: pointer
+}
+
+#img-uncheck:hover[b-xy8lf02n18] {
+    cursor: pointer
+}
+
 
 #older_results-title[b-xy8lf02n18] {
     width: 80%;
@@ -220,7 +228,6 @@
     justify-content: center;
     margin-top: 50px;
     border: 1px solid #ccc;
-
 }
 
 #older_results-title span[b-xy8lf02n18]{

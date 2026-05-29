@@ -9,6 +9,7 @@
         public string Month { get; set; } = string.Empty;
         public string Year { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
+        public bool isPaid { get; set; }
 
         public Transaction()
         {

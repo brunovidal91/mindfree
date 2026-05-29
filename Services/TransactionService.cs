@@ -35,6 +35,7 @@ namespace MindFree.Services
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
                     _transactionResponse = await _httpClient.GetFromJsonAsync<TransactionResponse>($"transactions/{date}/{datareq}/{month}/{year}");
                     _transactions = _transactionResponse.Transactions;
+                    
                     return _transactions;
                 }
 
@@ -106,9 +107,16 @@ namespace MindFree.Services
         public async Task EditTransaction(Transaction transaction)
         {
             if (transaction == null) throw new Exception("Para alteração é preciso informar uma transação.");
+
+
+            transaction.isPaid = !transaction.isPaid;
+            
+            if(transaction.isPaid == true && transaction.Value <= 0) throw new Exception("Só é possível dar baixa em transações pagas.");
+
+
             string token = await _cookie.GetValue("app_token");
 
-            TransactionEdit transactionEdit = new TransactionEdit { Id = transaction.Id, Value = transaction.Value };
+            TransactionEdit transactionEdit = new TransactionEdit { Id = transaction.Id, Value = transaction.Value, isPaid = transaction.isPaid };
 
             try
             {
@@ -135,6 +143,7 @@ namespace MindFree.Services
     {
         public string Id { get; set; } = string.Empty;
         public double Value { get; set; }
+        public bool? isPaid { get; set; }
 
     }
 }

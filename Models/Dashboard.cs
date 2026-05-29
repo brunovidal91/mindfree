@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MindFree.Interfaces;
 using MindFree.Utils;
+using System.Transactions;
 
 namespace MindFree.Models
 {
@@ -85,19 +86,30 @@ namespace MindFree.Models
         public void GetNextPayments()
         {
             int today = DateTime.Now.Day;
-            List<Category> nextPaymentsCategorie = Categories.Where(item => item.isIncome == false).Where(item => item.isMonthly == true).Where(item => int.Parse(item.day) >= today).ToList();
+            List<Category> nextPaymentsCategorie = Categories
+                .Where(item => item.isIncome == false)
+                .Where(item => item.isMonthly == true).ToList();
+            //.Where(item => int.Parse(item.day) >= today).ToList();
+
+
             List<Transaction> transactions = Transactions.Where(item => item.Month == CurrentMonth).ToList();
             double value = 0;
+            Transaction transaction = new Transaction();
 
             foreach (Category category in nextPaymentsCategorie) {
                 //if(category.amount == 0)
                 //{
                     if (Transactions.Count > 0) {
 
-                        Transaction? transaction = transactions.Where(item => item?.Category?.title == category.title).FirstOrDefault();
+                        transaction = transactions.Where(item => item?.Category?.title == category.title).FirstOrDefault();
                         if (transaction != null) {
 
                             value = transaction.Value;
+
+     
+                 
+                            
+                            // Criar uma nova coluna nas transações payed=True/False. Criar uma nova prop no ExpectedPayment.
                         }
                         else
                         {
@@ -111,7 +123,8 @@ namespace MindFree.Models
                         value = category.amount;
 
                     }
-                NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day });
+                NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day, Transaction = transaction });
+
                 value = 0;
             }
         }
