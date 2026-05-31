@@ -127,8 +127,12 @@
 									}
 									else
 									{
-										<img src="uncked-circle-48.png" width="20" height="20" id="img-uncheck" @onclick="@(() => AlterPaid(expectedPayment))"/>
-										
+										if (expectedPayment.Transaction != null)
+										{
+											<img src="uncked-circle-48.png" width="20" height="20" id="img-uncheck" @onclick="@(() => AlterPaid(expectedPayment))"/>
+
+										} 
+
 									}
 
 								</td>
