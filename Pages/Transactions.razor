@@ -158,14 +158,15 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		await GetCurrentYear();
-
-		await GetTransactionList();
 		monthIndex = DateTime.Now.Month;
 		_day = DateTime.Now.Day;
 		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
 		string _token = await Cookie.GetValue("app_token");
+
+		await GetCurrentYear();
+
+		await GetTransactionList();
 
 		if (!string.IsNullOrEmpty(_token))
 		{
@@ -173,7 +174,7 @@
 			categories = await categoryService.GetCategories();
 		}
 
-		BuildFixedCards();
+		// BuildFixedCards();
 
 		State.Notification += CurrentYearHasChanged;
 		await JSRuntime.InvokeVoidAsync("SetFocus", "select-category");
@@ -206,24 +207,24 @@
 	{
 
 		// await CleanSelectionCard();
-		monthIndex = int.Parse(e.Value.ToString());
+		monthIndex = int.Parse(e.Value!.ToString()!);
 		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
-		monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
-		monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
-		customTransactions = transactions.Where(item => item.Category!.custom == true).Where(item => item.Month == monthIndex.ToString()).ToList();
-
-		customGroup.Clear();
-		var group = from transaction in customTransactions group transaction by transaction.Category!.title;
-
-		foreach (var transactions in group)
-		{
-			customGroup.Add(transactions.ToList());
-
-		}
-
-
 		await GetTransactionList();
+
+		// monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+		// monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
+		// customTransactions = transactions.Where(item => item.Category!.custom == true).Where(item => item.Month == monthIndex.ToString()).ToList();
+
+		// customGroup.Clear();
+		// var group = from transaction in customTransactions group transaction by transaction.Category!.title;
+
+		// foreach (var transactions in group)
+		// {
+		// 	customGroup.Add(transactions.ToList());
+
+		// }
+
 	}
 
 	private void UpdateAllLists()
@@ -251,6 +252,7 @@
 		return transactionsPerDay;
 	}
 
+	// Retorna todas as transações mensais do mês selecionado
 	private List<Transaction> BuildMonthlyList()
 	{
 		monthlyTransactions = transactions.Where(item => item?.Category?.isMonthly == true).ToList() ?? new List<Transaction>();
@@ -267,7 +269,7 @@
 
 		try
 		{
-			transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
+			transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "M", monthIndex.ToString(), _currentYear);
 			BuildMonthlyList();
 			UpdateAllLists();
 
@@ -416,7 +418,7 @@
 		Task lista = GetTransactionList();
 		Task task = GetCurrentYear();
 		UpdateAllLists();
-		BuildFixedCards();
+		// BuildFixedCards();
 		StateHasChanged();
 
 	}

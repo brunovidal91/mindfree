@@ -24,6 +24,7 @@ namespace MindFree.Models
             CurrentMonth = currentMonth;
 
 
+
             if(Transactions.Where(item => item.Month == currentMonth).Count() > 0)
             {
                 WriteResults();
@@ -123,6 +124,8 @@ namespace MindFree.Models
                         value = category.amount;
 
                     }
+
+
                 NextPayments.Add(new ExpectedPayment { Name = category.title, Value = value, Date = category.day, Transaction = transaction });
 
                 value = 0;

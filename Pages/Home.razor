@@ -116,18 +116,20 @@
 					<tbody>
 						@foreach (ExpectedPayment expectedPayment in expectedPayments.OrderBy(item => int.Parse(item.Date)))
 						{
+
+
 							<tr style="color: @( int.Parse(expectedPayment.Date) == _today && _currentMonthIndex == DateTime.Now.Month? "var(--amareloLoad)" : (expectedPayment.Transaction != null && expectedPayment.Transaction.isPaid ? "var(--verdePrincipal)" : "#fff")); font-size: 14px;">
 								<td>@expectedPayment.Date</td>
 								<td colspan="2">@expectedPayment.Name</td>
 								<td colspan="2">R$ @(_isShowedValues ? expectedPayment.Value.ToString("F2") : "***")</td>
 								<td>
-									@if (expectedPayment.Transaction != null && expectedPayment.Transaction.isPaid == true)
+									@if (!String.IsNullOrEmpty(expectedPayment?.Transaction?.Category?.title) && expectedPayment.Transaction.isPaid == true)
 									{
 										<img src="icons8-check-48.png" width="20" height="20" id="img-check" @onclick="@(() => AlterPaid(expectedPayment))"/>
 									}
 									else
 									{
-										if (expectedPayment.Transaction != null)
+										if (!String.IsNullOrEmpty(expectedPayment?.Transaction?.Category?.title))
 										{
 											<img src="uncked-circle-48.png" width="20" height="20" id="img-uncheck" @onclick="@(() => AlterPaid(expectedPayment))"/>
 
@@ -254,7 +256,7 @@
 		if (string.IsNullOrEmpty(_currentYear)) _currentYear = DateTime.Now.Year.ToString();
 
 		transactionService = new(HttpClient, Cookie, NavigationManager);
-		transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "Y", DateTime.Now.Month.ToString(), _currentYear);
+		transactions = await transactionService.GetTransactions(DateTime.Now.Day.ToString(), "M", _currentMonthIndex.ToString(), _currentYear);
 
 		categoryService = new(HttpClient, Cookie, NavigationManager);
 		categories = await categoryService.GetCategories();

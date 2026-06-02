@@ -23,6 +23,7 @@ namespace MindFree.Services
 
         public async Task<List<Transaction>> GetTransactions(string date, string datareq, string month, string year)
         {
+
             string _token = await _cookie.GetValue("app_token");
             List<Transaction> _transactions = new List<Transaction>();
 
