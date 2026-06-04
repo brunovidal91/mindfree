@@ -234,8 +234,17 @@
     color: #555;
 }
 
-    @media(max-width: 640px) {
-        #btn-section {
+#btn-fechamento:active{
+    outline: 0 !important;
+}
+
+#btn-fechamento:hover{
+    opacity: 0.8;
+}
+
+
+@media(max-width: 640px) {
+    #btn-section {
         position: relative;
         top: 0px;
         float: right;

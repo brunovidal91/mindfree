@@ -82,11 +82,9 @@
 
 <p class="break-point"></p>
 
-@if (!string.IsNullOrEmpty(_msg))
-{
 
-	<p class="alert alert-danger">@_msg</p>
-}
+<Message Msg="@_msg" CleanEvent="CleanMsg" />
+
 
 <div class="transaction-card-container">
 
@@ -211,6 +209,7 @@
 		_mesReferencia = MonthList.SelectedMonth(monthIndex).MonthName!;
 
 		await GetTransactionList();
+		_msg = "";
 
 		// monthlyTransactionsIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == true).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
 		// monthlyTransactionsNotIncome = BuildMonthlyList().Where(item => item?.Category?.isIncome == false).Where(item => item.Month == monthIndex.ToString()).Where(item => item.Category.custom == false).ToList() ?? new List<Transaction>();
@@ -387,6 +386,8 @@
 		try
 		{
 			await transactionService.DeleteTransaction(transaction);
+			await CleanFields();
+
 		}
 		catch (Exception ex)
 		{
@@ -394,8 +395,8 @@
 		}
 
 		await CleanSelectionCard();
-		await CleanFields();
 		await GetTransactionList();
+
 	}
 
 	private async Task CleanSelectionCard()
@@ -405,7 +406,7 @@
 			await JSRuntime.InvokeVoidAsync("turnBackLineColor", transaction.Id);
 		}
 
-		await CleanFields();
+		// await CleanFields();
 		animationRef = "leaveCardAnimation";
 		transaction = new();
 		_day = DateTime.Now.Day;
@@ -448,6 +449,14 @@
 		{
 			_msg = ex.Message;
 		}
+
+		await CleanSelectionCard();
+		await GetTransactionList();
+	}
+
+	private void CleanMsg()
+	{
+		_msg = "";
 	}
 }
 

@@ -1,0 +1,17 @@
+﻿@if (!string.IsNullOrEmpty(Msg))
+{
+	<p class="alert alert-danger d-flex justify-content-between">@Msg<span class="btnAlert rounded" @onclick="CleanMsg">Entendi</span></p>
+}
+
+@code {
+	[Parameter]
+	public string Msg { get; set; } = string.Empty;
+	[Parameter]
+	public EventCallback CleanEvent { get; set; }
+
+	private async Task CleanMsg()
+	{
+		Msg = "";
+		await CleanEvent.InvokeAsync();
+	}
+}

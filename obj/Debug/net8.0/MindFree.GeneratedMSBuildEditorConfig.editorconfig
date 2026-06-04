@@ -60,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope = b-wuoji9qiwc
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xDdXN0b21DYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-2zrcbpnga6
 
+[C:/Users/Bruno/source/repos/MindFree/MindFree/Components/Message.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNZXNzYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-cs36w355bl
+
 [C:/Users/Bruno/source/repos/MindFree/MindFree/Layout/LoginLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XExvZ2luTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-bi9m9yh4lc

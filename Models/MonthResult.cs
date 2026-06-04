@@ -10,5 +10,6 @@ namespace MindFree.Models
         public double Expenses { get; set; }
         public double Incomes { get; set; }
         public double Balance { get; set; }
+        public bool IsClosed { get; set; } = false;
     }
 }

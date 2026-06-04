@@ -171,7 +171,7 @@ code {
     color: var(--amareloLoad);
 }
 
-#load {
+.load {
     width: 20px;
     height: 20px;
     border: 5px solid;
@@ -182,9 +182,13 @@ code {
     visibility: hidden;
 }
 
-#load.rotacionar {
+.load.rotacionar {
     animation: load .5s linear infinite;
 }
+
+
+
+
 
 @keyframes load{
     to{
@@ -243,6 +247,20 @@ code {
     display: flex;
     gap: 5px;
 }
+
+.btnAlert {
+    background-color: #e6444e;
+    width: 70px;
+    height: 25px;
+    color: #ffc107;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .btnAlert:hover {
+        opacity: 0.8;
+    }
+
 
 @media (max-width: 880px) {
     .tables_div {

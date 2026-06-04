@@ -175,7 +175,9 @@
     gap: 5px;
 }
 
-@media (max-width: 1010px){
+
+
+@media (max-width: 1010px) {
     .input-area {
         width: 60%;
     }

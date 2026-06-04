@@ -61,10 +61,10 @@ namespace MindFree.Services
         }
         public async Task InsertTransaction(Transaction transaction)
         {
-            if (transaction == null) throw new Exception("O lançamento não pode ser nula");
-            if (string.IsNullOrEmpty(transaction.Category.id)) throw new Exception("A categoria não pode ser nula");
-            if (transaction.Year == null) throw new Exception("O ano do lançamento não pode ser nulo");
-            if (transaction.Date == null) throw new Exception("O dia do lançamento não pode ser nulo");
+            if (transaction == null) throw new Exception("O lançamento não pode ser nulo.");
+            if (string.IsNullOrEmpty(transaction.Category.id)) throw new Exception("A categoria não pode ser nula.");
+            if (transaction.Year == null) throw new Exception("O ano do lançamento não pode ser nulo.");
+            if (transaction.Date == null) throw new Exception("O dia do lançamento não pode ser nulo.");
             if (transaction.Value == 0) throw new Exception("O valor precisa ser maior que zero.");
 
             //Tratamento para sempre ter duas casas decimais no valor
@@ -77,10 +77,19 @@ namespace MindFree.Services
                 try
                 {
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                    await _httpClient.PostAsJsonAsync<Transaction>("transactions", transaction);
+                    var retorno = await _httpClient.PostAsJsonAsync<Transaction>("transactions", transaction);
+                    var content = await retorno.Content.ReadFromJsonAsync<TransactionResponse>();
+                    if(content?.Status != 200)
+                    {
+                        throw new Exception(content?.Message);
+                    }
+
+
+
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     throw new Exception(ex.Message);
                 }
             }
@@ -95,7 +104,13 @@ namespace MindFree.Services
                 try
                 {
                     _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                    await _httpClient.DeleteAsync($"transactions/{transaction.Id}");
+                    var retorno = await _httpClient.DeleteAsync($"transactions/{transaction.Id}");
+                    var content = await retorno.Content.ReadFromJsonAsync<TransactionResponse>();
+
+                    if (content?.Status != 200)
+                    {
+                        throw new Exception(content?.Message);
+                    }
 
                 }
                 catch (Exception ex)
@@ -122,7 +137,14 @@ namespace MindFree.Services
             try
             {
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                await _httpClient.PutAsJsonAsync<TransactionEdit>("transactions", transactionEdit);
+                var retorno = await _httpClient.PutAsJsonAsync<TransactionEdit>("transactions", transactionEdit);
+
+                var content = await retorno.Content.ReadFromJsonAsync<TransactionResponse>();
+
+                if (content?.Status != 200)
+                {
+                    throw new Exception(content?.Message);
+                }
 
             }
             catch (Exception ex)

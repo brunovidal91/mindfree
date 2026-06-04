@@ -13,10 +13,7 @@
 </SectionContent>
 <section class="d-flex flex-column gap-5">
 
-	@if (!string.IsNullOrEmpty(_msg))
-	{
-		<p class="alert alert-@status">@_msg</p>
-	}
+
 
 
 	<EditForm Model="category" OnValidSubmit="AddCategory" OnInvalidSubmit="ErrorAddCategory" FormName="FormCategory">
@@ -84,6 +81,8 @@
 
 
 	</EditForm>
+
+	<Message Msg="@_msg" CleanEvent="CleanMsg" />
 
 	<div class="tables_div row-cols-2">
 		<!-- Table de categorias de saída -->
@@ -361,6 +360,11 @@
 		if(cat.isMonthly)
 			_day = cat.day;
 		_isCustom = cat.custom;
+	}
+
+	private void CleanMsg()
+	{
+		_msg = "";
 	}
 
 }

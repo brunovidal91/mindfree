@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ab3ef667e81783378fcbfa622e0c74a075a6319")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51535f90412924b52714ce661280defd935aa1a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MindFree")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

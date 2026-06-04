@@ -1,3 +1,5 @@
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.csproj.AssemblyReference.cache
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\rpswa.dswa.cache.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\wwwroot\_framework\blazor.webassembly.js
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.wasm
@@ -626,8 +628,6 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\icudt_CJK.dat
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\icudt_EFIGS.dat
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\icudt_no_CJK.dat
 C:\Users\Bruno\source\repos\MindFree\MindFree\bin\Release\net8.0\emcc-props.json
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.csproj.AssemblyReference.cache
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\rpswa.dswa.cache.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.AssemblyInfoInputs.cache
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.AssemblyInfo.cs
@@ -1053,6 +1053,9 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\l04n
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\6er5p8dpez-tptq2av103.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\3litvwaqfq-lfu7j35m59.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\c3mfwha82m-oyz0vx2fzb.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-mnd4f5r6yp.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-6757qt860g.gz
+C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-w89xnmg140.gz
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\staticwebassets.build.json
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\staticwebassets.build.json.cache
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\staticwebassets.development.json
@@ -1063,6 +1066,3 @@ C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\refint\MindFree.dll
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\MindFree.pdb
 C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\ref\MindFree.dll
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\pp1pjaylaq-5z5kyu2bx4.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\bj87j58viv-se4fl50kpz.gz
-C:\Users\Bruno\source\repos\MindFree\MindFree\obj\Release\net8.0\compressed\jbiqjbw7ro-td863zewnd.gz

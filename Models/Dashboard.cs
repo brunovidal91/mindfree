@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using MindFree.Interfaces;
+using MindFree.Services;
 using MindFree.Utils;
+using System.Runtime.CompilerServices;
 using System.Transactions;
 
 namespace MindFree.Models
@@ -16,13 +18,26 @@ namespace MindFree.Models
         public double ExpensesCard { get; set; }
         public double IncomeCard { get; set; }
         public double TotalCard { get; set; }
-        public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();    
-    
-        public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories, Boolean isIncomeList) { 
+        public string CurrentMonth { get; set; } = (DateTime.Now.Month + 1).ToString();
+
+        //  RESULTS
+        private ICookie _cookie;
+        private HttpClient _httpClient;
+        private string _currentYear { get; set; } = DateTime.Now.Year.ToString();
+
+        //private Result _result = new Result();
+        private ResultService _resultService;
+
+        public Dashboard(List<Transaction> transactions, string currentMonth, List<Category> categories, Boolean isIncomeList, ICookie cookie, HttpClient httpClient, string currentYear) { 
             Transactions = transactions;
             Categories = categories;
             CurrentMonth = currentMonth;
 
+            _cookie = cookie;
+            _httpClient = httpClient;
+            _currentYear = currentYear;
+
+            _resultService = new ResultService(_httpClient, _cookie);
 
 
             if(Transactions.Where(item => item.Month == currentMonth).Count() > 0)
@@ -36,8 +51,8 @@ namespace MindFree.Models
                 GetNextPayments();
             }
 
-            GetOlderMonthsResult();
-        }     
+        }
+       
     
         public void WriteResults()
         {
@@ -132,36 +147,45 @@ namespace MindFree.Models
             }
         }
     
-        public void GetOlderMonthsResult()
+        public async Task GetOlderMonthsResult()
         {
             MonthList monthList = new();
 
 
-            List<Transaction> olderTransactions = Transactions.Where(item => int.Parse(item.Month) < DateTime.Now.Month).ToList();
+            //List<Transaction> olderTransactions = Transactions.Where(item => int.Parse(item.Month) < DateTime.Now.Month).ToList();
 
-            var olderTransationsPerMonth = from transaction in olderTransactions group transaction by int.Parse(transaction.Month);
+            //var olderTransationsPerMonth = from transaction in olderTransactions group transaction by int.Parse(transaction.Month);
 
             int monthIndex = 0;
             string monthName = string.Empty;
             double expenses = 0;
             double incomes = 0;
             double balance = 0;
+            bool isClosed = false;
 
-            foreach (var transactionGroup in olderTransationsPerMonth) {
 
-                monthIndex = int.Parse(transactionGroup.FirstOrDefault().Month);
+            List<Result> results = new List<Result>();
+            results = await _resultService.GetResults(_currentYear);
+
+
+            foreach (Result result in results)
+            {
+
+                monthIndex = int.Parse(result.Month);
                 monthName = monthList.SelectedMonth(monthIndex).MonthName!;
-                expenses = transactionGroup.Where(item => item.Category.isIncome == false).Sum(item => item.Value);
-                incomes = transactionGroup.Where(item => item.Category.isIncome == true).Sum(item => item.Value);
+                expenses = result.Expenses;
+                incomes = result.Incomes;
                 balance = incomes - expenses;
+                isClosed = result.Closed;
 
-                MonthResults.Add(new MonthResult { MonthIndex = monthIndex, MonthName = monthName, Expenses = expenses, Incomes = incomes, Balance = balance });
+                MonthResults.Add(new MonthResult { MonthIndex = monthIndex, MonthName = monthName, Expenses = expenses, Incomes = incomes, Balance = balance, IsClosed = isClosed });
 
                 monthIndex = 0;
                 monthName = string.Empty;
                 expenses = 0;
                 incomes = 0;
                 balance = 0;
+                isClosed = false;
             }
 
         }
