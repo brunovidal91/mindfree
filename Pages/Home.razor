@@ -391,7 +391,7 @@
 		{
 			if (expectedPayment.Transaction != null)
 			{
-				await transactionService.EditTransaction(expectedPayment.Transaction);
+				await transactionService.EditTransaction(expectedPayment.Transaction, true);
 			}
 
 			// await GetLists();

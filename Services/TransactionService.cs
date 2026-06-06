@@ -120,12 +120,11 @@ namespace MindFree.Services
             }
 
         }
-        public async Task EditTransaction(Transaction transaction)
+        public async Task EditTransaction(Transaction transaction, bool isSettingPaid)
         {
             if (transaction == null) throw new Exception("Para alteração é preciso informar uma transação.");
 
-
-            transaction.isPaid = !transaction.isPaid;
+            if(isSettingPaid) transaction.isPaid = !transaction.isPaid;
             
             if(transaction.isPaid == true && transaction.Value <= 0) throw new Exception("Só é possível dar baixa em transações pagas.");
 

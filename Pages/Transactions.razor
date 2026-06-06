@@ -438,7 +438,7 @@
 			if (transaction != null)
 			{
 				transaction.Value = _value;
-				await transactionService.EditTransaction(transaction);
+				await transactionService.EditTransaction(transaction, false);
 			}
 
 			await GetTransactionList();

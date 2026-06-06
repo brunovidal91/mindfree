@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "MindFree",
   "resources": {
-    "hash": "sha256-g7HWXN1eH9jB6wn4LigXvEbTqbAemehDg5dY7OCzJZE=",
+    "hash": "sha256-azvxwkbtiyT4eTuXn5M5fy7SbACwpKvCtcbhiRsOvwI=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YyxJV6dv935qHoQAmjB+2qRjHeGpm4SyWxE0T/KvsIE="
     },
@@ -18,7 +18,7 @@
     },
     "coreAssembly": {},
     "assembly": {
-      "Microsoft.AspNetCore.Components.wasm": "sha256-Bs2gS2j7exSGEMMUflhJvUiGJAqKii+AF68ELaPPffY=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-QPUifp2luB94T1wFrMLmW/NXsX67ElLeDDWWpkUYgMc=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-iQygVgJfm1gzRFGv/SUZT+TkNBANzrSFthEUcUb0EOs=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-QtRRNGesrM79peR7+hSqVk18Puf9qqNi85BxDFXM5QQ=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-VdBHCvCWxMLzwu2qwAT8D0mv+Mqad4TXTxfgy091LII=",
@@ -42,7 +42,7 @@
       "System.ComponentModel.Primitives.wasm": "sha256-wkWjhsuzTLVLdBB4vMiP5Jjvhnh7lrbTy4ZMu6sy8lc=",
       "System.ComponentModel.TypeConverter.wasm": "sha256-X4MSE2YKmh+5Z+isu/XVwTaPUQ45CrnJJccs3jr/i/0=",
       "System.ComponentModel.wasm": "sha256-Ty96R8WeEG++55ezF7ldLgX/HVUjV9CAOLwxDJIddAo=",
-      "System.Console.wasm": "sha256-KxwXnIChbPsE69E2V+/ptq4XsqqTCFevpIj+hHu3q2w=",
+      "System.Console.wasm": "sha256-myZitCbL0IIIosN28oCXSk6BAPFF96yXub9L/t+wyEc=",
       "System.Linq.Expressions.wasm": "sha256-WswEhKy+C9rzGn7gSnc1CcIKko5LLQfrP4ar7Uar5cU=",
       "System.Linq.wasm": "sha256-d6DAuqy7ghf+3VZ0b/ecwYh8gyOkgUSrAYvr+U57rLg=",
       "System.Memory.wasm": "sha256-XD8sW8GOk12QjkrZRqMt7ekNkuZA7rtxZU862MaOwbg=",
@@ -58,8 +58,8 @@
       "System.Text.Json.wasm": "sha256-3HoB9on0sRrdySulMJdn1aL/mkGzzTkv0L2TOld+2bs=",
       "System.Text.RegularExpressions.wasm": "sha256-AkSH4mcOFV8CWRu6UM2gpadizku8DYYnaV3Ry2cN2y0=",
       "System.wasm": "sha256-ovI9fLxLRfh4RwNCi87t4luRVFfNap5GiBEwY0eh3bc=",
-      "System.Private.CoreLib.wasm": "sha256-SPBvSpkyxlm+kvT6X+qbPzXoEzyFV6jWj3Nrs3cEHpU=",
-      "MindFree.wasm": "sha256-MDrkstAC5q/3yH9cAiyZ3nceYR6qVuD5+ePofKopVnQ="
+      "System.Private.CoreLib.wasm": "sha256-frPwEOHN371GiVqFmB5J7SKYYq+cAzLgXck9ElJFC2Q=",
+      "MindFree.wasm": "sha256-bcyq8i+dumTTaaNCVgyBSbFSzGlYX4pPoJ7MH5JF3AY="
     }
   },
   "cacheBootResources": true,

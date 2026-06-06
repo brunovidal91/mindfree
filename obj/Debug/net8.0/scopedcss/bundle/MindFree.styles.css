@@ -66,19 +66,6 @@
     border: 1px solid #ccc;
     
 }
-/* /Components/Message.razor.rz.scp.css */
-.btnAlert[b-cs36w355bl] {
-    background-color: #e6444e;
-    width: 70px;
-    height: 25px;
-    color: #ffc107;
-    text-align: center;
-    cursor: pointer;
-}
-
-.btnAlert:hover[b-cs36w355bl] {
-    opacity: 0.8;
-}
 /* /Layout/LoginLayout.razor.rz.scp.css */
 .containerLogin[b-bi9m9yh4lc]{
     width: 100vw;
